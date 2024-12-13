@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:gym_app/utills/colors.dart';
 
 import 'view/splash/splash_screen.dart';
+import 'view/subscription/subscription.dart';
+import 'view/subscription/subscription_screen.dart';
 
 void main() {
   runApp(const MyApp());

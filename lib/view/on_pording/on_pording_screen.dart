@@ -43,7 +43,7 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
   Widget build(BuildContext context) {
     final List<OnBoardingItem> _onBoardingItems = [
       OnBoardingItem(
-        imagePath: "assets/image/FcLyt7lW5wg (1).jpg",
+        imagePath: "assets/image/ona1.png",
         title: "Sports club management\n",
        // AppLocalizations.of(context)!.,
         titleHighlighted: "It's ",
@@ -70,7 +70,7 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
 
       ),
       OnBoardingItem(
-        imagePath: "assets/image/FcLyt7lW5wg (1).jpg",
+        imagePath: "assets/image/ona2.png",
         title: "Manage players\ ",
        // AppLocalizations.of(context)!.discoverTitle,
         titleHighlighted: "in\n",
@@ -93,7 +93,7 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
         subTitleFontWeight: FontWeight.w700, colors: [Colors.white],
       ),
       OnBoardingItem(
-        imagePath: "assets/image/FcLyt7lW5wg (1).jpg",
+        imagePath: "assets/image/ona3.png",
         title:"All exercises are ",
         //AppLocalizations.of(context)!.discoverTitle,
         titleHighlighted:"illustrated \ ",
@@ -159,18 +159,18 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
               final item = _onBoardingItems[index];
               return Container(
                 child: Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
+                  mainAxisAlignment: MainAxisAlignment.start,
                   children: [
                     Container(
                       width: 555,
-                      height: 450,
+                      height: 460,
                       child: Image.asset(
                         item.imagePath,
-                        width: 380,
-                        height: 350,
+
 
                       ),
                     ),
+                    SizedBox(height: 100,),
                     Padding(
                       padding: const EdgeInsets.symmetric(horizontal: 20.0, vertical: 20.0),
                       child: RichText(
@@ -223,7 +223,7 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
               );
             },
           ),
-          const SizedBox(height: 20,),
+
           Column(
             mainAxisSize: MainAxisSize.min,
             children: [
@@ -257,7 +257,7 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
                         MaterialPageRoute(builder: (context) => WelcomeScreen()),
                       );
                     }),
-              SizedBox(height: 16,),
+              SizedBox(height: 100,),
             ],
           ),
         ],

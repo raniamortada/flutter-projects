@@ -82,7 +82,7 @@ class _CustomTextFieldState extends State<CustomTextField> {
       child: TextField(
         obscureText: widget.isPassword ? _obscureText : false,
         decoration: InputDecoration(
-          prefixIcon: Icon(widget.prefixIcon),
+          prefixIcon: Icon(widget.prefixIcon,color: Color(0xffBABABA),),
           hintText: widget.hintText,
           filled: true,
           fillColor: widget.fillColor,
@@ -110,11 +110,11 @@ class _CustomTextFieldState extends State<CustomTextField> {
 class InputFieldWidget extends StatefulWidget {
   final String label;
   final bool isPassword;
-  final controller;
-  final IconData prefixIcon;
+  final TextEditingController? controller;
+  final IconData? prefixIcon; // جعل الأيقونة اختيارية
 
   const InputFieldWidget({
-    required this.prefixIcon,
+    this.prefixIcon, // الأيقونة اختيارية
     this.controller,
     required this.label,
     this.isPassword = false,
@@ -140,10 +140,12 @@ class _InputFieldWidgetState extends State<InputFieldWidget> {
             controller: widget.controller,
             obscureText: widget.isPassword ? _obscureText : false,
             decoration: InputDecoration(
-              prefixIcon: Icon(
+              prefixIcon: widget.prefixIcon != null
+                  ? Icon(
                 widget.prefixIcon,
                 color: Colors.white,
-              ),
+              )
+                  : null,
               hintText: widget.label,
               hintStyle: TextStyle(color: Colors.white),
               suffixIcon: widget.isPassword
@@ -163,8 +165,55 @@ class _InputFieldWidgetState extends State<InputFieldWidget> {
             ),
           ),
         ),
-
       ],
     );
   }
+}Widget buildDropdownButton({
+  value,
+  hint,
+  item,
+  onChange,
+}) {
+  return Padding(
+    padding: const EdgeInsets.all(8.0),
+    child: Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+
+        Container(
+          width: 326,
+          height: 50,
+          alignment: Alignment.center,
+          padding: EdgeInsets.symmetric(horizontal: 10),
+          decoration: BoxDecoration(
+            color: Colors.white,
+              borderRadius: BorderRadius.circular(10),
+              border: Border.all(color: Color(0xFF000000).withOpacity(0.47))),
+          child: DropdownButton<String>(
+            dropdownColor: Colors.white,
+            isExpanded: true,
+            value: value,
+
+            hint: Row(
+              children: [
+                SvgPicture.asset("assets/SVG/images/ico.svg"),
+                SizedBox(width: 5,),
+                Text(
+                  '$hint',
+                  style: TextStyle(
+                    fontFamily: 'Switzer',
+                    fontSize: 14,
+                    fontWeight: FontWeight.w500,
+                    color: Color(0xff000000).withOpacity(0.47),
+                  ),
+                ),
+              ],
+            ),
+            items: item,
+            onChanged: onChange,
+          ),
+        ),
+      ],
+    ),
+  );
 }

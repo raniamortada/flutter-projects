@@ -3,10 +3,14 @@ import 'package:gym_app/utills/colors.dart';
 import 'package:gym_app/utills/components.dart';
 import 'package:gym_app/view/auth/forgot_password.dart';
 import 'package:gym_app/view/auth/login_screen.dart';
-import 'package:gym_app/view/sign_up/sign_up_screen.dart';
-import 'package:gym_app/view/subscription/subscription_screen.dart';
+import 'package:gym_app/view/home/home.dart';
 
-class SignIn extends StatelessWidget {
+class SignUpScreen extends StatefulWidget {
+  @override
+  State<SignUpScreen> createState() => _SignUpScreenState();
+}
+
+class _SignUpScreenState extends State<SignUpScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -50,33 +54,29 @@ class SignIn extends StatelessWidget {
                       hintText: 'Email',
                       prefixIcon: Icons.email,
                     ),
+                    SizedBox(height: 16,),
+                    CustomTextField(
+                      hintText: '@username',
+                      prefixIcon: Icons.email,
+                    ),
+                    SizedBox(height: 16,),
+                    CustomTextField(
+                      hintText: 'Club name',
+                      prefixIcon: Icons.email,
+                    ),
                     SizedBox(height: 16),
 
                     CustomTextField(
-                      hintText: 'Password',
+                      hintText: 'your email',
                       prefixIcon: Icons.lock,
                       isPassword: true,
                     ),
                   ],
                 ),
+                SizedBox(height: 16,),
+                buildDropdownButton
+                  (hint: 'Subscription period',),
 
-                SizedBox(height: 10),
-                Align(
-                  alignment: Alignment.center,
-                  child: TextButton(
-                    onPressed: () {
-                      Navigator.pushReplacement(
-                        context,
-                        MaterialPageRoute(builder: (context) => ForgotPassword()),
-                      );
-                    },
-                    child: Text(
-                      'Forgot Password',
-                      style: TextStyle(color: Colors.white,
-                        fontSize: 16,fontWeight: FontWeight.w700),
-                    ),
-                  ),
-                ),
                 SizedBox(height: 16),
                 buildCustomButton(
                     context: context,
@@ -86,7 +86,7 @@ class SignIn extends StatelessWidget {
                     onPressed: (){
                       Navigator.pushReplacement(
                         context,
-                        MaterialPageRoute(builder: (context) => LoginScreen()),
+                        MaterialPageRoute(builder: (context) => HomeScreen()),
                       );
                     }),
                 SizedBox(height: 16),
@@ -95,16 +95,11 @@ class SignIn extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     Text(
-                      "Didn't have any account? ",
+                      "If you have an account? ",
                       style: TextStyle(color: Colors.white),
                     ),
                     GestureDetector(
                       onTap: () {
-                        Navigator.pushReplacement(
-                          context,
-                          MaterialPageRoute(builder: (context) => SignUpScreen()),
-                        );
-
                       },
                       child: Text(
                         'Sign Up here',

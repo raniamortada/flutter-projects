@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:gym_app/utills/colors.dart';
 import 'package:gym_app/utills/components.dart';
+import 'package:gym_app/view/auth/forgot_password.dart';
 import 'package:gym_app/view/auth/verification.dart';
 
 class LoginScreen extends StatefulWidget {
@@ -52,12 +53,10 @@ class _LoginScreenState extends State<LoginScreen> {
 
                     InputFieldWidget(
                       label:"Email",
-                      prefixIcon: Icons.email,
                     ),
                     const SizedBox(height: 20),
                     InputFieldWidget(
                       label: "password",
-                      prefixIcon: Icons.lock,
                       isPassword: true,
                     ),
                   ],
@@ -68,6 +67,10 @@ class _LoginScreenState extends State<LoginScreen> {
                   alignment: Alignment.centerRight,
                   child: TextButton(
                     onPressed: () {
+                      Navigator.pushReplacement(
+                        context,
+                        MaterialPageRoute(builder: (context) => ForgotPassword()),
+                      );
 
                     },
                     child: Text(
