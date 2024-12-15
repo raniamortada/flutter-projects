@@ -14,17 +14,16 @@ class SignIn extends StatelessWidget {
         children: [
 
           Container(
+            height: 460,
+            width: double.infinity,
             decoration: BoxDecoration(
               image: DecorationImage(
-                image: AssetImage('assets/image/FcLyt7lW5wg (1).jpg'),
-                fit: BoxFit.cover,
+                image: AssetImage('assets/image/Background (7).png'),
+
               ),
             ),
           ),
 
-          Container(
-            color: Colors.black.withOpacity(0.6),
-          ),
 
           Padding(
             padding: const EdgeInsets.all(16.0),
@@ -109,7 +108,7 @@ class SignIn extends StatelessWidget {
                       child: Text(
                         'Sign Up here',
                         style: TextStyle(
-                          color: Colors.yellow,
+                          color: ColorManager.primaryColor,
                           fontWeight: FontWeight.bold,
                         ),
                       ),

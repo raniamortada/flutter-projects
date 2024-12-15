@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 
 class ColorManager {
-  static Color primaryColor =const Color(0xFFFFF50A);
+  static Color primaryColor =const Color(0xFFF79517);
   static Color backgroundColor=const Color(0xFF062029);
   static Color cardColor=const Color(0xFFF14336);
   static Color listTitleColor=const Color(0xFFB56FFF);

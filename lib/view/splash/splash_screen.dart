@@ -38,7 +38,7 @@ class _SplashScreenState extends State<SplashScreen> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Image.asset("assets/image/FcLyt7lW5wg (1).jpg",
+            Image.asset("assets/image/fit gym logo 1.png",
               width: double.infinity,height: 608,),
           ],
         ),

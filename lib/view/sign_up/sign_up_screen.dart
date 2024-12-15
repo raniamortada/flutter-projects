@@ -18,17 +18,15 @@ class _SignUpScreenState extends State<SignUpScreen> {
         children: [
 
           Container(
+            height: 460,
             decoration: BoxDecoration(
               image: DecorationImage(
-                image: AssetImage('assets/image/FcLyt7lW5wg (1).jpg'),
-                fit: BoxFit.cover,
+                image: AssetImage('assets/image/Background.png'),
+
               ),
             ),
           ),
 
-          Container(
-            color: Colors.black.withOpacity(0.6),
-          ),
 
           Padding(
             padding: const EdgeInsets.all(16.0),
@@ -104,7 +102,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                       child: Text(
                         'Sign Up here',
                         style: TextStyle(
-                          color: Colors.yellow,
+                          color: ColorManager.primaryColor,
                           fontWeight: FontWeight.bold,
                         ),
                       ),

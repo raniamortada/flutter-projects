@@ -13,7 +13,7 @@ class Subscription extends StatelessWidget {
             height: 460,
             decoration: BoxDecoration(
               image: DecorationImage(
-                image: AssetImage('assets/image/Background.png'),
+                image: AssetImage('assets/image/Background (7).png'),
 
               ),
             ),

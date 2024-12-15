@@ -1,5 +1,8 @@
+import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+
+import 'colors.dart';
 
 Widget buildCustomButton({
   required BuildContext context,
@@ -211,6 +214,386 @@ class _InputFieldWidgetState extends State<InputFieldWidget> {
             ),
             items: item,
             onChanged: onChange,
+          ),
+        ),
+      ],
+    ),
+  );
+}
+Widget buildProfileCard({
+  required String name,
+  required String imagePath,
+}) {
+  return Container(
+    child: Column(
+      children: [
+        Container(
+          width: 54,
+          height: 54,
+          child: CircleAvatar(
+            backgroundImage: AssetImage(imagePath),
+          ),
+        ),
+        SizedBox(height: 8),
+        Text(
+          name,
+          style: TextStyle(
+            fontSize: 12,
+            fontWeight: FontWeight.w600,
+            color: Color(0xff4CD964)
+          ),
+        ),
+      ],
+    ),
+  );
+}
+
+
+Widget buildSectionHeader(String title,
+    {required VoidCallback onViewAll}) {
+  return Row(
+    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+    children: [
+      Text(
+        title,
+        style: TextStyle(color: Colors.white, fontSize: 16, fontWeight: FontWeight.bold),
+      ),
+      GestureDetector(
+        onTap: onViewAll,
+        child: Text(
+          'Show all',
+          style: TextStyle(color: ColorManager.primaryColor, fontSize: 14),
+        ),
+      ),
+    ],
+  );
+}
+
+Widget buildPerformanceAnalysis() {
+  return Container(
+    padding: EdgeInsets.all(16),
+    decoration: BoxDecoration(
+      color: Colors.white,
+      borderRadius: BorderRadius.circular(12),
+    ),
+    child: Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Text(
+          'Performance Analysis',
+          style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+        ),
+        SizedBox(height: 10),
+      ],
+    ),
+  );
+}
+Widget buildProfileCards() {
+  return SingleChildScrollView(
+    scrollDirection: Axis.horizontal,
+    child: Row(
+      children: List.generate(
+        8,
+            (index) => Padding(
+          padding: const EdgeInsets.only(right: 10),
+          child: buildProfileCard(
+            name: "Crick",
+            imagePath: "assets/image/unsplash_rIIeOYIJ0IU.png",
+          ),
+        ),
+      ),
+    ),
+  );
+}
+Widget buildPieChart() {
+  return Center(
+    child: SizedBox(
+      height: 300,
+      child: PieChart(
+        PieChartData(
+          sectionsSpace: 2,
+          centerSpaceRadius: 40,
+          sections: [
+            PieChartSectionData(
+              color: Colors.green,
+              value: 60,
+              title: '60%',
+              radius: 80,
+              titleStyle: TextStyle(fontSize: 16, fontWeight: FontWeight.bold, color: Colors.white),
+            ),
+            PieChartSectionData(
+              color: Colors.red,
+              value: 25,
+              title: '25%',
+              radius: 80,
+              titleStyle: TextStyle(fontSize: 16, fontWeight: FontWeight.bold, color: Colors.white),
+            ),
+            PieChartSectionData(
+              color: Colors.orange,
+              value: 15,
+              title: '15%',
+              radius: 80,
+              titleStyle: TextStyle(fontSize: 16, fontWeight: FontWeight.bold, color: Colors.white),
+            ),
+          ],
+        ),
+      ),
+    ),
+  );
+}
+Widget buildHeader() {
+  return Row(
+    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+    children: [
+      Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Row(
+            children: [
+              Text(
+                'Hello',
+                style: TextStyle(color: Colors.white, fontSize: 16),
+              ),
+              SizedBox(width: 3),
+              Text(
+                'Admin',
+                style: TextStyle(color: ColorManager.primaryColor, fontSize: 16),
+              ),
+            ],
+          ),
+          Text(
+            'Manage your club today!',
+            style: TextStyle(color: Colors.white, fontSize: 20, fontWeight: FontWeight.w600),
+          ),
+        ],
+      ),
+      CircleAvatar(
+        backgroundImage: AssetImage('assets/image/unsplash_DrVJk1EaPSc.png'),
+        radius: 20,
+      ),
+    ],
+  );
+}
+
+Widget buildPaymentsSection() {
+  return Container(
+    padding: EdgeInsets.all(16),
+    decoration: BoxDecoration(
+      color: Colors.white,
+      borderRadius: BorderRadius.circular(12),
+    ),
+    child: Row(
+      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      children: [
+        Text(
+          'All payments from trainees',
+          style: TextStyle(color: Colors.black, fontSize: 16, fontWeight: FontWeight.bold),
+        ),
+        Text(
+          '#ID  #Subscription  #Money',
+          style: TextStyle(color: Colors.red, fontSize: 14),
+        ),
+      ],
+    ),
+  );
+}
+
+class ProfileCard extends StatelessWidget {
+  final String name;
+  final String imagePath;
+  final bool isVerified;
+
+  const ProfileCard({
+    Key? key,
+    required this.name,
+    required this.imagePath,
+    this.isVerified = false,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      children: [
+        Stack(
+          alignment: Alignment.bottomRight,
+          children: [
+            Container(
+              width: 80,
+              height: 80,
+              decoration: BoxDecoration(
+                shape: BoxShape.circle,
+                border: Border.all(color: Colors.green, width: 2),
+                image: DecorationImage(
+                  image: AssetImage(imagePath),
+                  fit: BoxFit.cover,
+                ),
+              ),
+            ),
+            if (isVerified)
+              Positioned(
+                bottom: 4,
+                right: 4,
+                child: Container(
+                  width: 20,
+                  height: 20,
+                  decoration: BoxDecoration(
+                    color: Colors.green,
+                    shape: BoxShape.circle,
+                    border: Border.all(color: Colors.white, width: 2),
+                  ),
+                  child: Icon(Icons.check, color: Colors.white, size: 12),
+                ),
+              ),
+          ],
+        ),
+        SizedBox(height: 8),
+        Text(
+          name,
+          style: TextStyle(
+            color: Colors.green,
+            fontSize: 14,
+            fontWeight: FontWeight.bold,
+          ),
+        ),
+      ],
+    );
+  }
+}
+Widget Header({
+  required BuildContext context,
+  required String title,
+  required String text,
+  VoidCallback? leftIconAction,
+}) {
+  return Row(
+    mainAxisAlignment: MainAxisAlignment.start,
+    children: [
+      IconButton(
+        icon: const Icon(Icons.arrow_back),
+        color: ColorManager.primaryColor,
+        onPressed: leftIconAction ?? () => Navigator.pop(context),
+      ),
+      Container(
+        width: MediaQuery.of(context).size.width * 0.6,
+        child:Row(mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Text(
+              title,
+              textAlign: TextAlign.center,
+              style: const TextStyle(
+                fontSize: 24,
+                fontWeight: FontWeight.w700,
+                fontFamily: "Roboto",
+                color: Colors.white,
+              ),
+            ),
+            SizedBox(width: 10,),
+            Text(
+              text,
+              textAlign: TextAlign.center,
+              style:  TextStyle(
+                fontSize: 24,
+                fontWeight: FontWeight.w600,
+                fontFamily: "Roboto",
+                color: ColorManager.primaryColor,
+              ),
+            ),
+          ],
+        )
+      ),
+    ],
+  );
+}
+Widget buildTextFormField(
+    String labelText,
+    TextEditingController controller, {
+      bool isPassword = false,
+      String? Function(String?)? validator,
+      void Function(String)? onChange,
+      String? svgPath,
+    }) {
+  return Padding(
+    padding: const EdgeInsets.all(8.0),
+    child: Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        SizedBox(height: 8),
+        Container(
+          width: 326,
+          height: 50,
+          decoration: BoxDecoration(
+            color: Colors.white,
+            borderRadius: BorderRadius.circular(10),
+          ),
+          child: TextFormField(
+            controller: controller,
+            validator: validator,
+            onChanged: onChange,
+            obscureText: isPassword,
+            decoration: InputDecoration(
+              labelStyle: TextStyle(
+                fontSize: 14,
+                fontWeight: FontWeight.w500,
+                color: Color(0xff000000).withOpacity(0.47),
+              ),
+              labelText: labelText,
+              border: OutlineInputBorder(
+                borderRadius: BorderRadius.circular(5),
+              ),
+              prefixIcon: svgPath != null
+                  ? Padding(
+                padding: const EdgeInsets.all(16),
+                child: SvgPicture.asset(
+                  svgPath,
+                ),
+              )
+                  : null,
+            ),
+          ),
+        ),
+      ],
+    ),
+  );
+}
+
+Widget buildTextFieldMaxLin({
+  required String labelText,
+  required TextEditingController descriptionController,
+  String? svgPath,
+  bool isPassword = false,
+  int maxLines = 7,
+  int minLines = 7,
+}) {
+  return Padding(
+    padding: const EdgeInsets.all(8),
+    child: Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Container(
+          decoration: BoxDecoration(
+            color: Colors.white,
+            borderRadius: BorderRadius.circular(10),
+          ),
+          child: TextField(
+            controller: descriptionController,
+            obscureText: isPassword,
+            maxLines: maxLines,
+            minLines: minLines,
+            decoration: InputDecoration(
+              labelText: labelText,
+              border: OutlineInputBorder(
+                borderRadius: BorderRadius.circular(10),
+              ),
+              prefixIcon: svgPath != null
+                  ? Padding(
+                padding: const EdgeInsets.all(12),
+                child: SvgPicture.asset(
+                  svgPath,
+                  fit: BoxFit.contain,
+                ),
+              )
+                  : null,
+            ),
           ),
         ),
       ],
