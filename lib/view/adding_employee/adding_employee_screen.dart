@@ -26,33 +26,16 @@ class _AddingEmployeeScreenState extends State<AddingEmployeeScreen> {
                   text: 'employee',
                 ),
                 const SizedBox(height: 10),
-                Stack(
-                  alignment: Alignment.bottomRight,
-                  children: [
-                    Container(
-                      width: 94,
-                      height: 94,
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(64),
-                        image: const DecorationImage(
-                          image: AssetImage("assets/image/unsplash_rIIeOYIJ0IU.png"),
-                          fit: BoxFit.cover,
-                        ),
-                      ),
-                    ),
-                    Container(
-                      width: 40,
-                      height: 40,
-                      decoration: BoxDecoration(
-                        color: Colors.grey[800],
-                        shape: BoxShape.circle,
-                      ),
-                      child: const Icon(
-                        Icons.camera_alt,
-                        color: Colors.white,
-                      ),
-                    ),
-                  ],
+                buildImageWithIcon(
+                  imagePath: "assets/image/unsplash_rIIeOYIJ0IU.png",
+                  imageSize: 94,
+                  iconSize: 40,
+                  iconBackgroundColor: Colors.grey[800]!,
+                  icon: Icons.camera_alt,
+                  iconColor: Colors.white,
+                  onIconTap: () {
+                    print("Camera icon tapped!");
+                  },
                 ),
                 buildTextFormField("#ID",
                     nameController,
@@ -76,6 +59,12 @@ class _AddingEmployeeScreenState extends State<AddingEmployeeScreen> {
                 buildTextFieldMaxLin( labelText: 'About the employee',
                     descriptionController: nameController,
                     svgPath: "assets/SVG/images/On.svg"),
+                buildDropdownButton(
+                  hint: "Section",
+                    imag: 'assets/SVG/images/Tick Square.svg'),
+                buildDropdownButton(
+                    hint: "Section",
+                    imag: 'assets/SVG/images/Tick Square.svg'),
                 buildTextFormField("Comprehensive overview",
                     nameController,
                     svgPath: "assets/SVG/images/Tick Square.svg"
@@ -85,29 +74,6 @@ class _AddingEmployeeScreenState extends State<AddingEmployeeScreen> {
                     svgPath: "assets/SVG/images/Tick Square.svg"
                 ),
                 buildTextFormField("state",
-                    nameController,
-                    svgPath: "assets/SVG/images/Tick Square.svg"
-                ),
-                buildTextFormField("Postal code",
-                    nameController,
-                    svgPath: "assets/SVG/images/Tick Square.svg"
-                ),     buildTextFormField("Club website",
-                    nameController,
-                    svgPath: "assets/SVG/images/Tick Square.svg"
-                ),
-                buildTextFormField("Facebook",
-                    nameController,
-                    svgPath: "assets/SVG/images/Tick Square.svg"
-                ),
-                buildTextFormField("Instagram",
-                    nameController,
-                    svgPath: "assets/SVG/images/Tick Square.svg"
-                ),
-                buildTextFormField("Twitter",
-                    nameController,
-                    svgPath: "assets/SVG/images/Tick Square.svg"
-                ),
-                buildTextFormField("youtube",
                     nameController,
                     svgPath: "assets/SVG/images/Tick Square.svg"
                 ),

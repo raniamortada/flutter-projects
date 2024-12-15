@@ -73,7 +73,8 @@ class _SignUpScreenState extends State<SignUpScreen> {
                 ),
                 SizedBox(height: 16,),
                 buildDropdownButton
-                  (hint: 'Subscription period',),
+                  (hint: 'Subscription period',
+                  imag: 'assets/SVG/images/ico.svg',),
 
                 SizedBox(height: 16),
                 buildCustomButton(

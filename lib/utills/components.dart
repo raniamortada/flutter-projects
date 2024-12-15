@@ -13,7 +13,7 @@ Widget buildCustomButton({
   double? height,
   Color? textColor,
   String? svgPath,
-  double borderRadius = 8.0, // معامل اختياري لتحديد نصف قطر الزوايا
+  double borderRadius = 8.0,
 }) {
   return Container(
     width: width ?? MediaQuery.of(context).size.width * 0.8,
@@ -24,7 +24,7 @@ Widget buildCustomButton({
         backgroundColor: backgroundColor,
         padding: EdgeInsets.symmetric(vertical: 15),
         shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(borderRadius), // تطبيق نصف القطر
+          borderRadius: BorderRadius.circular(borderRadius),
         ),
       ),
       child: Row(
@@ -114,10 +114,10 @@ class InputFieldWidget extends StatefulWidget {
   final String label;
   final bool isPassword;
   final TextEditingController? controller;
-  final IconData? prefixIcon; // جعل الأيقونة اختيارية
+  final IconData? prefixIcon;
 
   const InputFieldWidget({
-    this.prefixIcon, // الأيقونة اختيارية
+    this.prefixIcon,
     this.controller,
     required this.label,
     this.isPassword = false,
@@ -171,55 +171,63 @@ class _InputFieldWidgetState extends State<InputFieldWidget> {
       ],
     );
   }
-}Widget buildDropdownButton({
-  value,
-  hint,
-  item,
-  onChange,
+}
+Widget buildDropdownButton({
+  required String imag,
+  String? value,
+  String? hint,
+  List<DropdownMenuItem<String>>? item,
+  void Function(String?)? onChange,
 }) {
   return Padding(
     padding: const EdgeInsets.all(8.0),
     child: Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-
         Container(
           width: 326,
           height: 50,
           alignment: Alignment.center,
-          padding: EdgeInsets.symmetric(horizontal: 10),
+          padding: const EdgeInsets.symmetric(horizontal: 10),
           decoration: BoxDecoration(
             color: Colors.white,
-              borderRadius: BorderRadius.circular(10),
-              border: Border.all(color: Color(0xFF000000).withOpacity(0.47))),
+            borderRadius: BorderRadius.circular(10),
+            border: Border.all(color: const Color(0xFF000000).withOpacity(0.47)),
+          ),
           child: DropdownButton<String>(
             dropdownColor: Colors.white,
             isExpanded: true,
             value: value,
-
-            hint: Row(
-              children: [
-                SvgPicture.asset("assets/SVG/images/ico.svg"),
-                SizedBox(width: 5,),
-                Text(
-                  '$hint',
-                  style: TextStyle(
-                    fontFamily: 'Switzer',
-                    fontSize: 14,
-                    fontWeight: FontWeight.w500,
-                    color: Color(0xff000000).withOpacity(0.47),
-                  ),
-                ),
-              ],
+            hint: Padding(
+              padding: const EdgeInsets.all(16),
+              child: Row(
+                children: [
+                  SvgPicture.asset(imag),
+                  if (hint != null) ...[
+                    const SizedBox(width: 5),
+                    Text(
+                      hint,
+                      style: TextStyle(
+                        fontFamily: 'Switzer',
+                        fontSize: 14,
+                        fontWeight: FontWeight.w500,
+                        color: const Color(0xff000000).withOpacity(0.47),
+                      ),
+                    ),
+                  ],
+                ],
+              ),
             ),
             items: item,
             onChanged: onChange,
+            underline: SizedBox.shrink(),
           ),
         ),
       ],
     ),
   );
 }
+
 Widget buildProfileCard({
   required String name,
   required String imagePath,
@@ -375,28 +383,60 @@ Widget buildHeader() {
   );
 }
 
-Widget buildPaymentsSection() {
+
+
+Widget buildPaymentsSection({
+  required String imagePath,
+  String? text,
+  String? title,
+  String? subtitle,
+}) {
   return Container(
-    padding: EdgeInsets.all(16),
+    height: 59,
     decoration: BoxDecoration(
-      color: Colors.white,
-      borderRadius: BorderRadius.circular(12),
+     color:  ColorManager.primaryColor
     ),
-    child: Row(
-      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-      children: [
-        Text(
-          'All payments from trainees',
-          style: TextStyle(color: Colors.black, fontSize: 16, fontWeight: FontWeight.bold),
-        ),
-        Text(
-          '#ID  #Subscription  #Money',
-          style: TextStyle(color: Colors.red, fontSize: 14),
-        ),
-      ],
+    child: Padding(
+      padding: const EdgeInsets.all(8.0),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: [
+          Container(
+            width: 48,
+            height: 48,
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(64),
+              image: DecorationImage(
+                image: AssetImage(imagePath),
+              ),
+            ),
+          ),
+
+
+          if (text != null && text.isNotEmpty)
+            Text(
+              text,
+              style: TextStyle(
+                  color: Colors.white, fontSize: 16,),
+            ),
+
+          if (title != null && title.isNotEmpty)
+            Text(
+              title,
+              style: TextStyle(color: Colors.white, fontSize: 16),
+            ),
+
+          if (subtitle != null && subtitle.isNotEmpty)
+            Text(
+              subtitle,
+              style: TextStyle(color: Colors.white, fontSize: 16),
+            ),
+        ],
+      ),
     ),
   );
 }
+
 
 class ProfileCard extends StatelessWidget {
   final String name;
@@ -598,5 +638,48 @@ Widget buildTextFieldMaxLin({
         ),
       ],
     ),
+  );
+}
+
+
+Widget buildImageWithIcon({
+  required String imagePath,
+  double imageSize = 94,
+  double iconSize = 40,
+  Color iconBackgroundColor = Colors.grey,
+  IconData icon = Icons.camera_alt,
+  Color iconColor = Colors.white,
+  VoidCallback? onIconTap,
+}) {
+  return Stack(
+    alignment: Alignment.bottomRight,
+    children: [
+      Container(
+        width: imageSize,
+        height: imageSize,
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(imageSize / 2),
+          image: DecorationImage(
+            image: AssetImage(imagePath),
+            fit: BoxFit.cover,
+          ),
+        ),
+      ),
+      GestureDetector(
+        onTap: onIconTap,
+        child: Container(
+          width: iconSize,
+          height: iconSize,
+          decoration: BoxDecoration(
+            color: iconBackgroundColor,
+            shape: BoxShape.circle,
+          ),
+          child: Icon(
+            icon,
+            color: iconColor,
+          ),
+        ),
+      ),
+    ],
   );
 }
