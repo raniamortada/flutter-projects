@@ -15,6 +15,7 @@ import 'view/adding_employee/all_employee_screen.dart';
 import 'view/adding_trainer/adding_trainer_screen.dart';
 import 'view/adding_trainer/all_trainer_screen.dart';
 import 'view/details_team/details_team_screen.dart';
+import 'view/diet_plan/diet_plan_screen.dart';
 import 'view/fitness_trainers/fitness_trainers_screen.dart';
 import 'view/gender_selection/gender_selection_screen.dart';
 import 'view/modify_Club_Settings/modify_club_settings_screen.dart';
@@ -22,6 +23,8 @@ import 'view/new_team/new_team_screen.dart';
 import 'view/splash/splash_screen.dart';
 import 'view/subscription/subscription.dart';
 import 'view/subscription/subscription_screen.dart';
+import 'view/workout_categories/workout_categories_screen.dart';
+import 'view/workout_plan_detail/workout_plan_detail_screen.dart';
 
 void main() {
   runApp(const MyApp());
@@ -46,7 +49,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         scaffoldBackgroundColor: ColorManager.backgroundColor
       ),
-      home: FitnessTrainersScreen(),
+      home: WorkoutDetailScreen(),
     );
   }
 }

@@ -787,3 +787,165 @@ Widget buildBackButton(BuildContext context) {
     ),
   );
 }
+
+class FoodCard extends StatelessWidget {
+  final String name;
+  final String imagePath;
+
+  FoodCard({required this.name, required this.imagePath});
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      decoration: BoxDecoration(
+        color: Colors.grey.shade900,
+        borderRadius: BorderRadius.circular(12),
+        image: DecorationImage(
+          image: AssetImage(imagePath),
+          fit: BoxFit.cover,
+          colorFilter:
+          ColorFilter.mode(Colors.black45, BlendMode.darken),
+        ),
+      ),
+      child: Align(
+        alignment: Alignment.bottomCenter,
+        child: Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: Text(
+            name,
+            style: TextStyle(
+              color: Colors.white,
+              fontWeight: FontWeight.w700,
+              fontSize: 18,
+            ),
+          ),
+        ),
+      ),
+    );
+  }
+}
+
+class WorkoutList extends StatelessWidget {
+  final List<Map<String, String>> workouts;
+
+  const WorkoutList({Key? key, required this.workouts}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return ListView.builder(
+      itemCount: workouts.length,
+      padding: const EdgeInsets.all(12.0),
+      itemBuilder: (context, index) {
+        final workout = workouts[index];
+        return Container(
+          width: 327,
+          height: 160,
+
+          margin: const EdgeInsets.only(bottom: 16),
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(12),
+            image: DecorationImage(
+              image: AssetImage(workout['image']!),
+              fit: BoxFit.cover,
+              colorFilter: ColorFilter.mode(
+                Colors.black.withOpacity(0.4),
+
+                BlendMode.darken,
+              ),
+            ),
+          ),
+          child: ListTile(
+            contentPadding: const EdgeInsets.symmetric(horizontal: 16,vertical: 60),
+            title: Text(
+              workout['title']!,
+              style: const TextStyle(
+                color: Colors.white,
+                fontWeight: FontWeight.w600,
+                fontSize: 17,
+              ),
+            ),
+            subtitle: Text(
+              workout['subtitle']!,
+              style:  TextStyle(
+                color: ColorManager.primaryColor,
+                fontSize: 13,
+              ),
+            ),
+          ),
+        );
+      },
+    );
+  }
+}class ExerciseItem extends StatelessWidget {
+  final String title;
+  final String duration;
+  final String image;
+  final bool isDisabled;
+
+  const ExerciseItem({
+    Key? key,
+    required this.title,
+    required this.duration,
+    required this.image,
+    this.isDisabled = false,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Opacity(
+      opacity: isDisabled ? 0.4 : 1.0,
+      child: Container(
+        margin: const EdgeInsets.only(bottom: 12),
+        decoration: BoxDecoration(
+          color: Colors.grey[900],
+          borderRadius: BorderRadius.circular(12),
+          image: DecorationImage(
+            image: AssetImage(image),
+            fit: BoxFit.cover,
+            colorFilter: ColorFilter.mode(
+              Colors.black.withOpacity(0.6),
+              BlendMode.darken,
+            ),
+          ),
+        ),
+        child: ListTile(
+          contentPadding:
+          const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+          title: Text(
+            title,
+            style: const TextStyle(
+              color: Colors.white,
+              fontWeight: FontWeight.bold,
+            ),
+          ),
+          subtitle: Text(
+            duration,
+            style: const TextStyle(
+              color: Colors.orangeAccent,
+              fontSize: 14,
+            ),
+          ),
+          trailing: const Icon(
+            Icons.keyboard_arrow_down,
+            color: Colors.white,
+          ),
+        ),
+      ),
+    );
+  }
+}
+Widget iconDetail(IconData icon, String text) {
+  return Row(
+    children: [
+      Icon(icon, color: Colors.white, size: 24),
+      const SizedBox(width: 8),
+      Text(
+        text,
+        style: const TextStyle(
+          color: Colors.white,
+          fontSize: 16,
+        ),
+      ),
+    ],
+  );
+}
