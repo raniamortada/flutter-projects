@@ -7,7 +7,7 @@ class ColorManager {
   static Color cardColor=const Color(0xFFF14336);
   static Color listTitleColor=const Color(0xFFB56FFF);
   static Color textsColor=const Color(0xffD0FD3E);
-  static Color black =const Color(0xFF1E1F26);
+  static Color black =const Color(0xFF2C2C2E);
   static Color white=Colors.white;
   static Color blue = Colors.blue;
   static Color red =const Color(0xFFFF805E);

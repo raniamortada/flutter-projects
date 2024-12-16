@@ -683,3 +683,107 @@ Widget buildImageWithIcon({
     ],
   );
 }
+Widget TrainerCard({
+  required String trainerName,
+  required String specialty,
+  required String experience,
+  required String rating,
+  required String imagePath,
+  required VoidCallback onArrowPressed,
+}) {
+  return Container(
+    decoration: BoxDecoration(
+      color: ColorManager.black,
+      borderRadius: BorderRadius.circular(16),
+      boxShadow: [
+        BoxShadow(
+          color: Colors.black.withOpacity(0.1),
+          spreadRadius: 2,
+          blurRadius: 8,
+          offset: Offset(0, 4),
+        ),
+      ],
+    ),
+    margin: EdgeInsets.symmetric(vertical: 8),
+    padding: EdgeInsets.all(16),
+    child: Row(
+      children: [
+        Container(
+          width: 64,
+          height: 64,
+          child: CircleAvatar(
+            backgroundImage: AssetImage(imagePath),
+          ),
+        ),
+        SizedBox(width: 16),
+        Expanded(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Text(
+                    trainerName,
+                    style: TextStyle(fontSize: 18, fontWeight: FontWeight.w600,
+                    color: ColorManager.white),
+                  ),
+                  Container(
+                    width: 33,
+                    height: 16,
+                    decoration: BoxDecoration(
+                      color: ColorManager.primaryColor,
+                    ),
+                    child: Center(
+                      child: Text(
+                        rating,
+                        style: TextStyle(
+                          color: Colors.white,
+                          fontSize: 10,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                    ),
+                  ),
+                  IconButton(
+                    icon: Icon(
+                      Icons.arrow_forward_ios,
+                      color: ColorManager.white,
+                    ),
+                    onPressed: onArrowPressed,
+                    iconSize: 16,
+                    padding: EdgeInsets.zero,
+                    constraints: BoxConstraints(),
+                  ),
+                ],
+              ),
+              Text(
+                "$specialty\n$experience",
+                style: TextStyle(
+                  fontWeight: FontWeight.w500,
+                  fontSize: 12,
+                  color: ColorManager.primaryColor,
+                ),
+              ),
+            ],
+          ),
+        ),
+      ],
+    ),
+  );
+}
+Widget buildBackButton(BuildContext context) {
+  return Container(
+    width: 32,
+    height: 32,
+    decoration: BoxDecoration(
+      color: ColorManager.black,
+      borderRadius: BorderRadius.circular(32),
+    ),
+    child: IconButton(
+      icon: const Icon(Icons.arrow_back_ios, size: 20),
+      color: ColorManager.white,
+      onPressed: () => Navigator.pop(context),
+    ),
+  );
+}

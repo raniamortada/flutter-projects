@@ -3,6 +3,7 @@ import 'package:gym_app/utills/colors.dart';
 import 'package:gym_app/view/adding_Employee/adding_employee_screen.dart';
 import 'package:responsive_framework/responsive_framework.dart';
 
+import 'view/accounting_system/accounting_system_screen.dart';
 import 'view/add_New_Department/add_new_department_screen.dart';
 import 'view/add_new_tournament/add_new_tournament_screen.dart';
 import 'view/add_training_section/add_training_section_screen.dart';
@@ -13,7 +14,11 @@ import 'view/adding_diet/adding_diet_screen.dart';
 import 'view/adding_employee/all_employee_screen.dart';
 import 'view/adding_trainer/adding_trainer_screen.dart';
 import 'view/adding_trainer/all_trainer_screen.dart';
+import 'view/details_team/details_team_screen.dart';
+import 'view/fitness_trainers/fitness_trainers_screen.dart';
+import 'view/gender_selection/gender_selection_screen.dart';
 import 'view/modify_Club_Settings/modify_club_settings_screen.dart';
+import 'view/new_team/new_team_screen.dart';
 import 'view/splash/splash_screen.dart';
 import 'view/subscription/subscription.dart';
 import 'view/subscription/subscription_screen.dart';
@@ -41,7 +46,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         scaffoldBackgroundColor: ColorManager.backgroundColor
       ),
-      home: AddNewTournamentScreen(),
+      home: FitnessTrainersScreen(),
     );
   }
 }
