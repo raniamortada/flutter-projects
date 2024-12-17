@@ -1049,3 +1049,232 @@ Widget buildSettingItem({
     ],
   );
 }
+Widget buildTutorialsList() {
+  final tutorialPaths = [
+    "assets/image/unsplash_yiQCexXTXJI.png",
+    "assets/image/unsplash_yiQCexXTXJI.png",
+  ];
+
+  return Row(
+    children: List.generate(tutorialPaths.length, (index) {
+      return Expanded(
+        child: Padding(
+          padding: EdgeInsets.only(right: index == 0 ? 12 : 0),
+          child: Container(
+            height: 120,
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(12),
+              image: DecorationImage(
+                image: AssetImage(tutorialPaths[index]),
+                fit: BoxFit.cover,
+              ),
+            ),
+          ),
+        ),
+      );
+    }),
+  );
+}
+
+Widget buildVideosList() {
+  final videoPaths = [
+    "assets/image/vaid.png",
+    "assets/image/vaid.png",
+    "assets/image/vaid.png",
+  ];
+
+  return SizedBox(
+    height: 120,
+    child: ListView.separated(
+      scrollDirection: Axis.horizontal,
+      itemCount: videoPaths.length,
+      separatorBuilder: (context, index) => const SizedBox(width: 12),
+      itemBuilder: (context, index) {
+        return Stack(
+          children: [
+            Container(
+              width: 200,
+              height: 120,
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(12),
+                image: DecorationImage(
+                  image: AssetImage(videoPaths[index]),
+                  fit: BoxFit.cover,
+                ),
+              ),
+            ),
+            const Positioned(
+              bottom: 8,
+              left: 8,
+              child: Icon(Icons.play_circle, color: Colors.white, size: 28),
+            ),
+          ],
+        );
+      },
+    ),
+  );
+}
+Widget buildTrainersList() {
+  final trainers = [
+    {"name": "Amaka", "image": "assets/image/Image (2).png"},
+    {"name": "Stella", "image": "assets/image/Image (2).png"},
+    {"name": "Derick", "image": "assets/image/Image (2).png"},
+    {"name": "Tayo", "image": "assets/image/Image (2).png"},
+    {"name": "Sean", "image": "assets/image/Image (2).png"},
+  ];
+
+  return SizedBox(
+    height: 100,
+    child: ListView.separated(
+      scrollDirection: Axis.horizontal,
+      itemCount: trainers.length,
+      separatorBuilder: (context, index) => const SizedBox(width: 12),
+      itemBuilder: (context, index) {
+        final trainer = trainers[index];
+        return Column(
+          children: [
+            CircleAvatar(
+              radius: 30,
+              backgroundImage: AssetImage(trainer["image"]!),
+            ),
+            const SizedBox(height: 8),
+            Text(
+              trainer["name"]!,
+              style: const TextStyle(color: Colors.white, fontSize: 14),
+            ),
+          ],
+        );
+      },
+    ),
+  );
+}
+Widget buildTrainingCard(String imagePath, String duration) {
+  return Container(
+    height: 200,
+    decoration: BoxDecoration(
+      borderRadius: BorderRadius.circular(12),
+      image: DecorationImage(
+        image: AssetImage(imagePath),
+        fit: BoxFit.cover,
+      ),
+    ),
+    child: Align(
+      alignment: Alignment.bottomLeft,
+      child: Padding(
+        padding: const EdgeInsets.all(8.0),
+        child: Container(
+          decoration: BoxDecoration(
+            color: Colors.black.withOpacity(0.5),
+            borderRadius: BorderRadius.circular(8),
+          ),
+          padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
+          child: Row(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              const Icon(Icons.play_arrow, color: Colors.white, size: 18),
+              const SizedBox(width: 4),
+              Text(
+                duration,
+                style: const TextStyle(color: Colors.white, fontSize: 12),
+              ),
+            ],
+          ),
+        ),
+      ),
+    ),
+  );
+}
+Widget sectionHeader(String title) {
+  return Row(
+    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+    children: [
+      Text(
+        title,
+        style: const TextStyle(
+          color: Colors.white,
+          fontSize: 18,
+          fontWeight: FontWeight.bold,
+        ),
+      ),
+      Text(
+        "See all",
+        style: TextStyle(color: Colors.grey.shade400, fontSize: 14),
+      ),
+    ],
+  );
+}
+
+Widget buildDetailItem(String value, String label) {
+  return Column(
+    children: [
+      Text(
+        value,
+        style: const TextStyle(
+          color: Colors.white,
+          fontSize: 20,
+          fontWeight: FontWeight.bold,
+        ),
+      ),
+      const SizedBox(height: 4),
+      Text(
+        label,
+        style: const TextStyle(color: Colors.grey, fontSize: 14),
+      ),
+    ],
+  );
+}
+Widget buildReviewItem(
+    String name, String rating, String time, String comment) {
+  return Container(
+    height: 144,
+    padding: const EdgeInsets.all(12),
+    decoration: BoxDecoration(
+      color: ColorManager.black,
+      borderRadius: BorderRadius.circular(12),
+    ),
+    child: Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Row(
+          children: [
+            const CircleAvatar(
+              backgroundImage: AssetImage("assets/image/47.png"),
+            ),
+            const SizedBox(width: 12),
+            Expanded(
+              child: Text(
+                name,
+                style: const TextStyle(
+                  color: Colors.white,
+                  fontSize: 16,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+            ),
+            Container(
+              padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
+              decoration: BoxDecoration(
+                color: Colors.orange,
+                borderRadius: BorderRadius.circular(8),
+              ),
+              child: Text(
+                rating,
+                style: const TextStyle(color: Colors.white, fontSize: 14),
+              ),
+            ),
+            const SizedBox(width: 8),
+            Text(
+              time,
+              style: const TextStyle(color: Colors.grey, fontSize: 12),
+            ),
+          ],
+        ),
+        const SizedBox(height: 8),
+        Text(
+          comment,
+          style: const TextStyle(color: Colors.white, fontSize: 14),
+        ),
+      ],
+    ),
+  );
+}
