@@ -16,7 +16,7 @@ class ColorManager {
   static Color fac =const Color(0xFFF4267B2);
   static Color green =const Color(0xFF7CB041);
   static Color lumo =const Color(0xFFD0FD3E);
-  static Color blak =const Color(0xFF2C2C2E);
+  static Color black2 =const Color(0xFF1C1C1E);
 
 
 }

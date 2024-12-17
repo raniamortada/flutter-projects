@@ -949,3 +949,103 @@ Widget iconDetail(IconData icon, String text) {
     ],
   );
 }
+
+
+Widget buildWorkoutCard({
+  required String title,
+  required String subtitle,
+  required String imagePath,
+  Color? overlayColor = const Color.fromRGBO(0, 0, 0, 0.4),
+}) {
+  return Container(
+    width: 327,
+    height: 160,
+    margin: const EdgeInsets.only(bottom: 16),
+    decoration: BoxDecoration(
+      borderRadius: BorderRadius.circular(12),
+      image: DecorationImage(
+        image: AssetImage(imagePath),
+        fit: BoxFit.cover,
+        colorFilter: ColorFilter.mode(
+          overlayColor!,
+          BlendMode.darken,
+        ),
+      ),
+    ),
+    child: ListTile(
+      contentPadding: const EdgeInsets.symmetric(horizontal: 16, vertical: 60),
+      title: Text(
+        title,
+        style: const TextStyle(
+          color: Colors.white,
+          fontWeight: FontWeight.w600,
+          fontSize: 17,
+        ),
+      ),
+      subtitle: Text(
+        subtitle,
+        style: const TextStyle(
+          color: Colors.orange,
+          fontSize: 13,
+        ),
+      ),
+    ),
+  );
+}
+Widget buildSectionTitle(String title, [String? action]) {
+  return Row(
+    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+    children: [
+      Text(
+        title,
+        style: TextStyle(
+          fontSize: 17,
+          fontWeight: FontWeight.w600,
+          color: ColorManager.white,
+        ),
+      ),
+      if (action != null)
+        Text(
+          action,
+          style: TextStyle(color: ColorManager.primaryColor),
+        ),
+    ],
+  );
+}
+
+Widget buildSettingItem({
+  required String title,
+  required VoidCallback onTap,
+}) {
+  return Column(
+    children: [
+      Padding(
+        padding: const EdgeInsets.symmetric(vertical: 10),
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            Text(
+              title,
+              style: const TextStyle(
+                fontSize: 15,
+                fontWeight: FontWeight.w600,
+                color: Colors.white,
+              ),
+            ),
+            IconButton(
+              onPressed: onTap,
+              icon: const Icon(
+                Icons.arrow_forward_ios,
+                color: Colors.white,
+              ),
+            ),
+          ],
+        ),
+      ),
+      const Divider(
+        thickness: 1,
+        color: Colors.grey,
+      ),
+    ],
+  );
+}
