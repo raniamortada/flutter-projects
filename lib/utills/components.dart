@@ -315,11 +315,15 @@ Widget buildProfileCards() {
 }
 Widget buildPieChart() {
   return Center(
-    child: SizedBox(
-      height: 300,
+    child: Container(
+      height: 486,
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(24),
+        color: Colors.white
+      ),
       child: PieChart(
         PieChartData(
-          sectionsSpace: 2,
+          sectionsSpace: 1,
           centerSpaceRadius: 40,
           sections: [
             PieChartSectionData(
@@ -1276,5 +1280,148 @@ Widget buildReviewItem(
         ),
       ],
     ),
+  );
+}
+Widget buildNotificationOption({
+  required String title,
+  required bool value,
+  required Function(bool) onChanged,
+}) {
+  return Padding(
+    padding: const EdgeInsets.symmetric(horizontal: 20.0, vertical: 10.0),
+    child: Container(
+      decoration: BoxDecoration(
+        border: Border(
+          bottom: BorderSide(color: Colors.white12),
+        ),
+      ),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: [
+          Text(
+            title,
+            style: TextStyle(
+              color: Colors.white,
+              fontSize: 15,
+              fontWeight: FontWeight.w500,
+            ),
+          ),
+          Switch(
+            value: value,
+            onChanged: onChanged,
+            activeColor: Colors.orange,
+            inactiveTrackColor: Colors.white12,
+            inactiveThumbColor: Colors.white,
+          ),
+        ],
+      ),
+    ),
+  );
+}
+
+
+class ReusableScrollRow extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return SingleChildScrollView(
+      scrollDirection: Axis.horizontal, // تمرير أفقي
+      child: Row(
+        children: List.generate(
+          6, // عدد الحاويات
+              (index) => buildImageContainer("assets/image/PORT.png"),
+        ),
+      ),
+    );
+  }
+
+  Widget buildImageContainer(String imagePath) {
+    return Container(
+      margin: EdgeInsets.symmetric(horizontal: 8.0), // مسافة بين الحاويات
+      width: 148,
+      height: 170,
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(24),
+        color: Colors.white,
+      ),
+      child: Image(
+        image: AssetImage(imagePath),
+        fit: BoxFit.cover, // لتحسين عرض الصورة
+      ),
+    );
+  }
+}
+
+Widget buildTrendingCard(String title, String imagePath) {
+  return Expanded(
+    child: Container(
+      height: 120,
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(12),
+        image: DecorationImage(
+          image: AssetImage(imagePath),
+          fit: BoxFit.cover,
+        ),
+      ),
+      child: Center(
+        child: Text(
+          title,
+          style: const TextStyle(
+            color: Colors.white,
+            fontSize: 16,
+            fontWeight: FontWeight.bold,
+          ),
+        ),
+      ),
+    ),
+  );
+}
+
+Widget WorkoutCard(String title, String imagePath) {
+  return Container(
+    width: 150,
+    height: 120,
+    decoration: BoxDecoration(
+      borderRadius: BorderRadius.circular(12),
+      image: DecorationImage(
+        image: AssetImage(imagePath),
+        fit: BoxFit.cover,
+        colorFilter: ColorFilter.mode(
+          Colors.black.withOpacity(0.4),
+          BlendMode.darken,
+        ),
+      ),
+    ),
+    child: Center(
+      child: Text(
+        title,
+        style: const TextStyle(
+          color: Colors.white,
+          fontSize: 16,
+          fontWeight: FontWeight.bold,
+        ),
+      ),
+    ),
+  );
+}
+Widget buildCategoryCard(String title, String imagePath) {
+  return Column(
+    children: [
+      Container(
+        width: 100,
+        height: 100,
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(12),
+          image: DecorationImage(
+            image: AssetImage(imagePath),
+            fit: BoxFit.cover,
+          ),
+        ),
+      ),
+      const SizedBox(height: 8),
+      Text(
+        title,
+        style: const TextStyle(color: Colors.white, fontSize: 14),
+      ),
+    ],
   );
 }
