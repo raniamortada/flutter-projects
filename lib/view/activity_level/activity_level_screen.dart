@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:gym_app/utills/colors.dart';
 import 'package:gym_app/utills/components.dart';
 
@@ -10,18 +11,14 @@ class ActivityLevelScreen extends StatefulWidget {
 }
 
 class _ActivityLevelScreenState extends State<ActivityLevelScreen> {
-  final List<String> goals = [
-    "Rookie",
-    "Beginner",
-    "Intermediate",
-    "Advance",
-    "True Beast"
-  ];
-
   int selectedIndex = 0;
 
   @override
   Widget build(BuildContext context) {
+    final localizations = AppLocalizations.of(context)!;
+
+    final List<String> goals = localizations.activityGoals.split(',');
+
     return Scaffold(
       body: SafeArea(
         child: Padding(
@@ -30,7 +27,7 @@ class _ActivityLevelScreenState extends State<ActivityLevelScreen> {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Text(
-                "Your regular physical \n activity level?",
+                localizations.yourRegularActivityLevel,
                 style: TextStyle(
                   color: Colors.white,
                   fontSize: 20,
@@ -40,7 +37,7 @@ class _ActivityLevelScreenState extends State<ActivityLevelScreen> {
               ),
               SizedBox(height: 8),
               Text(
-                "This helps us create your personalized plan",
+                localizations.personalizedPlanDescription,
                 style: TextStyle(
                   color: Colors.white,
                   fontSize: 10,
@@ -82,7 +79,6 @@ class _ActivityLevelScreenState extends State<ActivityLevelScreen> {
                 ),
               ),
               SizedBox(height: 20),
-
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
@@ -101,27 +97,23 @@ class _ActivityLevelScreenState extends State<ActivityLevelScreen> {
                       iconSize: 32,
                     ),
                   ),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.end,
-                    children: [
-                      buildCustomButton(
-                        borderRadius: 48,
-                        svgPath: "assets/SVG/images/chevron-right.svg",
-                        width: 120,
-                        height: 50,
-                        context: context,
-                        text: "Start",
-                        backgroundColor: ColorManager.primaryColor,
-                        onPressed: () {
-                          Navigator.pushReplacement(
-                            context,
-                            MaterialPageRoute(
-                                builder: (context) => WeightSelectionScreen()),
-                          );
-                        },
-                      ),
-                    ],
-                  )
+                  buildCustomButton(
+                    borderRadius: 48,
+                    svgPath: "assets/SVG/images/chevron-right.svg",
+                    width: 120,
+                    height: 50,
+                    context: context,
+                    text: localizations.start,
+                    backgroundColor: ColorManager.primaryColor,
+                    onPressed: () {
+                      Navigator.pushReplacement(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => WeightSelectionScreen(),
+                        ),
+                      );
+                    },
+                  ),
                 ],
               ),
               SizedBox(height: 20),

@@ -1,8 +1,12 @@
 import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:gym_app/controller/languag_cubit/loce_cubit.dart';
 
+import '../shared/local/cach_helper.dart';
 import 'colors.dart';
+import 'package:flutter_localizations/flutter_localizations.dart';
 
 Widget buildCustomButton({
   required BuildContext context,
@@ -378,10 +382,6 @@ Widget buildHeader() {
             style: TextStyle(color: Colors.white, fontSize: 20, fontWeight: FontWeight.w600),
           ),
         ],
-      ),
-      CircleAvatar(
-        backgroundImage: AssetImage('assets/image/unsplash_DrVJk1EaPSc.png'),
-        radius: 20,
       ),
     ],
   );
@@ -1424,4 +1424,308 @@ Widget buildCategoryCard(String title, String imagePath) {
       ),
     ],
   );
+}
+
+class GymDrawer extends StatefulWidget {
+  @override
+  _GymDrawerState createState() => _GymDrawerState();
+}
+
+class _GymDrawerState extends State<GymDrawer> {
+  String _selectedLanguage = 'English';
+
+  @override
+  Widget build(BuildContext context) {
+    return Drawer(
+      backgroundColor: ColorManager.black2,
+      child: ListView(
+        padding: EdgeInsets.zero,
+        children: <Widget>[
+          Padding(
+            padding: const EdgeInsets.only(top: 20),
+            child: Center(
+              child: Text(
+                "#logo-club",
+                style: TextStyle(fontWeight: FontWeight.w600,
+                    fontSize: 20,color: Colors.white),
+              ),
+            ),
+          ),
+          Divider(color: ColorManager.black,),
+          Row(mainAxisAlignment:MainAxisAlignment.spaceAround ,
+            children: [
+              Text("Add products",style: TextStyle(
+                fontSize: 15,
+                fontWeight: FontWeight.w600,
+                color: ColorManager.white
+              ),),
+              IconButton(onPressed: (){},
+                  icon:  Icon(Icons.arrow_forward_ios_outlined,
+                    color: Colors.white,
+                  size: 15,))
+
+            ],
+          ),
+          Divider(color: ColorManager.black,),
+          Row(mainAxisAlignment:MainAxisAlignment.spaceAround ,
+            children: [
+              Text("Add a section",style: TextStyle(
+                  fontSize: 15,
+                  fontWeight: FontWeight.w600,
+                  color: ColorManager.white
+              ),),
+              IconButton(onPressed: (){},
+                  icon:  Icon(Icons.arrow_forward_ios_outlined,
+                    color: Colors.white,
+                    size: 15,))
+
+            ],
+          ),
+          Divider(color: ColorManager.black,),
+          Row(mainAxisAlignment:MainAxisAlignment.spaceAround ,
+            children: [
+              Text("Add a coach",style: TextStyle(
+                  fontSize: 15,
+                  fontWeight: FontWeight.w600,
+                  color: ColorManager.white
+              ),),
+              IconButton(onPressed: (){},
+                  icon:  Icon(Icons.arrow_forward_ios_outlined,
+                    color: Colors.white,
+                    size: 15,))
+
+            ],
+          ),
+          Divider(color: ColorManager.black,),
+          Row(mainAxisAlignment:MainAxisAlignment.spaceAround ,
+            children: [
+              Text("Add a player",style: TextStyle(
+                  fontSize: 15,
+                  fontWeight: FontWeight.w600,
+                  color: ColorManager.white
+              ),),
+              IconButton(onPressed: (){},
+                  icon:  Icon(Icons.arrow_forward_ios_outlined,
+                    color: Colors.white,
+                    size: 15,))
+
+            ],
+          ),
+          Divider(color: ColorManager.black,),
+          Row(mainAxisAlignment:MainAxisAlignment.spaceAround ,
+            children: [
+              Text("Add an employee",style: TextStyle(
+                  fontSize: 15,
+                  fontWeight: FontWeight.w600,
+                  color: ColorManager.white
+              ),),
+              IconButton(onPressed: (){},
+                  icon:  Icon(Icons.arrow_forward_ios_outlined,
+                    color: Colors.white,
+                    size: 15,))
+
+            ],
+          ),
+          Divider(color: ColorManager.black,),
+          Row(mainAxisAlignment:MainAxisAlignment.spaceAround ,
+            children: [
+              Text("add diet",style: TextStyle(
+                  fontSize: 15,
+                  fontWeight: FontWeight.w600,
+                  color: ColorManager.white
+              ),),
+              IconButton(onPressed: (){},
+                  icon:  Icon(Icons.arrow_forward_ios_outlined,
+                    color: Colors.white,
+                    size: 15,))
+
+            ],
+          ),
+          Divider(color: ColorManager.black,),
+          Row(mainAxisAlignment:MainAxisAlignment.spaceAround ,
+            children: [
+              Text("Add training",style: TextStyle(
+                  fontSize: 15,
+                  fontWeight: FontWeight.w600,
+                  color: ColorManager.white
+              ),),
+              IconButton(onPressed: (){},
+                  icon:  Icon(Icons.arrow_forward_ios_outlined,
+                    color: Colors.white,
+                    size: 15,))
+
+            ],
+          ),
+          Divider(color: ColorManager.black,),
+          Row(mainAxisAlignment:MainAxisAlignment.spaceAround ,
+            children: [
+              Text("Add a team",style: TextStyle(
+                  fontSize: 15,
+                  fontWeight: FontWeight.w600,
+                  color: ColorManager.white
+              ),),
+              IconButton(onPressed: (){},
+                  icon:  Icon(Icons.arrow_forward_ios_outlined,
+                    color: Colors.white,
+                    size: 15,))
+
+            ],
+          ),
+          Divider(color: ColorManager.black,),
+          Row(mainAxisAlignment:MainAxisAlignment.spaceAround ,
+            children: [
+              Text("Add a championship",style: TextStyle(
+                  fontSize: 15,
+                  fontWeight: FontWeight.w600,
+                  color: ColorManager.white
+              ),),
+              IconButton(onPressed: (){},
+                  icon:  Icon(Icons.arrow_forward_ios_outlined,
+                    color: Colors.white,
+                    size: 15,))
+
+            ],
+          ),
+          Divider(color: ColorManager.black,),
+          Row(mainAxisAlignment:MainAxisAlignment.spaceAround ,
+            children: [
+              Text("accounting system",style: TextStyle(
+                  fontSize: 15,
+                  fontWeight: FontWeight.w600,
+                  color: ColorManager.white
+              ),),
+              IconButton(onPressed: (){},
+                  icon:  Icon(Icons.arrow_forward_ios_outlined,
+                    color: Colors.white,
+                    size: 15,))
+
+            ],
+          ),
+          Divider(color: ColorManager.black,),
+          Row(mainAxisAlignment:MainAxisAlignment.spaceAround ,
+            children: [
+              Text(
+                'language: ${CacheHelper.sharedPreferences.getString(CustomerHelper.Language) == "en" ? "English" : "عربي"}',
+                style: TextStyle(
+                    fontSize: 15,
+                    fontWeight: FontWeight.w600,
+                    color: ColorManager.white
+                ),
+              ),
+              IconButton( onPressed: _showLanguageDialog,
+                  icon:  Icon(Icons.arrow_forward_ios_outlined,
+                    color: Colors.white,
+                    size: 15,))
+
+            ],
+          ),
+          Divider(color: ColorManager.black,),
+          ListTile(
+            title: Text("Sign Out",style: TextStyle(
+              fontSize: 17,fontWeight: FontWeight.w600,
+              color: ColorManager.cardColor
+            ),),
+            onTap: () {
+              // CacheHelper.deleteData(key: 'token').then((v){
+              //   // finishNavigate(context: context, screen: LoginScreen());
+              // });
+            },
+          ),
+          Padding(
+            padding: const EdgeInsets.all(16),
+            child: Container(
+              height: 84,
+              decoration: BoxDecoration(
+                color: ColorManager.black,
+                borderRadius: BorderRadius.circular(12)
+              ),
+              child: Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 8),
+                child: Column(
+                  children: [
+                    Row(mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Container(
+                          width: 37,
+                          height: 18,
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(5),
+                            color: ColorManager.cardColor
+                          ),
+                          child: Text("PRO",style: TextStyle(
+                            color: Colors.white
+                          ),),
+                        ),
+                      ],
+                    ),
+                    Row(mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Text("Upgrade to Premium",style: TextStyle(
+                          fontSize: 17,
+                          fontWeight: FontWeight.w600,
+                          color: ColorManager.white
+                        ),),
+                        IconButton(onPressed: (){},
+                            icon:  Icon(Icons.arrow_forward_ios_outlined,
+                              color: Colors.white,
+                              size: 15,))
+
+                      ],
+                    ),
+                    Text("This subscription is auto-renewable",
+                    style: TextStyle(
+                      color: ColorManager.white
+                    ),)
+
+                  ],
+                ),
+              ),
+            ),
+          )
+        ],
+      ),
+    );
+  }
+
+  void _showLanguageDialog() {
+    showDialog(
+      context: context,
+      builder: (context) {
+        return AlertDialog(
+          surfaceTintColor: Colors.white,
+          backgroundColor: Colors.white,
+          title: Text("language"),
+          content: Column(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              RadioListTile<String>(
+                title: Text('عربى'),
+                value: "عربى",
+                groupValue: _selectedLanguage,
+                onChanged: (value) {
+                  context.read<LanguageCubit>().changeLanguage('عربى');
+                  setState(() {
+                    _selectedLanguage = value!;
+                  });
+                  Navigator.of(context).pop();
+                },
+              ),
+              RadioListTile<String>(
+                title: Text("en"),
+                value: "en",
+                groupValue: _selectedLanguage,
+                onChanged: (value) {
+                  context.read<LanguageCubit>().changeLanguage('en');
+                  setState(() {
+                    _selectedLanguage = value!;
+                  });
+                  Navigator.of(context).pop();
+                },
+              ),
+            ],
+          ),
+        );
+      },
+    );
+  }
 }

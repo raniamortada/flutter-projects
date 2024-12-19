@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:gym_app/utills/colors.dart';
 import 'package:gym_app/utills/components.dart';
 
@@ -12,8 +12,11 @@ class AddProductsServicesScreen extends StatefulWidget {
 
 class _AddProductsServicesScreenState extends State<AddProductsServicesScreen> {
   TextEditingController nameController = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
+    final localizations = AppLocalizations.of(context)!;
+
     return SafeArea(
       child: Scaffold(
         body: SingleChildScrollView(
@@ -23,8 +26,8 @@ class _AddProductsServicesScreenState extends State<AddProductsServicesScreen> {
               children: [
                 Header(
                   context: context,
-                  title: "Add ",
-                  text: ' ProductsServices',
+                  title: localizations.add,
+                  text: localizations.productsServices,
                 ),
                 const SizedBox(height: 10),
                 buildImageWithIcon(
@@ -39,29 +42,27 @@ class _AddProductsServicesScreenState extends State<AddProductsServicesScreen> {
                   },
                 ),
                 buildDropdownButton(
-                    hint: "Product Type",
+                    hint: localizations.productType,
                     imag: 'assets/SVG/images/Tick Square.svg'),
-                buildTextFormField("product name",
+                buildTextFormField(localizations.productName,
                     nameController,
-                    svgPath: "assets/SVG/images/Tick Square.svg"
-                ),
-                buildTextFieldMaxLin( labelText: 'Product Description',
+                    svgPath: "assets/SVG/images/Tick Square.svg"),
+                buildTextFieldMaxLin(
+                    labelText: localizations.productDescription,
                     descriptionController: nameController,
                     svgPath: "assets/SVG/images/On.svg"),
-                buildTextFormField("Product price \$",
+                buildTextFormField(localizations.productPrice,
                     nameController,
-                    svgPath: "assets/SVG/images/Tick Square.svg"
-                ),
-
-                SizedBox(height: 20,),
-                buildCustomButton(context: context,
-                    width:326,
+                    svgPath: "assets/SVG/images/Tick Square.svg"),
+                SizedBox(height: 20),
+                buildCustomButton(
+                    context: context,
+                    width: 326,
                     height: 50,
-                    text: 'Create now',
+                    text: localizations.createNow,
                     backgroundColor: ColorManager.primaryColor,
-                    onPressed: () {  }),
-                SizedBox(height: 20,)
-
+                    onPressed: () {}),
+                SizedBox(height: 20),
               ],
             ),
           ),
@@ -70,4 +71,3 @@ class _AddProductsServicesScreenState extends State<AddProductsServicesScreen> {
     );
   }
 }
-

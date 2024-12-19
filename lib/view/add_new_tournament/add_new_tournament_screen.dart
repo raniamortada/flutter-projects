@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:gym_app/utills/colors.dart';
 import 'package:gym_app/utills/components.dart';
 
@@ -12,8 +12,11 @@ class AddNewTournamentScreen extends StatefulWidget {
 
 class _AddNewTournamentScreenState extends State<AddNewTournamentScreen> {
   TextEditingController nameController = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
+    final localizations = AppLocalizations.of(context)!;
+
     return SafeArea(
       child: Scaffold(
         body: SingleChildScrollView(
@@ -23,8 +26,8 @@ class _AddNewTournamentScreenState extends State<AddNewTournamentScreen> {
               children: [
                 Header(
                   context: context,
-                  title: "Add a new ",
-                  text: ' tournament',
+                  title: localizations.addNew,
+                  text: localizations.tournament,
                 ),
                 const SizedBox(height: 10),
                 buildImageWithIcon(
@@ -35,52 +38,65 @@ class _AddNewTournamentScreenState extends State<AddNewTournamentScreen> {
                   icon: Icons.camera_alt,
                   iconColor: Colors.white,
                   onIconTap: () {
-                    print("Camera icon tapped!");
+                    print(localizations.cameraTapped);
                   },
                 ),
-                buildTextFormField("#ID",
-                    nameController,
-                    svgPath: "assets/SVG/images/Tick Square.svg"
+                buildTextFormField(
+                  localizations.id,
+                  nameController,
+                  svgPath: "assets/SVG/images/Tick Square.svg",
                 ),
                 buildDropdownButton(
-                    hint: "Tournament name",
-                    imag: 'assets/SVG/images/Tick Square.svg'),
-                buildTextFieldMaxLin( labelText: 'Tournament description',
-                    descriptionController: nameController,
-                    svgPath: "assets/SVG/images/On.svg"),
-                buildDropdownButton(
-                    hint: "Tournament type",
-                    imag: 'assets/SVG/images/Tick Square.svg'),
-                buildDropdownButton(
-                    hint: "Add trainees",
-                    imag: 'assets/SVG/images/Tick Square.svg'),
-                buildDropdownButton(
-                    hint: "Add trainers",
-                    imag: 'assets/SVG/images/Tick Square.svg'),
-                buildTextFormField("Tournament start date",
-                    nameController,
-                    svgPath: "assets/SVG/images/Tick Square.svg"
+                  hint: localizations.tournamentName,
+                  imag: 'assets/SVG/images/Tick Square.svg',
                 ),
-                buildTextFormField("The end of the tournament",
-                    nameController,
-                    svgPath: "assets/SVG/images/Tick Square.svg"
+                buildTextFieldMaxLin(
+                  labelText: localizations.tournamentDescription,
+                  descriptionController: nameController,
+                  svgPath: "assets/SVG/images/On.svg",
                 ),
                 buildDropdownButton(
-                    hint: "Award type",
-                    imag: 'assets/SVG/images/Tick Square.svg'),
+                  hint: localizations.tournamentType,
+                  imag: 'assets/SVG/images/Tick Square.svg',
+                ),
                 buildDropdownButton(
-                    hint: "Championship level",
-                    imag: 'assets/SVG/images/Tick Square.svg'),
-
-                SizedBox(height: 20,),
-                buildCustomButton(context: context,
-                    width:326,
-                    height: 50,
-                    text: 'Create now',
-                    backgroundColor: ColorManager.primaryColor,
-                    onPressed: () {  }),
-                SizedBox(height: 20,)
-
+                  hint: localizations.addTrainees,
+                  imag: 'assets/SVG/images/Tick Square.svg',
+                ),
+                buildDropdownButton(
+                  hint: localizations.addTrainers,
+                  imag: 'assets/SVG/images/Tick Square.svg',
+                ),
+                buildTextFormField(
+                  localizations.tournamentStartDate,
+                  nameController,
+                  svgPath: "assets/SVG/images/Tick Square.svg",
+                ),
+                buildTextFormField(
+                  localizations.tournamentEndDate,
+                  nameController,
+                  svgPath: "assets/SVG/images/Tick Square.svg",
+                ),
+                buildDropdownButton(
+                  hint: localizations.awardType,
+                  imag: 'assets/SVG/images/Tick Square.svg',
+                ),
+                buildDropdownButton(
+                  hint: localizations.championshipLevel,
+                  imag: 'assets/SVG/images/Tick Square.svg',
+                ),
+                const SizedBox(height: 20),
+                buildCustomButton(
+                  context: context,
+                  width: 326,
+                  height: 50,
+                  text: localizations.createNow,
+                  backgroundColor: ColorManager.primaryColor,
+                  onPressed: () {
+                    print(localizations.createTournament);
+                  },
+                ),
+                const SizedBox(height: 20),
               ],
             ),
           ),
@@ -89,4 +105,3 @@ class _AddNewTournamentScreenState extends State<AddNewTournamentScreen> {
     );
   }
 }
-

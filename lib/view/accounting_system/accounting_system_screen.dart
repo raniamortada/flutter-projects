@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:gym_app/utills/colors.dart';
 import 'package:gym_app/utills/components.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class AccountingSystemScreen extends StatefulWidget {
   const AccountingSystemScreen({super.key});
@@ -13,6 +14,7 @@ class AccountingSystemScreen extends StatefulWidget {
 class _AccountingSystemScreenState extends State<AccountingSystemScreen> {
   TextEditingController nameController = TextEditingController();
   @override
+  @override
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
@@ -23,8 +25,8 @@ class _AccountingSystemScreenState extends State<AccountingSystemScreen> {
               children: [
                 Header(
                   context: context,
-                  title: "new ",
-                  text: 'team',
+                  title: AppLocalizations.of(context)!.newTeam,
+                  text: AppLocalizations.of(context)!.id,
                 ),
                 const SizedBox(height: 10),
                 buildImageWithIcon(
@@ -38,70 +40,81 @@ class _AccountingSystemScreenState extends State<AccountingSystemScreen> {
                     print("Camera icon tapped!");
                   },
                 ),
-                buildTextFormField("#ID",
-                    nameController,
-                    svgPath: "assets/SVG/images/Tick Square.svg"
+                buildTextFormField(
+                  AppLocalizations.of(context)!.id,
+                  nameController,
+                  svgPath: "assets/SVG/images/Tick Square.svg",
                 ),
                 buildDropdownButton(
-                    hint: "Payments from trainees",
-                    imag: 'assets/SVG/images/Tick Square.svg'),
+                  hint: AppLocalizations.of(context)!.paymentsFromTrainees,
+                  imag: 'assets/SVG/images/Tick Square.svg',
+                ),
                 buildDropdownButton(
-                    hint: "#months of subscription",
-                    imag: 'assets/SVG/images/Tick Square.svg'),
-                buildTextFormField("batch total \$",
-                    nameController,
-                    svgPath: "assets/SVG/images/Tick Square.svg"
+                  hint: AppLocalizations.of(context)!.monthsOfSubscription,
+                  imag: 'assets/SVG/images/Tick Square.svg',
                 ),
-                buildTextFormField("discount \$",
-                    nameController,
-                    svgPath: "assets/SVG/images/Tick Square.svg"
+                buildTextFormField(
+                  AppLocalizations.of(context)!.batchTotal,
+                  nameController,
+                  svgPath: "assets/SVG/images/Tick Square.svg",
                 ),
-                buildTextFormField("tax %",
-                    nameController,
-                    svgPath: "assets/SVG/images/Tick Square.svg"
+                buildTextFormField(
+                  AppLocalizations.of(context)!.discount,
+                  nameController,
+                  svgPath: "assets/SVG/images/Tick Square.svg",
+                ),
+                buildTextFormField(
+                  AppLocalizations.of(context)!.tax,
+                  nameController,
+                  svgPath: "assets/SVG/images/Tick Square.svg",
                 ),
                 Container(
                   width: 317,
                   height: 198,
                   decoration: BoxDecoration(
                     color: Colors.white,
-                    borderRadius: BorderRadius.circular(10)
+                    borderRadius: BorderRadius.circular(10),
                   ),
                   child: Padding(
                     padding: const EdgeInsets.all(16),
                     child: Column(
                       children: [
-                        Row(mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
-                            Text("Subtotal"),
+                            Text(AppLocalizations.of(context)!.subtotal),
                             Text("\$0.00"),
                           ],
                         ),
-                        SizedBox(height: 10,),
-                        Row(mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        SizedBox(height: 10),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
-                            Text("Discount"),
+                            Text(AppLocalizations.of(context)!.discountAmount),
                             Text("\$0.00"),
                           ],
                         ),
-                        SizedBox(height: 10,),
-                        Row(mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        SizedBox(height: 10),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
-                            Text("TAX"),
+                            Text(AppLocalizations.of(context)!.taxAmount),
                             Text("\$0.00"),
                           ],
                         ),
-                        SizedBox(height: 10,),
-                        Row(mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        SizedBox(height: 10),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
-                            Text("Total"),
+                            Text(AppLocalizations.of(context)!.total),
                             Text("\$0.00"),
                           ],
                         ),
-                        SizedBox(height: 10,),
-                        Row(mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        SizedBox(height: 10),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
-                            Text("Required deposit"),
+                            Text(AppLocalizations.of(context)!.requiredDeposit),
                             Text("\$0.00"),
                           ],
                         ),
@@ -109,16 +122,16 @@ class _AccountingSystemScreenState extends State<AccountingSystemScreen> {
                     ),
                   ),
                 ),
-
-                SizedBox(height: 20,),
-                buildCustomButton(context: context,
-                    width:326,
-                    height: 50,
-                    text: 'Create now',
-                    backgroundColor: ColorManager.primaryColor,
-                    onPressed: () {  }),
-                SizedBox(height: 20,)
-
+                SizedBox(height: 20),
+                buildCustomButton(
+                  context: context,
+                  width: 326,
+                  height: 50,
+                  text: AppLocalizations.of(context)!.createNow,
+                  backgroundColor: ColorManager.primaryColor,
+                  onPressed: () {},
+                ),
+                SizedBox(height: 20),
               ],
             ),
           ),
@@ -126,5 +139,6 @@ class _AccountingSystemScreenState extends State<AccountingSystemScreen> {
       ),
     );
   }
+
 }
 

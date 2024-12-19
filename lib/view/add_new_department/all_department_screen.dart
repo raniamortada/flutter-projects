@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:gym_app/utills/colors.dart';
 import 'package:gym_app/utills/components.dart';
 
@@ -11,7 +11,6 @@ class AllDepartmentScreen extends StatefulWidget {
 }
 
 class _AllDepartmentScreenState extends State<AllDepartmentScreen> {
-  final TextEditingController nameController = TextEditingController();
   final List<Map<String, String>> departments = [
     {
       'id': '#ID',
@@ -47,6 +46,8 @@ class _AllDepartmentScreenState extends State<AllDepartmentScreen> {
 
   @override
   Widget build(BuildContext context) {
+    final localizations = AppLocalizations.of(context)!;
+
     return SafeArea(
       child: Scaffold(
         body: SingleChildScrollView(
@@ -56,8 +57,8 @@ class _AllDepartmentScreenState extends State<AllDepartmentScreen> {
               children: [
                 Header(
                   context: context,
-                  title: "Add a new ",
-                  text: 'Department',
+                  title: localizations.addNew,
+                  text: localizations.department,
                 ),
                 const SizedBox(height: 40),
                 ...departments.map((dept) => Padding(

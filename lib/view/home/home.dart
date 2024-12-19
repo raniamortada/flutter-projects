@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:fl_chart/fl_chart.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:gym_app/utills/colors.dart';
 import 'package:gym_app/utills/components.dart';
+import 'package:flutter_localizations/flutter_localizations.dart';
 
 class HomeScreen extends StatefulWidget {
   @override
@@ -9,6 +11,7 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
+  final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
   final List<Map<String, String>> departments = [
     {
       'id': '#ID',
@@ -44,12 +47,29 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(toolbarHeight: 0.0,),
+      key: _scaffoldKey,
+      drawer: GymDrawer(),
       body: SingleChildScrollView(
         padding: EdgeInsets.only(top: 40, right: 16, left: 16),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            buildHeader(),
+            Row(mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                buildHeader(),
+                GestureDetector(
+                  onTap: () {
+                    _scaffoldKey.currentState?.openDrawer();
+                  },
+                  child: CircleAvatar(
+                    backgroundImage: AssetImage("assets/image/Image (3).png"),
+                  ),
+                ),
+
+              ],
+            ),
+
             SizedBox(height: 20),
             buildSectionHeader('All products', onViewAll: () {}),
             SizedBox(height: 20),

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:gym_app/utills/colors.dart';
 import 'package:gym_app/utills/components.dart';
 
@@ -12,34 +12,34 @@ class AllTournamentScreen extends StatefulWidget {
 
 class _AllTournamentScreenState extends State<AllTournamentScreen> {
   final TextEditingController nameController = TextEditingController();
-  final List<Map<String, String>> departments = [
+  final List<Map<String, String>> tournaments = [
     {
       'id': '#ID',
-      'name': '#name department',
+      'name': '#name tournament',
       'description': '#description',
       'imagePath': 'assets/image/man-training-with-weight-lifting.png',
     },
     {
       'id': '#ID',
-      'name': '#name department',
+      'name': '#name tournament',
       'description': '#description',
       'imagePath': 'assets/image/man-training-with-weight-lifting.png',
     },
     {
       'id': '#ID',
-      'name': '#name department',
+      'name': '#name tournament',
       'description': '#description',
       'imagePath': 'assets/image/man-training-with-weight-lifting.png',
     },
     {
       'id': '#ID',
-      'name': '#name department',
+      'name': '#name tournament',
       'description': '#description',
       'imagePath': 'assets/image/man-training-with-weight-lifting.png',
     },
     {
       'id': '#ID',
-      'name': '#name department',
+      'name': '#name tournament',
       'description': '#description',
       'imagePath': 'assets/image/man-training-with-weight-lifting.png',
     },
@@ -47,6 +47,8 @@ class _AllTournamentScreenState extends State<AllTournamentScreen> {
 
   @override
   Widget build(BuildContext context) {
+    final localizations = AppLocalizations.of(context)!;
+
     return SafeArea(
       child: Scaffold(
         body: SingleChildScrollView(
@@ -56,17 +58,17 @@ class _AllTournamentScreenState extends State<AllTournamentScreen> {
               children: [
                 Header(
                   context: context,
-                  title: "All ",
-                  text: 'Tournament',
+                  title: localizations.all,
+                  text: localizations.tournament,
                 ),
                 const SizedBox(height: 40),
-                ...departments.map((dept) => Padding(
+                ...tournaments.map((tournament) => Padding(
                   padding: const EdgeInsets.only(bottom: 10),
                   child: buildPaymentsSection(
-                    text: dept['id'] ?? '',
-                    title: dept['name'] ?? '',
-                    subtitle: dept['description'] ?? '',
-                    imagePath: dept['imagePath'] ?? '',
+                    text: tournament['id'] ?? '',
+                    title: tournament['name'] ?? '',
+                    subtitle: tournament['description'] ?? '',
+                    imagePath: tournament['imagePath'] ?? '',
                   ),
                 )),
               ],
