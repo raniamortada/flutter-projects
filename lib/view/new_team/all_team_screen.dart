@@ -2,8 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:gym_app/utills/colors.dart';
 import 'package:gym_app/utills/components.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
-  class AllTeamScreen extends StatefulWidget {
+class AllTeamScreen extends StatefulWidget {
   const AllTeamScreen({super.key});
 
   @override
@@ -56,16 +57,16 @@ class _AllTeamScreenState extends State<AllTeamScreen> {
               children: [
                 Header(
                   context: context,
-                  title: "All ",
-                  text: 'Team',
+                  title: AppLocalizations.of(context)!.allTeam,
+                  text: '',
                 ),
                 const SizedBox(height: 40),
                 ...departments.map((dept) => Padding(
                   padding: const EdgeInsets.only(bottom: 10),
                   child: buildPaymentsSection(
-                    text: dept['id'] ?? '',
-                    title: dept['name'] ?? '',
-                    subtitle: dept['description'] ?? '',
+                    text: AppLocalizations.of(context)!.id,
+                    title: dept['name'] ?? AppLocalizations.of(context)!.nameDepartment,
+                    subtitle: dept['description'] ?? AppLocalizations.of(context)!.description,
                     imagePath: dept['imagePath'] ?? '',
                   ),
                 )),

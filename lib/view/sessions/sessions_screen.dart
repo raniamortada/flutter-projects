@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:gym_app/utills/components.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart'; // Import for localization
 
 class SessionsScreen extends StatelessWidget {
   const SessionsScreen({Key? key}) : super(key: key);
@@ -12,9 +13,9 @@ class SessionsScreen extends StatelessWidget {
         elevation: 0,
         leading: const Icon(Icons.arrow_back, color: Colors.white),
         centerTitle: true,
-        title: const Text(
-          "Sessions",
-          style: TextStyle(color: Colors.white, fontSize: 18),
+        title: Text(
+          AppLocalizations.of(context)!.sessions, // Use localized text here
+          style: const TextStyle(color: Colors.white, fontSize: 18),
         ),
         actions: [
           CircleAvatar(
@@ -30,9 +31,9 @@ class SessionsScreen extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               // Training Section
-              const Text(
-                "Your training today",
-                style: TextStyle(
+              Text(
+                AppLocalizations.of(context)!.yourTrainingToday, // Use localized text
+                style: const TextStyle(
                   color: Colors.white,
                   fontSize: 20,
                   fontWeight: FontWeight.bold,
@@ -46,19 +47,19 @@ class SessionsScreen extends StatelessWidget {
               const SizedBox(height: 20),
 
               // Trainers Section
-              sectionHeader("Trainers"),
+              sectionHeader(AppLocalizations.of(context)!.trainers), // Use localized text
               const SizedBox(height: 8),
               buildTrainersList(),
               const SizedBox(height: 20),
 
               // Videos Section
-              sectionHeader("Videos"),
+              sectionHeader(AppLocalizations.of(context)!.videos), // Use localized text
               const SizedBox(height: 8),
               buildVideosList(),
               const SizedBox(height: 20),
 
               // Tutorials Section
-              sectionHeader("Tutorials"),
+              sectionHeader(AppLocalizations.of(context)!.tutorials), // Use localized text
               const SizedBox(height: 8),
               buildTutorialsList(),
             ],
@@ -67,5 +68,4 @@ class SessionsScreen extends StatelessWidget {
       ),
     );
   }
-
 }

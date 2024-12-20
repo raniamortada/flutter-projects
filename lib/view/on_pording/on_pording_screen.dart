@@ -4,6 +4,7 @@ import 'package:gym_app/utills/colors.dart';
 import 'package:gym_app/utills/components.dart';
 import 'package:gym_app/view/welcome/welcome_screen.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 
 
@@ -22,7 +23,6 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
       MaterialPageRoute(builder: (context) => WelcomeScreen()),
     );
   }
-
 
   void _onNext() {
     if (!_isLastPage) {
@@ -44,16 +44,10 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
     final List<OnBoardingItem> _onBoardingItems = [
       OnBoardingItem(
         imagePath: "assets/image/ona1.png",
-        title: "Sports club management\n",
-       // AppLocalizations.of(context)!.,
-        titleHighlighted: "It's ",
-        //AppLocalizations.of(context)!.discoverTitleHighlighted,
-        titleSub: "easier ",
-        //AppLocalizations.of(context)!.discoverTitleSub,
-        titleFourth: "now",
-        fourthTitleFontWeight:FontWeight.w700 ,
-        fourthTitleFontSize:26 ,
-        fourthTitleFontFamily:"Poppins" ,
+        title: AppLocalizations.of(context)!.sportsClubManagement, // نص مترجم
+        titleHighlighted: AppLocalizations.of(context)!.its,
+        titleSub: AppLocalizations.of(context)!.easier,
+        titleFourth: AppLocalizations.of(context)!.now,
         titleColor: Colors.white,
         highlightedColor: ColorManager.white,
         subTitleColor: ColorManager.primaryColor,
@@ -66,18 +60,14 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
         highlightedFontWeight: FontWeight.w700,
         subTitleFontSize: 26,
         subTitleFontFamily: 'Poppins',
-        subTitleFontWeight: FontWeight.w700, colors: [Colors.white],
-
+        subTitleFontWeight: FontWeight.w700,
+        colors: [Colors.white],
       ),
       OnBoardingItem(
         imagePath: "assets/image/ona2.png",
-        title: "Manage players\ ",
-       // AppLocalizations.of(context)!.discoverTitle,
-        titleHighlighted: "in\n",
-        //AppLocalizations.of(context)!.discoverTitleHighlighted,
-        titleSub: "one place",
-        //AppLocalizations.of(context)!.discoverTitleSub,
-
+        title: AppLocalizations.of(context)!.managePlayers, // نص مترجم
+        titleHighlighted: AppLocalizations.of(context)!.inOnePlace,
+        titleSub: AppLocalizations.of(context)!.onePlace,
         titleColor: Colors.white,
         highlightedColor: ColorManager.white,
         subTitleColor: ColorManager.primaryColor,
@@ -90,17 +80,14 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
         highlightedFontWeight: FontWeight.w700,
         subTitleFontSize: 29,
         subTitleFontFamily: 'Poppins',
-        subTitleFontWeight: FontWeight.w700, colors: [Colors.white],
+        subTitleFontWeight: FontWeight.w700,
+        colors: [Colors.white],
       ),
       OnBoardingItem(
         imagePath: "assets/image/ona3.png",
-        title:"All exercises are ",
-        //AppLocalizations.of(context)!.discoverTitle,
-        titleHighlighted:"illustrated \ ",
-        //AppLocalizations.of(context)!.discoverTitleHighlighted,
-        titleSub:"Professionally",
-        //AppLocalizations.of(context)!.discoverTitleSub,
-
+        title: AppLocalizations.of(context)!.allExercisesAre,
+        titleHighlighted: AppLocalizations.of(context)!.illustrated,
+        titleSub: AppLocalizations.of(context)!.professionally,
         titleColor: Colors.white,
         highlightedColor: ColorManager.white,
         subTitleColor: ColorManager.primaryColor,
@@ -113,17 +100,14 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
         highlightedFontWeight: FontWeight.w700,
         subTitleFontSize: 25,
         subTitleFontFamily: 'Poppins',
-        subTitleFontWeight: FontWeight.w700, colors: [Colors.white],
+        subTitleFontWeight: FontWeight.w700,
+        colors: [Colors.white],
       ),
       OnBoardingItem(
         imagePath: "assets/image/FcLyt7lW5wg (1).jpg",
-        title:"Welcome to\n ",
-        //AppLocalizations.of(context)!.discoverTitle,
-        titleHighlighted:"SYSTEM GYM\n  ",
-        //AppLocalizations.of(context)!.discoverTitleHighlighted,
-        titleSub:"Achieve your body goals with us",
-        //AppLocalizations.of(context)!.discoverTitleSub,
-
+        title: AppLocalizations.of(context)!.welcomeTo,
+        titleHighlighted: AppLocalizations.of(context)!.systemGym,
+        titleSub: AppLocalizations.of(context)!.achieveYourBodyGoalsWithUs,
         titleColor: Colors.white,
         highlightedColor: ColorManager.white,
         subTitleColor: Color(0xffBDBDBD),
@@ -136,10 +120,10 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
         highlightedFontWeight: FontWeight.w700,
         subTitleFontSize: 16,
         subTitleFontFamily: 'Poppins',
-        subTitleFontWeight: FontWeight.w400, colors: [Colors.white],
+        subTitleFontWeight: FontWeight.w400,
+        colors: [Colors.white],
       ),
     ];
-
 
     void _onPageChanged(int index) {
       setState(() {
@@ -166,11 +150,9 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
                       height: 460,
                       child: Image.asset(
                         item.imagePath,
-
-
                       ),
                     ),
-                    SizedBox(height: 100,),
+                    SizedBox(height: 100),
                     Padding(
                       padding: const EdgeInsets.symmetric(horizontal: 20.0, vertical: 20.0),
                       child: RichText(
@@ -223,41 +205,34 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
               );
             },
           ),
-
           Column(
             mainAxisSize: MainAxisSize.min,
             children: [
               if (!_isLastPage)
-              SmoothPageIndicator(
-                controller: _pageController,
-                count: _onBoardingItems.length,
-                effect: const SlideEffect(
-                  spacing: 8.0,
-                  radius: 8.0,
-                  dotWidth: 12.0,
-                  dotHeight: 12.0,
-                  paintStyle: PaintingStyle.fill,
-                  dotColor: Color(0xffF79517),
-                  activeDotColor: Color(0xFFFFFFFF),
+                SmoothPageIndicator(
+                  controller: _pageController,
+                  count: _onBoardingItems.length,
+                  effect: const SlideEffect(
+                    spacing: 8.0,
+                    radius: 8.0,
+                    dotWidth: 12.0,
+                    dotHeight: 12.0,
+                    paintStyle: PaintingStyle.fill,
+                    dotColor: Color(0xffF79517),
+                    activeDotColor: Color(0xFFFFFFFF),
+                  ),
                 ),
-              ),
               const SizedBox(height: 20),
-
               if (_isLastPage)
                 buildCustomButton(
                   width: 244,
-                    height: 55,
-                    context: context,
-                    text:"Get Started",
-                    //AppLocalizations.of(context)!.getStarted,
-                    backgroundColor: ColorManager.primaryColor,
-                    onPressed: (){
-                      Navigator.pushReplacement(
-                        context,
-                        MaterialPageRoute(builder: (context) => WelcomeScreen()),
-                      );
-                    }),
-              SizedBox(height: 100,),
+                  height: 55,
+                  context: context,
+                  text: AppLocalizations.of(context)!.getStarted,
+                  backgroundColor: ColorManager.primaryColor,
+                  onPressed: _onGetStarted,
+                ),
+              SizedBox(height: 100),
             ],
           ),
         ],
@@ -265,6 +240,7 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
     );
   }
 }
+
 
 class OnBoardingItem {
   final String imagePath;

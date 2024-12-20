@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:gym_app/utills/colors.dart';
 import 'package:gym_app/utills/components.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class AddingTrainerScreen extends StatefulWidget {
   const AddingTrainerScreen({super.key});
@@ -12,8 +13,11 @@ class AddingTrainerScreen extends StatefulWidget {
 
 class _AddingTrainerScreenState extends State<AddingTrainerScreen> {
   TextEditingController nameController = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
+    final localizations = AppLocalizations.of(context)!;
+
     return SafeArea(
       child: Scaffold(
         body: SingleChildScrollView(
@@ -23,8 +27,8 @@ class _AddingTrainerScreenState extends State<AddingTrainerScreen> {
               children: [
                 Header(
                   context: context,
-                  title: "Adding a",
-                  text: 'trainer',
+                  title: localizations.adding_a,
+                  text: localizations.trainer,
                 ),
                 const SizedBox(height: 10),
                 buildImageWithIcon(
@@ -38,102 +42,68 @@ class _AddingTrainerScreenState extends State<AddingTrainerScreen> {
                     print("Camera icon tapped!");
                   },
                 ),
-                buildTextFormField("full name",
-                    nameController,
-                    svgPath: "assets/SVG/images/Tick Square.svg"
-                ),
-                buildTextFormField("@username",
-                    nameController,
-                    svgPath: "assets/SVG/images/Tick Square.svg"
-                ),
-                buildTextFormField("phone number",
-                    nameController,
-                    svgPath: "assets/SVG/images/Tick Square.svg"
-                ),
-                buildTextFormField("#Subscription number",
-                    nameController,
-                    svgPath: "assets/SVG/images/Tick Square.svg"
-                ),
-                buildTextFieldMaxLin( labelText: 'email',
+                buildTextFormField(localizations.full_name, nameController,
+                    svgPath: "assets/SVG/images/Tick Square.svg"),
+                buildTextFormField(localizations.username, nameController,
+                    svgPath: "assets/SVG/images/Tick Square.svg"),
+                buildTextFormField(localizations.phone_number, nameController,
+                    svgPath: "assets/SVG/images/Tick Square.svg"),
+                buildTextFormField(localizations.subscription_number, nameController,
+                    svgPath: "assets/SVG/images/Tick Square.svg"),
+                buildTextFieldMaxLin(
+                    labelText: localizations.email,
                     descriptionController: nameController,
                     svgPath: "assets/SVG/images/On.svg"),
-                buildTextFieldMaxLin( labelText: 'About the trainer',
+                buildTextFieldMaxLin(
+                    labelText: localizations.about_the_trainer,
                     descriptionController: nameController,
                     svgPath: "assets/SVG/images/On.svg"),
-                buildTextFormField("date of birth",
-                    nameController,
-                    svgPath: "assets/SVG/images/Tick Square.svg"
-                ),
+                buildTextFormField(localizations.date_of_birth, nameController,
+                    svgPath: "assets/SVG/images/Tick Square.svg"),
                 buildDropdownButton(
-                    hint: "Subtype",
+                    hint: localizations.subtype,
                     imag: 'assets/SVG/images/Tick Square.svg'),
-                buildTextFormField("The monthly subscription value\$",
-                    nameController,
-                    svgPath: "assets/SVG/images/Tick Square.svg"
-                ),
-                buildTextFormField("Total subscription value",
-                    nameController,
-                    svgPath: "assets/SVG/images/Tick Square.svg"
-                ),
-                buildTextFormField("height",
-                    nameController,
-                    svgPath: "assets/SVG/images/Tick Square.svg"
-                ),
-                buildTextFormField("weight",
-                    nameController,
-                    svgPath: "assets/SVG/images/Tick Square.svg"
-                ),
+                buildTextFormField(localizations.monthly_subscription_value, nameController,
+                    svgPath: "assets/SVG/images/Tick Square.svg"),
+                buildTextFormField(localizations.total_subscription_value, nameController,
+                    svgPath: "assets/SVG/images/Tick Square.svg"),
+                buildTextFormField(localizations.height, nameController,
+                    svgPath: "assets/SVG/images/Tick Square.svg"),
+                buildTextFormField(localizations.weight, nameController,
+                    svgPath: "assets/SVG/images/Tick Square.svg"),
                 buildDropdownButton(
-                    hint: "Professional degree",
+                    hint: localizations.professional_degree,
                     imag: 'assets/SVG/images/Tick Square.svg'),
-                buildTextFormField("Nationality",
-                    nameController,
-                    svgPath: "assets/SVG/images/Tick Square.svg"
-                ),
+                buildTextFormField(localizations.nationality, nameController,
+                    svgPath: "assets/SVG/images/Tick Square.svg"),
                 buildDropdownButton(
-                    hint: "gender",
+                    hint: localizations.gender,
                     imag: 'assets/SVG/images/Tick Square.svg'),
-                buildTextFormField("address",
-                    nameController,
-                    svgPath: "assets/SVG/images/Tick Square.svg"
-                ),
-                buildTextFormField("Governorate",
-                    nameController,
-                    svgPath: "assets/SVG/images/Tick Square.svg"
-                ),
-                buildTextFormField("Postal code",
-                    nameController,
-                    svgPath: "assets/SVG/images/Tick Square.svg"
-                ),
-                buildTextFormField("website",
-                    nameController,
-                    svgPath: "assets/SVG/images/Tick Square.svg"
-                ),
-                buildTextFormField("Facebook",
-                    nameController,
-                    svgPath: "assets/SVG/images/Tick Square.svg"
-                ),
-                buildTextFormField("Twitter",
-                    nameController,
-                    svgPath: "assets/SVG/images/Tick Square.svg"
-                ),
-                buildTextFormField("Instagram",
-                    nameController,
-                    svgPath: "assets/SVG/images/Tick Square.svg"
-                ),
-                buildTextFormField("YouTube",
-                    nameController,
-                    svgPath: "assets/SVG/images/Tick Square.svg"
-                ),
-                SizedBox(height: 20,),
-                buildCustomButton(context: context,
-                    width:326,
+                buildTextFormField(localizations.address, nameController,
+                    svgPath: "assets/SVG/images/Tick Square.svg"),
+                buildTextFormField(localizations.governorate, nameController,
+                    svgPath: "assets/SVG/images/Tick Square.svg"),
+                buildTextFormField(localizations.postal_code, nameController,
+                    svgPath: "assets/SVG/images/Tick Square.svg"),
+                buildTextFormField(localizations.website, nameController,
+                    svgPath: "assets/SVG/images/Tick Square.svg"),
+                buildTextFormField(localizations.facebook, nameController,
+                    svgPath: "assets/SVG/images/Tick Square.svg"),
+                buildTextFormField(localizations.twitter, nameController,
+                    svgPath: "assets/SVG/images/Tick Square.svg"),
+                buildTextFormField(localizations.instagram, nameController,
+                    svgPath: "assets/SVG/images/Tick Square.svg"),
+                buildTextFormField(localizations.youtube, nameController,
+                    svgPath: "assets/SVG/images/Tick Square.svg"),
+                SizedBox(height: 20),
+                buildCustomButton(
+                    context: context,
+                    width: 326,
                     height: 50,
-                    text: 'Create now',
+                    text: localizations.createNow,
                     backgroundColor: ColorManager.primaryColor,
-                    onPressed: () {  }),
-                SizedBox(height: 20,)
-
+                    onPressed: () {}),
+                SizedBox(height: 20),
               ],
             ),
           ),
@@ -142,4 +112,3 @@ class _AddingTrainerScreenState extends State<AddingTrainerScreen> {
     );
   }
 }
-

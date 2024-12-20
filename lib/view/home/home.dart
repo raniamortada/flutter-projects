@@ -3,7 +3,7 @@ import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:gym_app/utills/colors.dart';
 import 'package:gym_app/utills/components.dart';
-import 'package:flutter_localizations/flutter_localizations.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class HomeScreen extends StatefulWidget {
   @override
@@ -44,10 +44,11 @@ class _HomeScreenState extends State<HomeScreen> {
       'imagePath': 'assets/image/man-training-with-weight-lifting.png',
     },
   ];
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(toolbarHeight: 0.0,),
+      appBar: AppBar(toolbarHeight: 0.0),
       key: _scaffoldKey,
       drawer: GymDrawer(),
       body: SingleChildScrollView(
@@ -55,7 +56,8 @@ class _HomeScreenState extends State<HomeScreen> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Row(mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 buildHeader(),
                 GestureDetector(
@@ -66,12 +68,10 @@ class _HomeScreenState extends State<HomeScreen> {
                     backgroundImage: AssetImage("assets/image/Image (3).png"),
                   ),
                 ),
-
               ],
             ),
-
             SizedBox(height: 20),
-            buildSectionHeader('All products', onViewAll: () {}),
+            buildSectionHeader(AppLocalizations.of(context)!.allProducts, onViewAll: () {}),
             SizedBox(height: 20),
             SingleChildScrollView(
               scrollDirection: Axis.horizontal,
@@ -88,11 +88,10 @@ class _HomeScreenState extends State<HomeScreen> {
                 }),
               ),
             ),
-
             SizedBox(height: 30),
             buildPieChart(),
             SizedBox(height: 20),
-            buildSectionHeader('All coaches', onViewAll: () {}),
+            buildSectionHeader(AppLocalizations.of(context)!.allCoaches, onViewAll: () {}),
             SizedBox(height: 20),
             SingleChildScrollView(
               scrollDirection: Axis.horizontal,
@@ -110,37 +109,15 @@ class _HomeScreenState extends State<HomeScreen> {
               ),
             ),
             SizedBox(height: 20),
-            buildSectionHeader('All products', onViewAll: () {}),
-            SizedBox(height: 20),
-            SingleChildScrollView(
-              scrollDirection: Axis.horizontal,
-              child: Row(
-                children: List.generate(8, (index) {
-                  return Padding(
-                    padding: const EdgeInsets.only(right: 12.0),
-                    child: ProfileCard(
-                      name: "Stella ${index + 1}",
-                      imagePath: "assets/image/unsplash_rIIeOYIJ0IU.png",
-                      isVerified: true,
-                    ),
-                  );
-                }),
-              ),
-            ),
-            SizedBox(height: 20),
-            buildSectionHeader('All products', onViewAll: () {}),
-            SizedBox(height: 20),
-            ReusableScrollRow(),
-            const SizedBox(height: 20),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                const Text(
-                  "Categories",
+                Text(
+                  AppLocalizations.of(context)!.categories,
                   style: TextStyle(color: Colors.white, fontSize: 18),
                 ),
                 Text(
-                  "See all",
+                  AppLocalizations.of(context)!.seeAll,
                   style: TextStyle(color: Colors.grey.shade400),
                 ),
               ],
@@ -158,12 +135,12 @@ class _HomeScreenState extends State<HomeScreen> {
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                const Text(
-                  "Trending",
+                Text(
+                  AppLocalizations.of(context)!.trending,
                   style: TextStyle(color: Colors.white, fontSize: 18),
                 ),
                 Text(
-                  "Sell all",
+                  AppLocalizations.of(context)!.seeAll,
                   style: TextStyle(color: Colors.grey.shade400),
                 ),
               ],
@@ -173,14 +150,12 @@ class _HomeScreenState extends State<HomeScreen> {
               children: [
                 buildTrendingCard("Gym Centres", "assets/image/unsplash_YxCrQm9XNgg.png"),
                 const SizedBox(width: 12),
-                buildTrendingCard(
-                    "Trainer centres", "assets/image/unsplash_YxCrQm9XNgg.png"),
+                buildTrendingCard("Trainer centres", "assets/image/unsplash_YxCrQm9XNgg.png"),
               ],
             ),
             const SizedBox(height: 20),
-            // Section: Discover
-            const Text(
-              "Discover",
+             Text(
+              AppLocalizations.of(context)!.discover,
               style: TextStyle(color: Colors.white, fontSize: 18),
             ),
             const SizedBox(height: 8),
@@ -195,12 +170,12 @@ class _HomeScreenState extends State<HomeScreen> {
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                const Text(
-                  "All payments from trainees",
+                Text(
+                  AppLocalizations.of(context)!.paymentsFromTrainees,
                   style: TextStyle(color: Colors.white, fontSize: 18),
                 ),
                 Text(
-                  "See all",
+                  AppLocalizations.of(context)!.seeAll,
                   style: TextStyle(color: ColorManager.primaryColor),
                 ),
               ],
@@ -214,53 +189,6 @@ class _HomeScreenState extends State<HomeScreen> {
                 imagePath: dept['imagePath'] ?? '',
               ),
             )),
-            SizedBox(height: 20),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                const Text(
-                  "All payments from trainees",
-                  style: TextStyle(color: Colors.white, fontSize: 18),
-                ),
-                Text(
-                  "See all",
-                  style: TextStyle(color: ColorManager.primaryColor),
-                ),
-              ],
-            ),
-            ...departments.map((dept) => Padding(
-              padding: const EdgeInsets.only(bottom: 10),
-              child: buildPaymentsSection(
-                text: dept['id'] ?? '',
-                title: dept['name'] ?? '',
-                subtitle: dept['description'] ?? '',
-                imagePath: dept['imagePath'] ?? '',
-              ),
-            )),
-            SizedBox(height: 20),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                const Text(
-                  "All payments from trainees",
-                  style: TextStyle(color: Colors.white, fontSize: 18),
-                ),
-                Text(
-                  "See all",
-                  style: TextStyle(color: ColorManager.primaryColor),
-                ),
-              ],
-            ),
-            ...departments.map((dept) => Padding(
-              padding: const EdgeInsets.only(bottom: 10),
-              child: buildPaymentsSection(
-                text: dept['id'] ?? '',
-                title: dept['name'] ?? '',
-                subtitle: dept['description'] ?? '',
-                imagePath: dept['imagePath'] ?? '',
-              ),
-            )),
-
           ],
         ),
       ),

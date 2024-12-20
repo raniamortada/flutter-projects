@@ -3,6 +3,7 @@ import 'package:gym_app/utills/colors.dart';
 import 'package:gym_app/utills/components.dart';
 import 'package:gym_app/view/auth/forgot_password.dart';
 import 'package:gym_app/view/auth/verification.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class LoginScreen extends StatefulWidget {
   @override
@@ -12,6 +13,8 @@ class LoginScreen extends StatefulWidget {
 class _LoginScreenState extends State<LoginScreen> {
   @override
   Widget build(BuildContext context) {
+    final localizations = AppLocalizations.of(context)!;
+
     return Scaffold(
       body: Stack(
         children: [
@@ -20,11 +23,9 @@ class _LoginScreenState extends State<LoginScreen> {
             decoration: BoxDecoration(
               image: DecorationImage(
                 image: AssetImage('assets/image/Background (7).png'),
-
               ),
             ),
           ),
-
 
           Padding(
             padding: const EdgeInsets.all(16.0),
@@ -34,12 +35,12 @@ class _LoginScreenState extends State<LoginScreen> {
               children: [
 
                 Text(
-                  'WELCOME BACK,\n SARAH',
+                  '${localizations.welcomeBack},\n SARAH',
                   style: TextStyle(
-                    color: Colors.white,
-                    fontSize: 36,
-                    fontWeight: FontWeight.w700,
-                    fontFamily: "Integral CF"
+                      color: Colors.white,
+                      fontSize: 36,
+                      fontWeight: FontWeight.w700,
+                      fontFamily: "Integral CF"
                   ),
                 ),
 
@@ -49,11 +50,11 @@ class _LoginScreenState extends State<LoginScreen> {
                   children: [
 
                     InputFieldWidget(
-                      label:"Email",
+                      label: localizations.email,
                     ),
                     const SizedBox(height: 20),
                     InputFieldWidget(
-                      label: "password",
+                      label: localizations.password,
                       isPassword: true,
                     ),
                   ],
@@ -68,12 +69,11 @@ class _LoginScreenState extends State<LoginScreen> {
                         context,
                         MaterialPageRoute(builder: (context) => ForgotPassword()),
                       );
-
                     },
                     child: Text(
-                      'Forgot Password',
+                      localizations.forgotPassword,
                       style: TextStyle(color: ColorManager.primaryColor,
-                          fontSize: 16,fontWeight: FontWeight.w700),
+                          fontSize: 16, fontWeight: FontWeight.w700),
                     ),
                   ),
                 ),
@@ -81,38 +81,37 @@ class _LoginScreenState extends State<LoginScreen> {
 
                 Row(mainAxisAlignment: MainAxisAlignment.end,
                   children: [
-                    buildCustomButton(borderRadius: 48,
+                    buildCustomButton(
+                        borderRadius: 48,
                         svgPath: "assets/SVG/images/chevron-right.svg",
                         width: 120,
                         height: 50,
                         context: context,
-                        text:"Next",
-                        //AppLocalizations.of(context)!.getStarted,
+                        text: localizations.next,
                         backgroundColor: ColorManager.primaryColor,
-                        onPressed: (){
+                        onPressed: () {
                           Navigator.pushReplacement(
                             context,
                             MaterialPageRoute(builder: (context) => VerificationScreen()),
                           );
-                        }),
-
+                        }
+                    ),
                   ],
                 ),
                 SizedBox(height: 16),
-                // رابط إنشاء حساب
+
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     Text(
-                      "Didn't have any account? ",
+                      localizations.noAccount,
                       style: TextStyle(color: Colors.white),
                     ),
                     GestureDetector(
                       onTap: () {
-
                       },
                       child: Text(
-                        'Sign Up here',
+                        localizations.signUpHere,
                         style: TextStyle(
                           color: ColorManager.primaryColor,
                           fontWeight: FontWeight.bold,
@@ -130,5 +129,3 @@ class _LoginScreenState extends State<LoginScreen> {
     );
   }
 }
-
-

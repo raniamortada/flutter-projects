@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:gym_app/utills/colors.dart';
 import 'package:gym_app/utills/components.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class TrainerDetailScreen extends StatelessWidget {
   const TrainerDetailScreen({super.key});
@@ -10,7 +11,6 @@ class TrainerDetailScreen extends StatelessWidget {
     return Scaffold(
       body: Column(
         children: [
-
           SizedBox(
             height: 250,
             child: Stack(
@@ -28,7 +28,10 @@ class TrainerDetailScreen extends StatelessWidget {
                       color: Colors.black45,
                       borderRadius: BorderRadius.circular(12),
                     ),
-                    child: const Icon(Icons.arrow_back, color: Colors.white),
+                    child: IconButton(
+                      icon: const Icon(Icons.arrow_back, color: Colors.white),
+                      onPressed: () => Navigator.pop(context),
+                    ),
                   ),
                 ),
               ],
@@ -38,7 +41,7 @@ class TrainerDetailScreen extends StatelessWidget {
             child: SingleChildScrollView(
               child: Container(
                 padding: const EdgeInsets.all(16),
-                decoration:  BoxDecoration(
+                decoration: BoxDecoration(
                   color: ColorManager.black2,
                   borderRadius: BorderRadius.only(
                     topLeft: Radius.circular(24),
@@ -51,11 +54,11 @@ class TrainerDetailScreen extends StatelessWidget {
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-                        const Column(
+                        Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             Text(
-                              "Jennifer James",
+                              "Jennifer James", // يمكنك تعديل هذا النص باستخدام الترجمة إذا أردت
                               style: TextStyle(
                                 color: Colors.white,
                                 fontSize: 22,
@@ -64,7 +67,7 @@ class TrainerDetailScreen extends StatelessWidget {
                             ),
                             SizedBox(height: 4),
                             Text(
-                              "Functional Strength",
+                              AppLocalizations.of(context)!.functionalStrength, // الترجمة
                               style: TextStyle(
                                 color: Colors.orange,
                                 fontSize: 16,
@@ -86,14 +89,14 @@ class TrainerDetailScreen extends StatelessWidget {
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                       children: [
-                        buildDetailItem("6", "Experience"),
-                        buildDetailItem("46", "Completed"),
-                        buildDetailItem("25", "Active Clients"),
+                        buildDetailItem("6", AppLocalizations.of(context)!.experience), // الترجمة
+                        buildDetailItem("46", AppLocalizations.of(context)!.completed), // الترجمة
+                        buildDetailItem("25", AppLocalizations.of(context)!.activeClients), // الترجمة
                       ],
                     ),
                     const SizedBox(height: 24),
-                    const Text(
-                      "Reviews",
+                    Text(
+                      AppLocalizations.of(context)!.reviews, // الترجمة
                       style: TextStyle(
                         color: Colors.white,
                         fontSize: 20,
@@ -123,7 +126,7 @@ class TrainerDetailScreen extends StatelessWidget {
                             borderRadius: BorderRadius.circular(12),
                           ),
                           child: const Text(
-                            "174",
+                            "174", // يمكنك استبداله بالقيمة المترجمة
                             style: TextStyle(
                               color: Colors.white,
                               fontWeight: FontWeight.bold,
@@ -132,7 +135,7 @@ class TrainerDetailScreen extends StatelessWidget {
                         ),
                         const Spacer(),
                         Text(
-                          "Read all reviews",
+                          AppLocalizations.of(context)!.readAllReviews, // الترجمة
                           style: TextStyle(
                             color: Colors.orange.shade400,
                             fontSize: 14,
@@ -141,7 +144,6 @@ class TrainerDetailScreen extends StatelessWidget {
                       ],
                     ),
                     const SizedBox(height: 24),
-
                     buildReviewItem(
                       "Sharon Jem",
                       "4.8",
@@ -150,13 +152,15 @@ class TrainerDetailScreen extends StatelessWidget {
                     ),
                     const SizedBox(height: 90),
                     Center(
-                      child: buildCustomButton(context: context,
-                          width:326,
-                          height: 50,
-                          text: 'Book an Appointment',
-                          borderRadius: 24,
-                          backgroundColor: ColorManager.primaryColor,
-                          onPressed: () {  }),
+                      child: buildCustomButton(
+                        context: context,
+                        width: 326,
+                        height: 50,
+                        text: AppLocalizations.of(context)!.bookAppointment, // الترجمة
+                        borderRadius: 24,
+                        backgroundColor: ColorManager.primaryColor,
+                        onPressed: () { },
+                      ),
                     ),
                   ],
                 ),
@@ -167,6 +171,4 @@ class TrainerDetailScreen extends StatelessWidget {
       ),
     );
   }
-
-
 }

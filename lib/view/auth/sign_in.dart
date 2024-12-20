@@ -5,33 +5,31 @@ import 'package:gym_app/view/auth/forgot_password.dart';
 import 'package:gym_app/view/auth/login_screen.dart';
 import 'package:gym_app/view/sign_up/sign_up_screen.dart';
 import 'package:gym_app/view/subscription/subscription_screen.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class SignIn extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    final localizations = AppLocalizations.of(context)!;
+
     return Scaffold(
       body: Stack(
         children: [
-
           Container(
             height: 460,
             width: double.infinity,
             decoration: BoxDecoration(
               image: DecorationImage(
                 image: AssetImage('assets/image/Background (7).png'),
-
               ),
             ),
           ),
-
-
           Padding(
             padding: const EdgeInsets.all(16.0),
             child: Column(
               mainAxisAlignment: MainAxisAlignment.end,
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
-
                 Text(
                   'SYSTEM GYM',
                   style: TextStyle(
@@ -41,24 +39,20 @@ class SignIn extends StatelessWidget {
                   ),
                 ),
                 SizedBox(height: 32),
-
                 Column(
                   children: [
-
                     CustomTextField(
-                      hintText: 'Email',
+                      hintText: localizations.email,
                       prefixIcon: Icons.email,
                     ),
                     SizedBox(height: 16),
-
                     CustomTextField(
-                      hintText: 'Password',
+                      hintText: localizations.password,
                       prefixIcon: Icons.lock,
                       isPassword: true,
                     ),
                   ],
                 ),
-
                 SizedBox(height: 10),
                 Align(
                   alignment: Alignment.center,
@@ -70,31 +64,29 @@ class SignIn extends StatelessWidget {
                       );
                     },
                     child: Text(
-                      'Forgot Password',
-                      style: TextStyle(color: Colors.white,
-                        fontSize: 16,fontWeight: FontWeight.w700),
+                      localizations.forgotPassword,
+                      style: TextStyle(color: Colors.white, fontSize: 16, fontWeight: FontWeight.w700),
                     ),
                   ),
                 ),
                 SizedBox(height: 16),
                 buildCustomButton(
-                    context: context,
-                    text:"Sign in",
-                    //AppLocalizations.of(context)!.getStarted,
-                    backgroundColor: ColorManager.primaryColor,
-                    onPressed: (){
-                      Navigator.pushReplacement(
-                        context,
-                        MaterialPageRoute(builder: (context) => LoginScreen()),
-                      );
-                    }),
+                  context: context,
+                  text: localizations.signIn,
+                  backgroundColor: ColorManager.primaryColor,
+                  onPressed: () {
+                    Navigator.pushReplacement(
+                      context,
+                      MaterialPageRoute(builder: (context) => LoginScreen()),
+                    );
+                  },
+                ),
                 SizedBox(height: 16),
-
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     Text(
-                      "Didn't have any account? ",
+                      localizations.noAccount,
                       style: TextStyle(color: Colors.white),
                     ),
                     GestureDetector(
@@ -103,10 +95,9 @@ class SignIn extends StatelessWidget {
                           context,
                           MaterialPageRoute(builder: (context) => SignUpScreen()),
                         );
-
                       },
                       child: Text(
-                        'Sign Up here',
+                        localizations.signUpHere,
                         style: TextStyle(
                           color: ColorManager.primaryColor,
                           fontWeight: FontWeight.bold,
@@ -124,5 +115,3 @@ class SignIn extends StatelessWidget {
     );
   }
 }
-
-

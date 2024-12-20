@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:gym_app/utills/colors.dart';
 import 'package:gym_app/utills/components.dart';
 import 'package:gym_app/view/auth/login_screen.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart'; // Add this import
 
 class SubscriptionScreen extends StatefulWidget {
   @override
@@ -19,101 +20,97 @@ class _SubscriptionScreenState extends State<SubscriptionScreen> {
             decoration: BoxDecoration(
               image: DecorationImage(
                 image: AssetImage('assets/image/Background.png'),
-
               ),
             ),
           ),
-
           Container(
             color: Colors.black.withOpacity(0.6),
           ),
-
           Padding(
             padding: const EdgeInsets.all(16.0),
             child: Column(
               mainAxisAlignment: MainAxisAlignment.end,
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
-
                 Text(
-                  'Select the desired \n subscription method',
-                  style: TextStyle(
+                  AppLocalizations.of(context)!.selectSubscriptionMethod, // Use translated string
+                  style: const TextStyle(
                     color: Colors.white,
                     fontSize: 32,
                     fontWeight: FontWeight.bold,
                   ),
                 ),
-                SizedBox(height: 70,),
+                const SizedBox(height: 70),
                 Center(
                   child: buildCustomButton(
                     width: 253,
                     height: 50,
                     borderRadius: 24,
                     svgPath: "assets/SVG/images/chevron-right.svg",
-                      context: context,
-                      text:"7 days free trial",
-                      //AppLocalizations.of(context)!.getStarted,
-                      backgroundColor: ColorManager.primaryColor,
-                      onPressed: (){
-                        Navigator.pushReplacement(
-                          context,
-                          MaterialPageRoute(builder: (context) => LoginScreen()),
-                        );
-                      }),
+                    context: context,
+                    text: AppLocalizations.of(context)!.sevenDaysFreeTrial, // Use translated string
+                    backgroundColor: ColorManager.primaryColor,
+                    onPressed: () {
+                      Navigator.pushReplacement(
+                        context,
+                        MaterialPageRoute(builder: (context) => LoginScreen()),
+                      );
+                    },
+                  ),
                 ),
-                SizedBox(height: 30,),
+                const SizedBox(height: 30),
                 Center(
                   child: buildCustomButton(
                     width: 253,
                     height: 50,
                     borderRadius: 24,
                     svgPath: "assets/SVG/images/chevron-right.svg",
-                      context: context,
-                      text:"I’m Gym Monthly ",
-                      //AppLocalizations.of(context)!.getStarted,
-                      backgroundColor: ColorManager.primaryColor,
-                      onPressed: (){
-                        Navigator.pushReplacement(
-                          context,
-                          MaterialPageRoute(builder: (context) => LoginScreen()),
-                        );
-                      }),
+                    context: context,
+                    text: AppLocalizations.of(context)!.gymMonthly, // Use translated string
+                    backgroundColor: ColorManager.primaryColor,
+                    onPressed: () {
+                      Navigator.pushReplacement(
+                        context,
+                        MaterialPageRoute(builder: (context) => LoginScreen()),
+                      );
+                    },
+                  ),
                 ),
-                SizedBox(height: 30,),
+                const SizedBox(height: 30),
                 Center(
                   child: buildCustomButton(
                     width: 253,
                     height: 50,
                     borderRadius: 24,
                     svgPath: "assets/SVG/images/chevron-right.svg",
-                      context: context,
-                      text:"I’m Gym Annual",
-                      //AppLocalizations.of(context)!.getStarted,
-                      backgroundColor: ColorManager.primaryColor,
-                      onPressed: (){
-                        Navigator.pushReplacement(
-                          context,
-                          MaterialPageRoute(builder: (context) => LoginScreen()),
-                        );
-                      }),
+                    context: context,
+                    text: AppLocalizations.of(context)!.gymAnnual, // Use translated string
+                    backgroundColor: ColorManager.primaryColor,
+                    onPressed: () {
+                      Navigator.pushReplacement(
+                        context,
+                        MaterialPageRoute(builder: (context) => LoginScreen()),
+                      );
+                    },
+                  ),
                 ),
-                SizedBox(height: 70,),
+                const SizedBox(height: 70),
                 Center(
                   child: buildCustomButton(
                     width: 253,
                     height: 50,
                     borderRadius: 24,
                     svgPath: "assets/SVG/images/chevron-right.svg",
-                      context: context,
-                      text:"Single subscription",
-                      //AppLocalizations.of(context)!.getStarted,
-                      backgroundColor: ColorManager.listTitleColor,
-                      onPressed: (){
-                        Navigator.pushReplacement(
-                          context,
-                          MaterialPageRoute(builder: (context) => LoginScreen()),
-                        );
-                      }),
+                    context: context,
+                    text: AppLocalizations.of(context)!.singleSubscription, // Use translated string
+                    backgroundColor: ColorManager.listTitleColor,
+                    onPressed: () {
+                      Navigator.pushReplacement(
+                        context,
+                        MaterialPageRoute(builder: (context) => LoginScreen()),
+                      );
+                    },
+                  ),
                 ),
               ],
             ),
@@ -123,5 +120,3 @@ class _SubscriptionScreenState extends State<SubscriptionScreen> {
     );
   }
 }
-
-

@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:gym_app/utills/colors.dart';
 import 'package:gym_app/utills/components.dart';
-
 import '../weight_selection/weight_selection_screen.dart';
-
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class AgeSelectionScreen extends StatefulWidget {
   @override
@@ -15,6 +14,8 @@ class _AgeSelectionScreenState extends State<AgeSelectionScreen> {
 
   @override
   Widget build(BuildContext context) {
+    final localizations = AppLocalizations.of(context)!;
+
     return Scaffold(
       body: SafeArea(
         child: Padding(
@@ -23,7 +24,7 @@ class _AgeSelectionScreenState extends State<AgeSelectionScreen> {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Text(
-                "HOW OLD ARE YOU ?",
+                localizations.howOldAreYou,
                 style: TextStyle(
                   color: Colors.white,
                   fontSize: 20,
@@ -33,7 +34,7 @@ class _AgeSelectionScreenState extends State<AgeSelectionScreen> {
               ),
               SizedBox(height: 8),
               Text(
-                "THIS HELPS US CREATE YOUR PERSONALIZED PLAN",
+                localizations.thisHelpsUsCreateYourPersonalizedPlan,
                 style: TextStyle(
                   color: Colors.white,
                   fontSize: 10,
@@ -83,8 +84,8 @@ class _AgeSelectionScreenState extends State<AgeSelectionScreen> {
                     width: 54,
                     height: 54,
                     decoration: BoxDecoration(
-                      color: Color(0xff3A3A3C),
-                      borderRadius: BorderRadius.circular(54)
+                        color: Color(0xff3A3A3C),
+                        borderRadius: BorderRadius.circular(54)
                     ),
                     child: IconButton(
                       onPressed: () {
@@ -97,21 +98,21 @@ class _AgeSelectionScreenState extends State<AgeSelectionScreen> {
 
                   Row(mainAxisAlignment: MainAxisAlignment.end,
                     children: [
-                      buildCustomButton(borderRadius: 48,
+                      buildCustomButton(
+                          borderRadius: 48,
                           svgPath: "assets/SVG/images/chevron-right.svg",
                           width: 120,
                           height: 50,
                           context: context,
-                          text:"Next",
-                          //AppLocalizations.of(context)!.getStarted,
+                          text: localizations.next,
                           backgroundColor: ColorManager.primaryColor,
-                          onPressed: (){
+                          onPressed: () {
                             Navigator.pushReplacement(
                               context,
                               MaterialPageRoute(builder: (context) => WeightSelectionScreen()),
                             );
-                          }),
-
+                          }
+                      ),
                     ],
                   )
                 ],

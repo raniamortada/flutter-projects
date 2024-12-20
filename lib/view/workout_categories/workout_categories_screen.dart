@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:gym_app/utills/components.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class WorkoutCategoriesScreen extends StatefulWidget {
   @override
@@ -40,8 +41,8 @@ class _WorkoutCategoriesScreenState extends State<WorkoutCategoriesScreen> {
           const SizedBox(height: 40),
           Center(
             child: Text(
-              "Meal Categories",
-              style: TextStyle(
+              AppLocalizations.of(context)!.mealCategories,
+              style: const TextStyle(
                 fontSize: 20,
                 fontWeight: FontWeight.w600,
                 fontFamily: "Roboto",
@@ -52,7 +53,11 @@ class _WorkoutCategoriesScreenState extends State<WorkoutCategoriesScreen> {
           const SizedBox(height: 20),
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
-            children: ["Breakfast", "Lunch", "Dinner"].map((meal) {
+            children: [
+              AppLocalizations.of(context)!.breakfast,
+              AppLocalizations.of(context)!.lunch,
+              AppLocalizations.of(context)!.dinner,
+            ].map((meal) {
               return GestureDetector(
                 onTap: () {
                   setState(() {

@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:gym_app/utills/colors.dart';
 import 'package:gym_app/utills/components.dart';
 import 'package:gym_app/view/height/height_screen.dart';
-
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class WeightSelectionScreen extends StatefulWidget {
   @override
@@ -15,7 +15,6 @@ class _WeightSelectionScreenState extends State<WeightSelectionScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-
       body: SafeArea(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -24,7 +23,7 @@ class _WeightSelectionScreenState extends State<WeightSelectionScreen> {
             Column(
               children: [
                 Text(
-                  "What's your weight?",
+                  AppLocalizations.of(context)!.whatsYourWeight,
                   style: TextStyle(
                     color: Colors.white,
                     fontSize: 20,
@@ -33,7 +32,7 @@ class _WeightSelectionScreenState extends State<WeightSelectionScreen> {
                 ),
                 SizedBox(height: 8),
                 Text(
-                  "You can always change this later",
+                  AppLocalizations.of(context)!.changeLater,
                   style: TextStyle(
                     color: Colors.white,
                     fontSize: 12,
@@ -75,7 +74,6 @@ class _WeightSelectionScreenState extends State<WeightSelectionScreen> {
                       );
                     }),
                   ),
-                  // Slider
                   Slider(
                     value: _weight,
                     min: 30,
@@ -92,7 +90,6 @@ class _WeightSelectionScreenState extends State<WeightSelectionScreen> {
               ),
             ),
             SizedBox(height: 200),
-
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
@@ -111,24 +108,22 @@ class _WeightSelectionScreenState extends State<WeightSelectionScreen> {
                     iconSize: 32,
                   ),
                 ),
-
-                Row(mainAxisAlignment: MainAxisAlignment.end,
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.end,
                   children: [
                     buildCustomButton(borderRadius: 48,
                         svgPath: "assets/SVG/images/chevron-right.svg",
                         width: 120,
                         height: 50,
                         context: context,
-                        text:"Next",
-                        //AppLocalizations.of(context)!.getStarted,
+                        text: AppLocalizations.of(context)!.next,
                         backgroundColor: ColorManager.primaryColor,
-                        onPressed: (){
+                        onPressed: () {
                           Navigator.pushReplacement(
                             context,
                             MaterialPageRoute(builder: (context) => HeightScreen()),
                           );
                         }),
-
                   ],
                 )
               ],

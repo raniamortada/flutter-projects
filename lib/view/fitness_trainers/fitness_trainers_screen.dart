@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:gym_app/utills/colors.dart';
 import 'package:gym_app/utills/components.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class FitnessTrainersScreen extends StatefulWidget {
   const FitnessTrainersScreen({Key? key}) : super(key: key);
@@ -32,45 +33,25 @@ class _FitnessTrainersScreenState extends State<FitnessTrainersScreen> {
       "rating": "4.8",
       "imagePath": "assets/image/Image (2).png",
     },
-    {
-      "name": "John Smith",
-      "specialty": "Strength Training",
-      "experience": "7 years experience",
-      "rating": "4.8",
-      "imagePath": "assets/image/Image (2).png",
-    },
-    {
-      "name": "John Smith",
-      "specialty": "Strength Training",
-      "experience": "7 years experience",
-      "rating": "4.8",
-      "imagePath": "assets/image/Image (2).png",
-    },
-    {
-      "name": "John Smith",
-      "specialty": "Strength Training",
-      "experience": "7 years experience",
-      "rating": "4.8",
-      "imagePath": "assets/image/Image (2).png",
-    },
   ];
 
   @override
   Widget build(BuildContext context) {
+    final localizations = AppLocalizations.of(context)!;
+
     return SafeArea(
       child: Scaffold(
         body: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 20.0),
           child: Column(
             children: [
-              // Header Row
               Row(
                 children: [
                   buildBackButton(context),
                   const Spacer(),
-                  const Text(
-                    "FITNESS TRAINERS",
-                    style: TextStyle(
+                  Text(
+                    localizations.fitnessTrainers,
+                    style: const TextStyle(
                       fontSize: 20,
                       fontWeight: FontWeight.bold,
                       fontFamily: "Roboto",
@@ -94,7 +75,6 @@ class _FitnessTrainersScreenState extends State<FitnessTrainersScreen> {
                       rating: trainer["rating"]!,
                       imagePath: trainer["imagePath"]!,
                       onArrowPressed: () {
-
                       },
                     );
                   },
@@ -106,6 +86,4 @@ class _FitnessTrainersScreenState extends State<FitnessTrainersScreen> {
       ),
     );
   }
-
-
 }

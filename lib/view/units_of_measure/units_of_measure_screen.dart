@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:gym_app/utills/colors.dart';
 import 'package:gym_app/utills/components.dart';
-
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class UnitsOfMeasureScreen extends StatefulWidget {
   @override
@@ -17,18 +17,16 @@ class _UnitsOfMeasureScreenState extends State<UnitsOfMeasureScreen> {
       child: Scaffold(
         backgroundColor: ColorManager.black2,
         body: Padding(
-          padding: const EdgeInsets.symmetric(
-            horizontal: 16,vertical: 20
-          ),
+          padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 20),
           child: Column(
             children: [
               Row(
                 children: [
                   buildBackButton(context),
                   const Spacer(),
-                  const Text(
-                    "UNITS OF MEASURE",
-                    style: TextStyle(
+                  Text(
+                    AppLocalizations.of(context)!.unitsOfMeasure,
+                    style: const TextStyle(
                       fontSize: 20,
                       fontWeight: FontWeight.bold,
                       fontFamily: "Roboto",
@@ -38,10 +36,10 @@ class _UnitsOfMeasureScreenState extends State<UnitsOfMeasureScreen> {
                   const Spacer(),
                 ],
               ),
-              SizedBox(height: 40,),
-              buildUnitOption('Metric'),
-              Divider(color: Colors.grey[800]),
-              buildUnitOption('Imperial'),
+              const SizedBox(height: 40),
+              buildUnitOption(AppLocalizations.of(context)!.metric),
+               Divider(color: ColorManager.black),
+              buildUnitOption(AppLocalizations.of(context)!.imperial),
             ],
           ),
         ),
@@ -53,7 +51,7 @@ class _UnitsOfMeasureScreenState extends State<UnitsOfMeasureScreen> {
     return ListTile(
       title: Text(
         unit,
-        style: TextStyle(
+        style: const TextStyle(
           color: Colors.white,
           fontSize: 18,
         ),

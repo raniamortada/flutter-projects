@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:gym_app/utills/colors.dart';
 import 'package:gym_app/utills/components.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class ModifyClubSettingsScreen extends StatefulWidget {
   const ModifyClubSettingsScreen({super.key});
@@ -40,8 +41,8 @@ class _ModifyClubSettingsScreenState extends State<ModifyClubSettingsScreen> {
               children: [
                 Header(
                   context: context,
-                  title: "Modify club",
-                  text: 'settings',
+                  title: AppLocalizations.of(context)!.modifyClub,
+                  text: AppLocalizations.of(context)!.settings,
                 ),
                 const SizedBox(height: 10),
                 buildImageWithIcon(
@@ -56,32 +57,32 @@ class _ModifyClubSettingsScreenState extends State<ModifyClubSettingsScreen> {
                   },
                 ),
                 buildTextFormField(
-                  "Club name",
+                  AppLocalizations.of(context)!.clubName,
                   nameController,
                   svgPath: "assets/SVG/images/Tick Square.svg",
                 ),
                 buildTextFormField(
-                  "Commercial registration number",
+                  AppLocalizations.of(context)!.commercialRegistration,
                   nameController,
                   svgPath: "assets/SVG/images/Tick Square.svg",
                 ),
                 buildTextFormField(
-                  "phone number",
+                  AppLocalizations.of(context)!.phoneNumber,
                   nameController,
                   svgPath: "assets/SVG/images/Tick Square.svg",
                 ),
                 buildTextFormField(
-                  "E-mail",
+                  AppLocalizations.of(context)!.email,
                   nameController,
                   svgPath: "assets/SVG/images/Tick Square.svg",
                 ),
                 buildTextFieldMaxLin(
-                  labelText: 'Description of the club',
+                  labelText: AppLocalizations.of(context)!.clubDescription,
                   descriptionController: nameController,
                   svgPath: "assets/SVG/images/On.svg",
                 ),
                 ...fields.skip(4).map((field) => buildTextFormField(
-                  field["label"]!,
+                  AppLocalizations.of(context)!.clubName,
                   nameController,
                   svgPath: field["svgPath"]!,
                 )),
@@ -90,7 +91,7 @@ class _ModifyClubSettingsScreenState extends State<ModifyClubSettingsScreen> {
                   context: context,
                   width: 326,
                   height: 50,
-                  text: 'Create now',
+                  text: AppLocalizations.of(context)!.createNow,
                   backgroundColor: ColorManager.primaryColor,
                   onPressed: () {},
                 ),

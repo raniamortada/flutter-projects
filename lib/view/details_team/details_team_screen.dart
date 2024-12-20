@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:gym_app/utills/colors.dart';
 import 'package:gym_app/utills/components.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class DetailsTeamScreen extends StatefulWidget {
   const DetailsTeamScreen({super.key});
@@ -47,6 +48,8 @@ class _DetailsTeamScreenState extends State<DetailsTeamScreen> {
 
   @override
   Widget build(BuildContext context) {
+    final localizations = AppLocalizations.of(context)!;
+
     return SafeArea(
       child: Scaffold(
         body: SingleChildScrollView(
@@ -56,8 +59,8 @@ class _DetailsTeamScreenState extends State<DetailsTeamScreen> {
               children: [
                 Header(
                   context: context,
-                  title: "Details",
-                  text: 'Team',
+                  title: localizations.details,
+                  text: localizations.team,
                 ),
                 const SizedBox(height: 40),
                 ...departments.map((dept) => Padding(
@@ -77,7 +80,7 @@ class _DetailsTeamScreenState extends State<DetailsTeamScreen> {
                       return Padding(
                         padding: const EdgeInsets.only(right: 12.0),
                         child: ProfileCard(
-                          name: "Stella ${index + 1}",
+                          name: "${localizations.stella} ${index + 1}",
                           imagePath: "assets/image/unsplash_rIIeOYIJ0IU.png",
                           isVerified: true,
                         ),
@@ -86,10 +89,10 @@ class _DetailsTeamScreenState extends State<DetailsTeamScreen> {
                   ),
                 ),
                 buildPaymentsSection(
-                  text:  'id',
-                  title: 'name',
-                  subtitle: 'description',
-                  imagePath:  'assets/image/man-training-with-weight-lifting.png',
+                  text: localizations.id,
+                  title: localizations.name,
+                  subtitle: localizations.description,
+                  imagePath: 'assets/image/man-training-with-weight-lifting.png',
                 ),
               ],
             ),

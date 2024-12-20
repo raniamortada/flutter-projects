@@ -7,6 +7,7 @@ import 'package:gym_app/controller/languag_cubit/loce_cubit.dart';
 import '../shared/local/cach_helper.dart';
 import 'colors.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 Widget buildCustomButton({
   required BuildContext context,
@@ -357,7 +358,8 @@ Widget buildPieChart() {
     ),
   );
 }
-Widget buildHeader() {
+
+Widget buildHeader(BuildContext context) {
   return Row(
     mainAxisAlignment: MainAxisAlignment.spaceBetween,
     children: [
@@ -367,18 +369,18 @@ Widget buildHeader() {
           Row(
             children: [
               Text(
-                'Hello',
+                AppLocalizations.of(context)!.hello, // الترجمة
                 style: TextStyle(color: Colors.white, fontSize: 16),
               ),
               SizedBox(width: 3),
               Text(
-                'Admin',
+                AppLocalizations.of(context)!.admin, // الترجمة
                 style: TextStyle(color: ColorManager.primaryColor, fontSize: 16),
               ),
             ],
           ),
           Text(
-            'Manage your club today!',
+            AppLocalizations.of(context)!.manageYourClub, // الترجمة
             style: TextStyle(color: Colors.white, fontSize: 20, fontWeight: FontWeight.w600),
           ),
         ],
@@ -386,6 +388,7 @@ Widget buildHeader() {
     ],
   );
 }
+
 
 
 

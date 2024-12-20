@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:gym_app/utills/colors.dart';
 import 'package:gym_app/utills/components.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class WriteReviewScreen extends StatefulWidget {
   @override
@@ -24,8 +25,8 @@ class _WriteReviewScreenState extends State<WriteReviewScreen> {
                 children: [
                   buildBackButton(context),
                   const Spacer(),
-                  const Text(
-                    "WRITE A REVIEW",
+                  Text(
+                    AppLocalizations.of(context)!.writeReview,
                     style: TextStyle(
                       fontSize: 20,
                       fontWeight: FontWeight.bold,
@@ -36,19 +37,21 @@ class _WriteReviewScreenState extends State<WriteReviewScreen> {
                   const Spacer(),
                 ],
               ),
-              SizedBox(height: 40,),
+              SizedBox(height: 40),
               _buildRatingBar(),
               SizedBox(height: 20),
               _buildReviewInput(),
               SizedBox(height: 30),
               Center(
-                child: buildCustomButton(context: context,
-                    width:263,
-                    height: 50,
-                    text: 'Send',
-                    borderRadius: 24,
-                    backgroundColor: ColorManager.primaryColor,
-                    onPressed: () {  }),
+                child: buildCustomButton(
+                  context: context,
+                  width: 263,
+                  height: 50,
+                  text: AppLocalizations.of(context)!.send,
+                  borderRadius: 24,
+                  backgroundColor: ColorManager.primaryColor,
+                  onPressed: () { },
+                ),
               ),
             ],
           ),
@@ -62,7 +65,7 @@ class _WriteReviewScreenState extends State<WriteReviewScreen> {
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
         Text(
-          "Rating",
+          AppLocalizations.of(context)!.rating,
           style: TextStyle(
               color: Colors.white, fontSize: 16, fontWeight: FontWeight.bold),
         ),
@@ -103,7 +106,7 @@ class _WriteReviewScreenState extends State<WriteReviewScreen> {
         keyboardType: TextInputType.multiline,
         style: TextStyle(color: Colors.white, fontSize: 14),
         decoration: InputDecoration(
-          hintText: "Review (Optional)",
+          hintText: AppLocalizations.of(context)!.reviewHint,
           hintStyle: TextStyle(color: Colors.white54, fontSize: 14),
           border: InputBorder.none,
           contentPadding: EdgeInsets.all(12),
@@ -111,5 +114,4 @@ class _WriteReviewScreenState extends State<WriteReviewScreen> {
       ),
     );
   }
-
 }

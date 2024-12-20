@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:gym_app/utills/colors.dart';
 import 'package:gym_app/utills/components.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class AddingDietScreen extends StatefulWidget {
   const AddingDietScreen({super.key});
@@ -12,8 +13,11 @@ class AddingDietScreen extends StatefulWidget {
 
 class _AddingDietScreenState extends State<AddingDietScreen> {
   TextEditingController nameController = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
+    final localizations = AppLocalizations.of(context)!;
+
     return SafeArea(
       child: Scaffold(
         body: SingleChildScrollView(
@@ -23,8 +27,8 @@ class _AddingDietScreenState extends State<AddingDietScreen> {
               children: [
                 Header(
                   context: context,
-                  title: "Adding ",
-                  text: ' a diet',
+                  title: localizations.adding,
+                  text: localizations.diet,
                 ),
                 const SizedBox(height: 10),
                 buildImageWithIcon(
@@ -35,44 +39,55 @@ class _AddingDietScreenState extends State<AddingDietScreen> {
                   icon: Icons.camera_alt,
                   iconColor: Colors.white,
                   onIconTap: () {
-                    print("Camera icon tapped!");
+                    print(localizations.cameraTapped);
                   },
                 ),
-                buildTextFormField("#ID",
-                    nameController,
-                    svgPath: "assets/SVG/images/Tick Square.svg"
+                buildTextFormField(
+                  localizations.dietId,
+                  nameController,
+                  svgPath: "assets/SVG/images/Tick Square.svg",
                 ),
                 buildDropdownButton(
-                    hint: "meal rating",
-                    imag: 'assets/SVG/images/Tick Square.svg'),
-                buildTextFormField("name of the diet",
-                    nameController,
-                    svgPath: "assets/SVG/images/Tick Square.svg"
+                  hint: localizations.mealRating,
+                  imag: 'assets/SVG/images/Tick Square.svg',
                 ),
-                buildTextFieldMaxLin( labelText: 'Description of the diet',
-                    descriptionController: nameController,
-                    svgPath: "assets/SVG/images/On.svg"),
-                buildTextFieldMaxLin( labelText: 'components of the diet',
-                    descriptionController: nameController,
-                    svgPath: "assets/SVG/images/On.svg"),
-                buildTextFormField("beginning of the diet time",
-                    nameController,
-                    svgPath: "assets/SVG/images/Tick Square.svg"
+                buildTextFormField(
+                  localizations.dietName,
+                  nameController,
+                  svgPath: "assets/SVG/images/Tick Square.svg",
                 ),
-                buildTextFormField("Diet time is over",
-                    nameController,
-                    svgPath: "assets/SVG/images/Tick Square.svg"
+                buildTextFieldMaxLin(
+                  labelText: localizations.dietDescription,
+                  descriptionController: nameController,
+                  svgPath: "assets/SVG/images/On.svg",
                 ),
-
-                SizedBox(height: 20,),
-                buildCustomButton(context: context,
-                    width:326,
-                    height: 50,
-                    text: 'Create now',
-                    backgroundColor: ColorManager.primaryColor,
-                    onPressed: () {  }),
-                SizedBox(height: 20,)
-
+                buildTextFieldMaxLin(
+                  labelText: localizations.dietComponents,
+                  descriptionController: nameController,
+                  svgPath: "assets/SVG/images/On.svg",
+                ),
+                buildTextFormField(
+                  localizations.dietStartTime,
+                  nameController,
+                  svgPath: "assets/SVG/images/Tick Square.svg",
+                ),
+                buildTextFormField(
+                  localizations.dietEndTime,
+                  nameController,
+                  svgPath: "assets/SVG/images/Tick Square.svg",
+                ),
+                const SizedBox(height: 20),
+                buildCustomButton(
+                  context: context,
+                  width: 326,
+                  height: 50,
+                  text: localizations.createNow,
+                  backgroundColor: ColorManager.primaryColor,
+                  onPressed: () {
+                    print(localizations.createNowTapped);
+                  },
+                ),
+                const SizedBox(height: 20),
               ],
             ),
           ),
@@ -81,4 +96,3 @@ class _AddingDietScreenState extends State<AddingDietScreen> {
     );
   }
 }
-

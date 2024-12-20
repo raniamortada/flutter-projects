@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:gym_app/utills/colors.dart';
 import 'package:gym_app/utills/components.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class AllEmployeeScreen extends StatefulWidget {
   const AllEmployeeScreen({super.key});
@@ -47,6 +48,8 @@ class _AllEmployeeScreenState extends State<AllEmployeeScreen> {
 
   @override
   Widget build(BuildContext context) {
+    final localizations = AppLocalizations.of(context)!;
+
     return SafeArea(
       child: Scaffold(
         body: SingleChildScrollView(
@@ -56,19 +59,21 @@ class _AllEmployeeScreenState extends State<AllEmployeeScreen> {
               children: [
                 Header(
                   context: context,
-                  title: "All ",
-                  text: 'Employee',
+                  title: localizations.all,
+                  text: localizations.employee,
                 ),
                 const SizedBox(height: 40),
-                ...departments.map((dept) => Padding(
-                  padding: const EdgeInsets.only(bottom: 10),
-                  child: buildPaymentsSection(
-                    text: dept['id'] ?? '',
-                    title: dept['name'] ?? '',
-                    subtitle: dept['description'] ?? '',
-                    imagePath: dept['imagePath'] ?? '',
+                ...departments.map(
+                      (dept) => Padding(
+                    padding: const EdgeInsets.only(bottom: 10),
+                    child: buildPaymentsSection(
+                      text: dept['id'] ?? '',
+                      title: dept['name'] ?? '',
+                      subtitle: dept['description'] ?? '',
+                      imagePath: dept['imagePath'] ?? '',
+                    ),
                   ),
-                )),
+                ),
               ],
             ),
           ),

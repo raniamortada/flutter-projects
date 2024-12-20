@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:gym_app/utills/colors.dart';
 import 'package:gym_app/utills/components.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class NewTeamScreen extends StatefulWidget {
   const NewTeamScreen({super.key});
@@ -12,6 +13,7 @@ class NewTeamScreen extends StatefulWidget {
 
 class _NewTeamScreenState extends State<NewTeamScreen> {
   TextEditingController nameController = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -23,8 +25,8 @@ class _NewTeamScreenState extends State<NewTeamScreen> {
               children: [
                 Header(
                   context: context,
-                  title: "new ",
-                  text: 'team',
+                  title: AppLocalizations.of(context)!.newTeam,
+                  text: '',
                 ),
                 const SizedBox(height: 10),
                 buildImageWithIcon(
@@ -38,23 +40,29 @@ class _NewTeamScreenState extends State<NewTeamScreen> {
                     print("Camera icon tapped!");
                   },
                 ),
-                buildTextFormField("#ID",
-                    nameController,
-                    svgPath: "assets/SVG/images/Tick Square.svg"
+                buildTextFormField(
+                  AppLocalizations.of(context)!.id,
+                  nameController,
+                  svgPath: "assets/SVG/images/Tick Square.svg",
                 ),
-                buildTextFormField("Team Name",
-                    nameController,
-                    svgPath: "assets/SVG/images/Tick Square.svg"
+                buildTextFormField(
+                  AppLocalizations.of(context)!.teamName,
+                  nameController,
+                  svgPath: "assets/SVG/images/Tick Square.svg",
                 ),
-                buildTextFieldMaxLin( labelText: 'Team description',
-                    descriptionController: nameController,
-                    svgPath: "assets/SVG/images/On.svg"),
+                buildTextFieldMaxLin(
+                  labelText: AppLocalizations.of(context)!.teamDescription,
+                  descriptionController: nameController,
+                  svgPath: "assets/SVG/images/On.svg",
+                ),
                 buildDropdownButton(
-                    hint: "Team coach",
-                    imag: 'assets/SVG/images/Tick Square.svg'),
+                  hint: AppLocalizations.of(context)!.teamCoach,
+                  imag: 'assets/SVG/images/Tick Square.svg',
+                ),
                 buildDropdownButton(
-                    hint: "Team members",
-                    imag: 'assets/SVG/images/Tick Square.svg'),
+                  hint: AppLocalizations.of(context)!.teamMembers,
+                  imag: 'assets/SVG/images/Tick Square.svg',
+                ),
                 SizedBox(height: 20),
                 SingleChildScrollView(
                   scrollDirection: Axis.horizontal,
@@ -71,16 +79,16 @@ class _NewTeamScreenState extends State<NewTeamScreen> {
                     }),
                   ),
                 ),
-
-                SizedBox(height: 20,),
-                buildCustomButton(context: context,
-                    width:326,
-                    height: 50,
-                    text: 'Create now',
-                    backgroundColor: ColorManager.primaryColor,
-                    onPressed: () {  }),
-                SizedBox(height: 20,)
-
+                SizedBox(height: 20),
+                buildCustomButton(
+                  context: context,
+                  width: 326,
+                  height: 50,
+                  text: AppLocalizations.of(context)!.createNow,
+                  backgroundColor: ColorManager.primaryColor,
+                  onPressed: () {},
+                ),
+                SizedBox(height: 20),
               ],
             ),
           ),
@@ -89,4 +97,3 @@ class _NewTeamScreenState extends State<NewTeamScreen> {
     );
   }
 }
-

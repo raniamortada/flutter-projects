@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:gym_app/utills/components.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class HomePlayScreen extends StatelessWidget {
   const HomePlayScreen({Key? key}) : super(key: key);
@@ -9,14 +10,15 @@ class HomePlayScreen extends StatelessWidget {
     return SafeArea(
       child: Scaffold(
         body: SingleChildScrollView(
-          padding: const EdgeInsets.symmetric(horizontal: 16,vertical: 20),
+          padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 20),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Row(mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  const Text(
-                    "Hello Juliet",
+                  Text(
+                    AppLocalizations.of(context)!.helloUser,
                     style: TextStyle(color: Colors.orange, fontSize: 20),
                   ),
                   CircleAvatar(
@@ -24,9 +26,8 @@ class HomePlayScreen extends StatelessWidget {
                   ),
                 ],
               ),
-
-              const Text(
-                "Let's start your day",
+              Text(
+                AppLocalizations.of(context)!.startYourDay,
                 style: TextStyle(
                   color: Colors.white,
                   fontSize: 24,
@@ -34,8 +35,8 @@ class HomePlayScreen extends StatelessWidget {
                 ),
               ),
               const SizedBox(height: 20),
-              const Text(
-                "Today Workout Plan",
+              Text(
+                AppLocalizations.of(context)!.todayWorkoutPlan,
                 style: TextStyle(color: Colors.white, fontSize: 18),
               ),
               const SizedBox(height: 8),
@@ -50,12 +51,12 @@ class HomePlayScreen extends StatelessWidget {
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  const Text(
-                    "Categories",
+                  Text(
+                    AppLocalizations.of(context)!.categories,
                     style: TextStyle(color: Colors.white, fontSize: 18),
                   ),
                   Text(
-                    "See all",
+                    AppLocalizations.of(context)!.seeAll,
                     style: TextStyle(color: Colors.grey.shade400),
                   ),
                 ],
@@ -73,12 +74,12 @@ class HomePlayScreen extends StatelessWidget {
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  const Text(
-                    "Trending",
+                  Text(
+                    AppLocalizations.of(context)!.trending, // الترجمة
                     style: TextStyle(color: Colors.white, fontSize: 18),
                   ),
                   Text(
-                    "Sell all",
+                    AppLocalizations.of(context)!.sellAll, // الترجمة
                     style: TextStyle(color: Colors.grey.shade400),
                   ),
                 ],
@@ -94,8 +95,8 @@ class HomePlayScreen extends StatelessWidget {
               ),
               const SizedBox(height: 20),
               // Section: Discover
-              const Text(
-                "Discover",
+              Text(
+                AppLocalizations.of(context)!.discover, // الترجمة
                 style: TextStyle(color: Colors.white, fontSize: 18),
               ),
               const SizedBox(height: 8),
@@ -112,6 +113,4 @@ class HomePlayScreen extends StatelessWidget {
       ),
     );
   }
-
-
 }

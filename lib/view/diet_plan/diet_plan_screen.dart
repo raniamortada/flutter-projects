@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:gym_app/utills/colors.dart';
 import 'package:gym_app/utills/components.dart';
-
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class DietPlanScreen extends StatefulWidget {
   @override
@@ -22,21 +22,24 @@ class _DietPlanScreenState extends State<DietPlanScreen> {
 
   @override
   Widget build(BuildContext context) {
+    final localizations = AppLocalizations.of(context)!;
+
     return Scaffold(
       body: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 16,vertical: 30),
+        padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 30),
         child: Column(
           children: [
-            Row(mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 IconButton(
                   icon: const Icon(Icons.arrow_back),
                   color: ColorManager.white,
                   onPressed: () => Navigator.pop(context),
                 ),
-                const Text(
-                  "Diet Plan",
-                  style: TextStyle(
+                Text(
+                  localizations.dietPlan, // "Diet Plan" text
+                  style: const TextStyle(
                     fontSize: 20,
                     fontWeight: FontWeight.bold,
                     fontFamily: "Roboto",
@@ -46,7 +49,6 @@ class _DietPlanScreenState extends State<DietPlanScreen> {
                 CircleAvatar(
                   backgroundImage: AssetImage("assets/image/Image (2).png"),
                 )
-               
               ],
             ),
             const SizedBox(height: 20),
@@ -54,7 +56,11 @@ class _DietPlanScreenState extends State<DietPlanScreen> {
               padding: const EdgeInsets.symmetric(vertical: 8.0),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.center,
-                children: ["Breakfast", "Lunch", "Dinner"].map((meal) {
+                children: [
+                  localizations.breakfast,
+                  localizations.lunch,
+                  localizations.dinner
+                ].map((meal) {
                   return GestureDetector(
                     onTap: () {
                       setState(() {
@@ -62,9 +68,9 @@ class _DietPlanScreenState extends State<DietPlanScreen> {
                       });
                     },
                     child: Container(
-                      margin: EdgeInsets.symmetric(horizontal: 8),
-                      padding:
-                      EdgeInsets.symmetric(vertical: 8, horizontal: 20),
+                      margin: const EdgeInsets.symmetric(horizontal: 8),
+                      padding: const EdgeInsets.symmetric(
+                          vertical: 8, horizontal: 20),
                       decoration: BoxDecoration(
                         color: selectedMeal == meal
                             ? Colors.orange
@@ -89,7 +95,7 @@ class _DietPlanScreenState extends State<DietPlanScreen> {
               child: Padding(
                 padding: const EdgeInsets.all(12.0),
                 child: GridView.builder(
-                  gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                  gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
                     crossAxisCount: 2,
                     crossAxisSpacing: 12,
                     mainAxisSpacing: 12,
@@ -111,4 +117,3 @@ class _DietPlanScreenState extends State<DietPlanScreen> {
     );
   }
 }
-

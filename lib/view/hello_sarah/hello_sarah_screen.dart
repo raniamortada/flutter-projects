@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:gym_app/utills/colors.dart';
 import 'package:gym_app/utills/components.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class HelloSarahScreen extends StatefulWidget {
   @override
@@ -42,26 +43,26 @@ class _HelloSarahScreenState extends State<HelloSarahScreen> {
             _buildTodayWorkoutPlan(),
             const SizedBox(height: 20),
             buildWorkoutCard(
-              title: "Full Body Goal Crusher",
-              subtitle: "07 Workouts for Beginner",
+              title: AppLocalizations.of(context)!.fullBodyGoalCrusher,
+              subtitle: AppLocalizations.of(context)!.workoutsForBeginner,
               imagePath: "assets/image/unsplash_jD4MtXnsJ6w.png",
             ),
             const SizedBox(height: 30),
-            buildSectionTitle("Workout Categories", "See All"),
+            buildSectionTitle(AppLocalizations.of(context)!.workoutCategories, AppLocalizations.of(context)!.seeAll),
             const SizedBox(height: 20),
             _buildMealSelector(),
             const SizedBox(height: 20),
             buildWorkoutCard(
-              title: "Lower Body Strength",
-              subtitle: "05 Workouts for Beginner",
+              title: AppLocalizations.of(context)!.lowerBodyStrength,
+              subtitle: AppLocalizations.of(context)!.workoutsForBeginner,
               imagePath: "assets/image/unsplash_jD4MtXnsJ6w.png",
             ),
             const SizedBox(height: 30),
-            buildSectionTitle("New Workouts"),
+            buildSectionTitle(AppLocalizations.of(context)!.newWorkouts),
             const SizedBox(height: 20),
             buildWorkoutCard(
-              title: "Wake Up Call",
-              subtitle: "04 Workouts for Beginner",
+              title: AppLocalizations.of(context)!.wakeUpCall,
+              subtitle: AppLocalizations.of(context)!.workoutsForBeginner,
               imagePath: "assets/image/unsplash_jD4MtXnsJ6w.png",
             ),
           ],
@@ -73,9 +74,9 @@ class _HelloSarahScreenState extends State<HelloSarahScreen> {
   Widget _buildHeader() {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
-      children: const [
+      children: [
         Text(
-          "HELLO SARAH,",
+          AppLocalizations.of(context)!.helloSarah,
           style: TextStyle(
             fontSize: 32,
             fontWeight: FontWeight.bold,
@@ -83,7 +84,7 @@ class _HelloSarahScreenState extends State<HelloSarahScreen> {
           ),
         ),
         Text(
-          "Good morning.",
+          AppLocalizations.of(context)!.goodMorning,
           style: TextStyle(
             fontSize: 15,
             color: Colors.white,
@@ -98,7 +99,7 @@ class _HelloSarahScreenState extends State<HelloSarahScreen> {
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
         Text(
-          "Today Workout Plan",
+          AppLocalizations.of(context)!.todayWorkoutPlan,
           style: TextStyle(
             fontSize: 17,
             fontWeight: FontWeight.w600,
@@ -113,11 +114,8 @@ class _HelloSarahScreenState extends State<HelloSarahScreen> {
     );
   }
 
-
-
-
   Widget _buildMealSelector() {
-    final meals = ["Beginner", "Intermediate", "Advance"];
+    final meals = [AppLocalizations.of(context)!.beginner, AppLocalizations.of(context)!.intermediate, AppLocalizations.of(context)!.advance];
     return Row(
       mainAxisAlignment: MainAxisAlignment.center,
       children: meals.map((meal) {

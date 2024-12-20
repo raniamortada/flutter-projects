@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:gym_app/utills/colors.dart';
 import 'package:gym_app/utills/components.dart';
 import 'package:gym_app/view/activity_level/activity_level_screen.dart';
@@ -23,6 +24,8 @@ class _GoalScreenState extends State<GoalScreen> {
 
   @override
   Widget build(BuildContext context) {
+    final localizations = AppLocalizations.of(context);
+
     return Scaffold(
       body: SafeArea(
         child: Padding(
@@ -31,7 +34,7 @@ class _GoalScreenState extends State<GoalScreen> {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Text(
-                "What’s your goal?",
+                localizations!.yourGoal,
                 style: TextStyle(
                   color: Colors.white,
                   fontSize: 20,
@@ -41,7 +44,7 @@ class _GoalScreenState extends State<GoalScreen> {
               ),
               SizedBox(height: 8),
               Text(
-                "This helps us create your personalized plan",
+                localizations.personalizedPlan,
                 style: TextStyle(
                   color: Colors.white,
                   fontSize: 10,
@@ -83,7 +86,6 @@ class _GoalScreenState extends State<GoalScreen> {
                 ),
               ),
               SizedBox(height: 20),
-
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
@@ -111,7 +113,7 @@ class _GoalScreenState extends State<GoalScreen> {
                         width: 120,
                         height: 50,
                         context: context,
-                        text: "Next",
+                        text: localizations.next,
                         backgroundColor: ColorManager.primaryColor,
                         onPressed: () {
                           Navigator.pushReplacement(

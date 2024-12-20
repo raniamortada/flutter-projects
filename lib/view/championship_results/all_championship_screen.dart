@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:gym_app/utills/colors.dart';
 import 'package:gym_app/utills/components.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class AllChampionshipScreen extends StatefulWidget {
   const AllChampionshipScreen({super.key});
@@ -47,6 +48,8 @@ class _AllChampionshipScreenState extends State<AllChampionshipScreen> {
 
   @override
   Widget build(BuildContext context) {
+    final localizations = AppLocalizations.of(context)!;
+
     return SafeArea(
       child: Scaffold(
         body: SingleChildScrollView(
@@ -56,8 +59,8 @@ class _AllChampionshipScreenState extends State<AllChampionshipScreen> {
               children: [
                 Header(
                   context: context,
-                  title: "All ",
-                  text: 'Championship',
+                  title: localizations.allChampionship,
+                  text: localizations.championship,
                 ),
                 const SizedBox(height: 40),
                 ...departments.map((dept) => Padding(

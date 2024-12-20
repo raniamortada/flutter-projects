@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:gym_app/utills/colors.dart';
 import 'package:gym_app/utills/components.dart';
@@ -12,8 +13,11 @@ class AddTrainingScreen extends StatefulWidget {
 
 class _AddTrainingScreenState extends State<AddTrainingScreen> {
   TextEditingController nameController = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
+    final localizations = AppLocalizations.of(context)!;
+
     return SafeArea(
       child: Scaffold(
         body: SingleChildScrollView(
@@ -23,8 +27,8 @@ class _AddTrainingScreenState extends State<AddTrainingScreen> {
               children: [
                 Header(
                   context: context,
-                  title: "Add",
-                  text: ' training',
+                  title: localizations.add,
+                  text: localizations.training,
                 ),
                 const SizedBox(height: 10),
                 buildImageWithIcon(
@@ -38,43 +42,51 @@ class _AddTrainingScreenState extends State<AddTrainingScreen> {
                     print("Camera icon tapped!");
                   },
                 ),
-                buildTextFormField("The name of the training set",
-                    nameController,
-                    svgPath: "assets/SVG/images/Tick Square.svg"
+                buildTextFormField(
+                  localizations.trainingSetName,
+                  nameController,
+                  svgPath: "assets/SVG/images/Tick Square.svg",
                 ),
-                buildTextFormField("training number",
-                    nameController,
-                    svgPath: "assets/SVG/images/Tick Square.svg"
+                buildTextFormField(
+                  localizations.trainingNumber,
+                  nameController,
+                  svgPath: "assets/SVG/images/Tick Square.svg",
                 ),
-                buildTextFormField("Training name",
-                    nameController,
-                    svgPath: "assets/SVG/images/Tick Square.svg"
+                buildTextFormField(
+                  localizations.trainingName,
+                  nameController,
+                  svgPath: "assets/SVG/images/Tick Square.svg",
                 ),
-                buildTextFieldMaxLin( labelText: 'Training description',
-                    descriptionController: nameController,
-                    svgPath: "assets/SVG/images/On.svg"),
-                buildTextFormField("Video - link from the site",
-                    nameController,
-                    svgPath: "assets/SVG/images/Tick Square.svg"
+                buildTextFieldMaxLin(
+                  labelText: localizations.trainingDescription,
+                  descriptionController: nameController,
+                  svgPath: "assets/SVG/images/On.svg",
                 ),
-                buildTextFormField("training time",
-                    nameController,
-                    svgPath: "assets/SVG/images/Tick Square.svg"
+                buildTextFormField(
+                  localizations.videoLink,
+                  nameController,
+                  svgPath: "assets/SVG/images/Tick Square.svg",
                 ),
-                buildTextFormField("The number of iterations",
-                    nameController,
-                    svgPath: "assets/SVG/images/Tick Square.svg"
+                buildTextFormField(
+                  localizations.trainingTime,
+                  nameController,
+                  svgPath: "assets/SVG/images/Tick Square.svg",
                 ),
-
-                SizedBox(height: 20,),
-                buildCustomButton(context: context,
-                    width:326,
-                    height: 50,
-                    text: 'Create now',
-                    backgroundColor: ColorManager.primaryColor,
-                    onPressed: () {  }),
-                SizedBox(height: 20,)
-
+                buildTextFormField(
+                  localizations.iterationsCount,
+                  nameController,
+                  svgPath: "assets/SVG/images/Tick Square.svg",
+                ),
+                const SizedBox(height: 20),
+                buildCustomButton(
+                  context: context,
+                  width: 326,
+                  height: 50,
+                  text: localizations.createNow,
+                  backgroundColor: ColorManager.primaryColor,
+                  onPressed: () {},
+                ),
+                const SizedBox(height: 20),
               ],
             ),
           ),
@@ -83,4 +95,3 @@ class _AddTrainingScreenState extends State<AddTrainingScreen> {
     );
   }
 }
-

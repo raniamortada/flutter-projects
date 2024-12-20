@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:gym_app/utills/colors.dart';
 import 'package:gym_app/utills/components.dart';
 import 'package:gym_app/view/goal/goal_screen.dart';
 
 import '../weight_selection/weight_selection_screen.dart';
-
 
 class HeightScreen extends StatefulWidget {
   @override
@@ -16,6 +16,8 @@ class _HeightScreenState extends State<HeightScreen> {
 
   @override
   Widget build(BuildContext context) {
+    final localizations = AppLocalizations.of(context);
+
     return Scaffold(
       body: SafeArea(
         child: Padding(
@@ -24,7 +26,7 @@ class _HeightScreenState extends State<HeightScreen> {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Text(
-                "What’s your height?",
+                localizations!.yourHeight,
                 style: TextStyle(
                   color: Colors.white,
                   fontSize: 20,
@@ -34,7 +36,7 @@ class _HeightScreenState extends State<HeightScreen> {
               ),
               SizedBox(height: 8),
               Text(
-                "This helps us create your personalized plan",
+                localizations.personalizedPlan,
                 style: TextStyle(
                   color: Colors.white,
                   fontSize: 10,
@@ -55,16 +57,16 @@ class _HeightScreenState extends State<HeightScreen> {
                   },
                   childDelegate: ListWheelChildBuilderDelegate(
                     builder: (context, index) {
-                      int age = 100 + index;
+                      int height = 100 + index;
                       return Center(
                         child: Text(
-                          "$age",
+                          "$height",
                           style: TextStyle(
-                            fontSize: age == selectedHeight ? 58 : 43,
-                            color: age == selectedHeight
+                            fontSize: height == selectedHeight ? 58 : 43,
+                            color: height == selectedHeight
                                 ? Colors.white
                                 : Colors.white54,
-                            fontWeight: age == selectedHeight
+                            fontWeight: height == selectedHeight
                                 ? FontWeight.bold
                                 : FontWeight.normal,
                           ),
@@ -76,7 +78,6 @@ class _HeightScreenState extends State<HeightScreen> {
                 ),
               ),
               SizedBox(height: 20),
-
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
@@ -85,8 +86,7 @@ class _HeightScreenState extends State<HeightScreen> {
                     height: 54,
                     decoration: BoxDecoration(
                         color: Color(0xff3A3A3C),
-                        borderRadius: BorderRadius.circular(54)
-                    ),
+                        borderRadius: BorderRadius.circular(54)),
                     child: IconButton(
                       onPressed: () {
                         Navigator.pop(context);
@@ -95,24 +95,25 @@ class _HeightScreenState extends State<HeightScreen> {
                       iconSize: 32,
                     ),
                   ),
-
-                  Row(mainAxisAlignment: MainAxisAlignment.end,
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.end,
                     children: [
-                      buildCustomButton(borderRadius: 48,
-                          svgPath: "assets/SVG/images/chevron-right.svg",
-                          width: 120,
-                          height: 50,
-                          context: context,
-                          text:"Next",
-                          //AppLocalizations.of(context)!.getStarted,
-                          backgroundColor: ColorManager.primaryColor,
-                          onPressed: (){
-                            Navigator.pushReplacement(
-                              context,
-                              MaterialPageRoute(builder: (context) => GoalScreen()),
-                            );
-                          }),
-
+                      buildCustomButton(
+                        borderRadius: 48,
+                        svgPath: "assets/SVG/images/chevron-right.svg",
+                        width: 120,
+                        height: 50,
+                        context: context,
+                        text: localizations.next,
+                        backgroundColor: ColorManager.primaryColor,
+                        onPressed: () {
+                          Navigator.pushReplacement(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => GoalScreen()),
+                          );
+                        },
+                      ),
                     ],
                   )
                 ],

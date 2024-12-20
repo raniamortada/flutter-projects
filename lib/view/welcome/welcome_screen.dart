@@ -4,14 +4,14 @@ import 'package:gym_app/utills/colors.dart';
 import 'package:gym_app/utills/components.dart';
 import 'package:gym_app/view/auth/login_screen.dart';
 import 'package:gym_app/view/auth/sign_in.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart'; // Import the localization file
 
 class WelcomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: Container(
-        decoration: BoxDecoration(
-        ),
+        decoration: BoxDecoration(),
         child: Padding(
           padding: const EdgeInsets.only(top: 80),
           child: Column(
@@ -19,35 +19,34 @@ class WelcomeScreen extends StatelessWidget {
               Column(
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
-                   Center(
-                     child: Text("Define the user attribute",
-                       //AppLocalizations.of(context)!.pickoneUpToStartNow,
+                  Center(
+                    child: Text(
+                      AppLocalizations.of(context)!.defineUserAttribute, // Localized string here
                       style: TextStyle(
                         fontSize: 24,
                         fontWeight: FontWeight.w700,
-                        color: Colors.white
+                        color: Colors.white,
                       ),
-                     ),
-                   ),
-                  SizedBox(height: 10,),
-                  Text("To give you a better experience we need\n We want to know who you are",
-                    //AppLocalizations.of(context)!.pickoneUpToStartNow,
-                    style: TextStyle(
-                        fontSize: 13,
-                        fontWeight: FontWeight.w600,
-                        color: Colors.white
                     ),
                   ),
-                   SizedBox(height: 20),
+                  SizedBox(height: 10),
+                  Text(
+                    AppLocalizations.of(context)!.betterExperienceMessage, // Localized string here
+                    style: TextStyle(
+                      fontSize: 13,
+                      fontWeight: FontWeight.w600,
+                      color: Colors.white,
+                    ),
+                  ),
+                  SizedBox(height: 20),
                   buildOnboardingItem(
                     context: context,
                     image: 'assets/SVG/images/admin.svg',
                     width: 120,
                     height: 88,
-                    label: "admin",
+                    label: AppLocalizations.of(context)!.admin, // Localized string here
                     containerColor: ColorManager.primaryColor,
                     textColor: Colors.white,
-                    //AppLocalizations.of(context)!.imPatient,
                   ),
                   const SizedBox(height: 16),
                   buildOnboardingItem(
@@ -55,10 +54,9 @@ class WelcomeScreen extends StatelessWidget {
                     image: 'assets/SVG/images/tra.svg',
                     width: 115,
                     height: 114,
-                    label: "Trainer",
+                    label: AppLocalizations.of(context)!.trainer, // Localized string here
                     containerColor: ColorManager.cardColor,
                     textColor: Colors.white,
-                    //AppLocalizations.of(context)!.imPatient,
                   ),
                   const SizedBox(height: 16),
                   buildOnboardingItem(
@@ -66,32 +64,30 @@ class WelcomeScreen extends StatelessWidget {
                     image: 'assets/SVG/images/play.svg',
                     width: 115,
                     height: 114,
-                    label: "Player",
+                    label: AppLocalizations.of(context)!.player, // Localized string here
                     containerColor: Color(0xff2C2C2E),
                     textColor: ColorManager.white,
-                    //AppLocalizations.of(context)!.imPatient,
                   ),
-                  SizedBox(height: 10,),
+                  SizedBox(height: 10),
                   Row(mainAxisAlignment: MainAxisAlignment.end,
                     children: [
-                      buildCustomButton(borderRadius: 48,
-                          svgPath: "assets/SVG/images/chevron-right.svg",
-                          width: 120,
-                          height: 50,
-                          context: context,
-                          text:"Next",
-                          //AppLocalizations.of(context)!.getStarted,
-                          backgroundColor: ColorManager.primaryColor,
-                          onPressed: (){
-                            Navigator.pushReplacement(
-                              context,
-                              MaterialPageRoute(builder: (context) => SignIn()),
-                            );
-                          }),
-
+                      buildCustomButton(
+                        borderRadius: 48,
+                        svgPath: "assets/SVG/images/chevron-right.svg",
+                        width: 120,
+                        height: 50,
+                        context: context,
+                        text: AppLocalizations.of(context)!.next, // Localized string here
+                        backgroundColor: ColorManager.primaryColor,
+                        onPressed: () {
+                          Navigator.pushReplacement(
+                            context,
+                            MaterialPageRoute(builder: (context) => SignIn()),
+                          );
+                        },
+                      ),
                     ],
-                  )
-
+                  ),
                 ],
               ),
             ],
@@ -155,6 +151,4 @@ class WelcomeScreen extends StatelessWidget {
       ),
     );
   }
-
-
 }

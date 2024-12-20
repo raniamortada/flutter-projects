@@ -3,13 +3,16 @@ import 'package:gym_app/utills/colors.dart';
 import 'package:gym_app/utills/components.dart';
 import 'package:gym_app/view/auth/verification.dart';
 import 'package:pin_code_fields/pin_code_fields.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class ForgotPassword extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    final localizations = AppLocalizations.of(context)!;
+
     return Scaffold(
       body: Padding(
-        padding: const EdgeInsets.only(top: 100,right: 24,left: 24),
+        padding: const EdgeInsets.only(top: 100, right: 24, left: 24),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
@@ -23,34 +26,34 @@ class ForgotPassword extends StatelessWidget {
                       color: Color(0xff2C2C2E)
                   ),
                   child: IconButton(
-                    onPressed: (){},
+                    onPressed: () {},
                     icon: Icon(Icons.arrow_back_ios),
-                    color: Colors.white,iconSize: 15,),
+                    color: Colors.white, iconSize: 15,
+                  ),
                 ),
               ],
             ),
             SizedBox(height: 30),
             Text(
-              'FORGOT PASSWORD?',
+              localizations.forgotPasswordTitle,
               style: TextStyle(color: Colors.white,
                   fontSize: 24, fontWeight: FontWeight.w700,
-              fontFamily: "Integral CF"),
+                  fontFamily: "Integral CF"),
             ),
             SizedBox(height: 10),
             Text(
-              'ENTER YOUR INFORMATIONS BELOW OR\n LOGIN WITH ANOTHER ACCOUNT',
+              localizations.forgotPasswordSubtitle,
               style: TextStyle(color: Colors.white, fontSize: 10,
-              fontFamily: "Integral CF"),
+                  fontFamily: "Integral CF"),
             ),
             SizedBox(height: 40),
             InputFieldWidget(
-              label:"Email",
+              label: localizations.email,
             ),
-
             SizedBox(height: 100),
             Center(
               child: Text(
-                'Try another way',
+                localizations.tryAnotherWay,
                 style: TextStyle(color: ColorManager.textsColor,
                     fontSize: 13),
               ),
@@ -62,10 +65,9 @@ class ForgotPassword extends StatelessWidget {
                   height: 50,
                   borderRadius: 24,
                   context: context,
-                  text:"Send",
-                  //AppLocalizations.of(context)!.getStarted,
+                  text: localizations.send,
                   backgroundColor: ColorManager.primaryColor,
-                  onPressed: (){
+                  onPressed: () {
                     Navigator.pushReplacement(
                       context,
                       MaterialPageRoute(builder: (context) => VerificationScreen()),

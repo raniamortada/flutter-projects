@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:gym_app/utills/colors.dart';
 import 'package:gym_app/utills/components.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+
 class AddingEmployeeScreen extends StatefulWidget {
   const AddingEmployeeScreen({super.key});
 
@@ -11,8 +13,11 @@ class AddingEmployeeScreen extends StatefulWidget {
 
 class _AddingEmployeeScreenState extends State<AddingEmployeeScreen> {
   TextEditingController nameController = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
+    final localizations = AppLocalizations.of(context)!;
+
     return SafeArea(
       child: Scaffold(
         body: SingleChildScrollView(
@@ -22,8 +27,8 @@ class _AddingEmployeeScreenState extends State<AddingEmployeeScreen> {
               children: [
                 Header(
                   context: context,
-                  title: "Adding an ",
-                  text: 'employee',
+                  title: localizations.addingAn,
+                  text: localizations.employee,
                 ),
                 const SizedBox(height: 10),
                 buildImageWithIcon(
@@ -37,55 +42,37 @@ class _AddingEmployeeScreenState extends State<AddingEmployeeScreen> {
                     print("Camera icon tapped!");
                   },
                 ),
-                buildTextFormField("#ID",
-                    nameController,
-                    svgPath: "assets/SVG/images/Tick Square.svg"
-                ),
-                buildTextFormField("full name",
-                    nameController,
-                    svgPath: "assets/SVG/images/Tick Square.svg"
-                ),
-                buildTextFormField("date of birth",
-                    nameController,
-                    svgPath: "assets/SVG/images/Tick Square.svg"
-                ),
-                buildTextFormField("National Number",
-                    nameController,
-                    svgPath: "assets/SVG/images/Tick Square.svg"
-                ),
-                buildTextFieldMaxLin( labelText: 'About the employee',
-                    descriptionController: nameController,
-                    svgPath: "assets/SVG/images/On.svg"),
-                buildTextFieldMaxLin( labelText: 'About the employee',
+                buildTextFormField(localizations.id, nameController,
+                    svgPath: "assets/SVG/images/Tick Square.svg"),
+                buildTextFormField(localizations.fullName, nameController,
+                    svgPath: "assets/SVG/images/Tick Square.svg"),
+                buildTextFormField(localizations.dateOfBirth, nameController,
+                    svgPath: "assets/SVG/images/Tick Square.svg"),
+                buildTextFormField(localizations.nationalNumber, nameController,
+                    svgPath: "assets/SVG/images/Tick Square.svg"),
+                buildTextFieldMaxLin(
+                    labelText: localizations.aboutEmployee,
                     descriptionController: nameController,
                     svgPath: "assets/SVG/images/On.svg"),
                 buildDropdownButton(
-                  hint: "Section",
+                    hint: localizations.section,
                     imag: 'assets/SVG/images/Tick Square.svg'),
-                buildDropdownButton(
-                    hint: "Section",
-                    imag: 'assets/SVG/images/Tick Square.svg'),
-                buildTextFormField("Comprehensive overview",
+                buildTextFormField(localizations.comprehensiveOverview,
                     nameController,
-                    svgPath: "assets/SVG/images/Tick Square.svg"
-                ),
-                buildTextFormField("Country",
-                    nameController,
-                    svgPath: "assets/SVG/images/Tick Square.svg"
-                ),
-                buildTextFormField("state",
-                    nameController,
-                    svgPath: "assets/SVG/images/Tick Square.svg"
-                ),
-                SizedBox(height: 20,),
-                buildCustomButton(context: context,
-                    width:326,
+                    svgPath: "assets/SVG/images/Tick Square.svg"),
+                buildTextFormField(localizations.country, nameController,
+                    svgPath: "assets/SVG/images/Tick Square.svg"),
+                buildTextFormField(localizations.state, nameController,
+                    svgPath: "assets/SVG/images/Tick Square.svg"),
+                const SizedBox(height: 20),
+                buildCustomButton(
+                    context: context,
+                    width: 326,
                     height: 50,
-                    text: 'Create now',
+                    text: localizations.createNow,
                     backgroundColor: ColorManager.primaryColor,
-                    onPressed: () {  }),
-                SizedBox(height: 20,)
-
+                    onPressed: () {}),
+                const SizedBox(height: 20),
               ],
             ),
           ),
@@ -94,4 +81,3 @@ class _AddingEmployeeScreenState extends State<AddingEmployeeScreen> {
     );
   }
 }
-

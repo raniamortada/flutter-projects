@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:gym_app/utills/colors.dart';
 import 'package:gym_app/utills/components.dart';
-
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class ProfileScreen extends StatelessWidget {
   @override
@@ -10,9 +10,7 @@ class ProfileScreen extends StatelessWidget {
       child: Scaffold(
         backgroundColor: ColorManager.black2,
         body: Padding(
-          padding: const EdgeInsets.symmetric(
-            horizontal: 16,vertical: 20
-          ),
+          padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 20),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
@@ -62,7 +60,7 @@ class ProfileScreen extends StatelessWidget {
                         ),
                         SizedBox(height: 8),
                         Text(
-                          "Joined 2 month ago",
+                          "${AppLocalizations.of(context)!.joined} 2 ${AppLocalizations.of(context)!.monthsAgo}",
                           style: TextStyle(
                             color: Colors.grey.shade500,
                             fontSize: 14,
@@ -73,28 +71,20 @@ class ProfileScreen extends StatelessWidget {
                   ],
                 ),
               ),
-
               SizedBox(height: 40),
               buildSettingItem(
-                title: "Edit Profile",
-                onTap: () {
-                },
+                title: AppLocalizations.of(context)!.editProfile,
+                onTap: () {},
               ),
               buildSettingItem(
-                title: "Privacy Policy",
-                onTap: () {
-                },
+                title: AppLocalizations.of(context)!.privacyPolicy,
+                onTap: () {},
               ),
               buildSettingItem(
-                title: "Settings",
-                onTap: () {
-                },
+                title: AppLocalizations.of(context)!.settings,
+                onTap: () {},
               ),
-
-
               SizedBox(height: 20),
-
-              // Premium Section
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 20.0),
                 child: Container(
@@ -116,7 +106,7 @@ class ProfileScreen extends StatelessWidget {
                               borderRadius: BorderRadius.circular(4),
                             ),
                             child: Text(
-                              "PRO",
+                              AppLocalizations.of(context)!.pro,
                               style: TextStyle(
                                 color: Colors.white,
                                 fontSize: 12,
@@ -126,7 +116,7 @@ class ProfileScreen extends StatelessWidget {
                           ),
                           SizedBox(height: 8),
                           Text(
-                            "Upgrade to Premium",
+                            AppLocalizations.of(context)!.upgradeToPremium,
                             style: TextStyle(
                               color: Colors.white,
                               fontSize: 16,
@@ -134,7 +124,7 @@ class ProfileScreen extends StatelessWidget {
                             ),
                           ),
                           Text(
-                            "This subscription is auto-renewable",
+                            AppLocalizations.of(context)!.thisSubscriptionIsAutoRenewable,
                             style: TextStyle(
                               color: Colors.grey.shade500,
                               fontSize: 12,
@@ -147,18 +137,13 @@ class ProfileScreen extends StatelessWidget {
                   ),
                 ),
               ),
-
               SizedBox(height: 20),
-
-              // Sign Out
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 20.0),
                 child: GestureDetector(
-                  onTap: () {
-                    // Handle Sign Out action
-                  },
+                  onTap: () {},
                   child: Text(
-                    "Sign Out",
+                    AppLocalizations.of(context)!.signOut,
                     style: TextStyle(
                       color: Colors.red,
                       fontSize: 16,

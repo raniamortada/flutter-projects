@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:table_calendar/table_calendar.dart';
 import 'package:gym_app/utills/colors.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class FitnessInsightScreen extends StatefulWidget {
   @override
@@ -31,8 +32,7 @@ class _FitnessInsightScreenState extends State<FitnessInsightScreen> {
                   ),
                   child: Column(
                     children: [
-                      Text(
-                        "Select Date",
+                      Text(AppLocalizations.of(context)!.selectDate,
                         style: TextStyle(color: Colors.white, fontSize: 18.0),
                       ),
                       SizedBox(height: 8.0),
@@ -72,19 +72,19 @@ class _FitnessInsightScreenState extends State<FitnessInsightScreen> {
                   ),
                 ),
                 SizedBox(height: 20),
-                buildCircularProgress("652 Cal", "Active Calories", Colors.orangeAccent),
+                buildCircularProgress("652 Cal", AppLocalizations.of(context)!.activeCalories, Colors.orangeAccent),
                 SizedBox(height: 30),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
-                    buildSmallCircularProgress("6540", "Steps", Colors.orange),
-                    buildSmallCircularProgress("45", "Time", Colors.red),
-                    buildSmallCircularProgress("72", "Heart", Colors.orangeAccent),
+                    buildSmallCircularProgress("6540", AppLocalizations.of(context)!.steps, Colors.orange),
+                    buildSmallCircularProgress("45", AppLocalizations.of(context)!.time, Colors.red),
+                    buildSmallCircularProgress("72", AppLocalizations.of(context)!.heart, Colors.orangeAccent),
                   ],
                 ),
                 SizedBox(height: 30),
-                buildWorkoutList("Stability Training", "10:00", true),
-                buildWorkoutList("Flash Cycling", "", true),
+                buildWorkoutList(AppLocalizations.of(context)!.stabilityTraining, "10:00", true),
+                buildWorkoutList(AppLocalizations.of(context)!.flashCycling, "", true),
               ],
             ),
           ),

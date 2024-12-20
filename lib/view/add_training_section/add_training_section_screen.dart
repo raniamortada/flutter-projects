@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:gym_app/utills/colors.dart';
 import 'package:gym_app/utills/components.dart';
-
 
 class AddTrainingSectionScreen extends StatefulWidget {
   const AddTrainingSectionScreen({super.key});
@@ -13,8 +13,11 @@ class AddTrainingSectionScreen extends StatefulWidget {
 
 class _AddTrainingSectionScreenState extends State<AddTrainingSectionScreen> {
   TextEditingController nameController = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
+    final localizations = AppLocalizations.of(context)!;
+
     return SafeArea(
       child: Scaffold(
         body: SingleChildScrollView(
@@ -24,8 +27,8 @@ class _AddTrainingSectionScreenState extends State<AddTrainingSectionScreen> {
               children: [
                 Header(
                   context: context,
-                  title: "Add a  ",
-                  text: 'training section',
+                  title: localizations.add,
+                  text: localizations.trainingSection,
                 ),
                 const SizedBox(height: 10),
                 buildImageWithIcon(
@@ -39,28 +42,31 @@ class _AddTrainingSectionScreenState extends State<AddTrainingSectionScreen> {
                     print("Camera icon tapped!");
                   },
                 ),
-
-                buildTextFormField("#ID",
-                    nameController,
-                    svgPath: "assets/SVG/images/Tick Square.svg"
+                buildTextFormField(
+                  localizations.id,
+                  nameController,
+                  svgPath: "assets/SVG/images/Tick Square.svg",
                 ),
-                buildTextFormField("Training department title",
-                    nameController,
-                    svgPath: "assets/SVG/images/Tick Square.svg"
+                buildTextFormField(
+                  localizations.trainingDepartmentTitle,
+                  nameController,
+                  svgPath: "assets/SVG/images/Tick Square.svg",
                 ),
-                buildTextFieldMaxLin( labelText: 'Description of the club',
-                    descriptionController: nameController,
-                    svgPath: "assets/SVG/images/On.svg"),
-                SizedBox(height: 200,),
-
-                buildCustomButton(context: context,
-                    width:326,
-                    height: 50,
-                    text: 'Create now',
-                    backgroundColor: ColorManager.primaryColor,
-                    onPressed: () {  }),
-                SizedBox(height: 20,)
-
+                buildTextFieldMaxLin(
+                  labelText: localizations.clubDescription,
+                  descriptionController: nameController,
+                  svgPath: "assets/SVG/images/On.svg",
+                ),
+                const SizedBox(height: 200),
+                buildCustomButton(
+                  context: context,
+                  width: 326,
+                  height: 50,
+                  text: localizations.createNow,
+                  backgroundColor: ColorManager.primaryColor,
+                  onPressed: () {},
+                ),
+                const SizedBox(height: 20),
               ],
             ),
           ),
@@ -69,4 +75,3 @@ class _AddTrainingSectionScreenState extends State<AddTrainingSectionScreen> {
     );
   }
 }
-

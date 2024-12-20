@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:gym_app/utills/colors.dart';
 import 'package:gym_app/utills/components.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class NotificationsScreen extends StatefulWidget {
   @override
@@ -16,7 +17,9 @@ class _NotificationsScreenState extends State<NotificationsScreen> {
       isUnread: true,
     ),
     NotificationItem(
-      title: "Attention",
+      title:
+      //AppLocalizations.of(context)!.
+      "Attention",
       description: "Your subscription is going to expire very soon. Subscribe now.",
       time: "9:38 AM",
       isUnread: true,

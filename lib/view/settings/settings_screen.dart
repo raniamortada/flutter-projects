@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:gym_app/utills/colors.dart';
 import 'package:gym_app/utills/components.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart'; // Add this import
 
 class SettingsScreen extends StatefulWidget {
   const SettingsScreen({super.key});
@@ -10,7 +11,6 @@ class SettingsScreen extends StatefulWidget {
 }
 
 class _SettingsScreenState extends State<SettingsScreen> {
-
 
   @override
   Widget build(BuildContext context) {
@@ -26,9 +26,9 @@ class _SettingsScreenState extends State<SettingsScreen> {
                   children: [
                     buildBackButton(context),
                     const Spacer(),
-                    const Text(
-                      "SETTINGS",
-                      style: TextStyle(
+                    Text(
+                      AppLocalizations.of(context)!.settings, // Use localized string
+                      style: const TextStyle(
                         fontSize: 20,
                         fontWeight: FontWeight.bold,
                         fontFamily: "Roboto",
@@ -40,24 +40,20 @@ class _SettingsScreenState extends State<SettingsScreen> {
                 ),
                 const SizedBox(height: 40),
                 buildSettingItem(
-                  title: "Units of Measure",
-                  onTap: () {
-                  },
+                  title: AppLocalizations.of(context)!.unitsOfMeasure, // Use localized string
+                  onTap: () {},
                 ),
                 buildSettingItem(
-                  title: "Notifications",
-                  onTap: () {
-                  },
+                  title: AppLocalizations.of(context)!.notifications, // Use localized string
+                  onTap: () {},
                 ),
                 buildSettingItem(
-                  title: "Language",
-                  onTap: () {
-                  },
+                  title: AppLocalizations.of(context)!.language, // Use localized string
+                  onTap: () {},
                 ),
                 buildSettingItem(
-                  title: "Contact Us",
-                  onTap: () {
-                  },
+                  title: AppLocalizations.of(context)!.contactUs, // Use localized string
+                  onTap: () {},
                 ),
               ],
             ),

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:gym_app/utills/colors.dart';
 import 'package:gym_app/utills/components.dart';
-
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class ReviewsScreen extends StatefulWidget {
   @override
@@ -14,24 +14,21 @@ class _ReviewsScreenState extends State<ReviewsScreen> {
       name: "Sharon Jem",
       rating: 4.8,
       timeAgo: "2d ago",
-      comment:
-      "Had such an amazing session with Maria. She instantly picked up on the level of my fitness and adjusted the workout to suit me whilst also pushing me to my limits.",
+      comment: "Had such an amazing session with Maria. She instantly picked up on the level of my fitness and adjusted the workout to suit me whilst also pushing me to my limits.",
       profileImage: "assets/image/Rectangle 6 (1).png",
     ),
     Review(
       name: "Amy Gary",
       rating: 4.2,
       timeAgo: "3d ago",
-      comment:
-      "Maria has been amazing! 💪 Joining his coaching has been transformational for me and she makes it so much fun to workout with her. I’ve had several personal training experiences and this one is by far the best. Maria may very well be the best personal trainer in this app 😉",
+      comment: "Maria has been amazing! 💪 Joining his coaching has been transformational for me and she makes it so much fun to workout with her. I’ve had several personal training experiences and this one is by far the best. Maria may very well be the best personal trainer in this app 😉",
       profileImage: "assets/image/Rectangle 6 (1).png",
     ),
     Review(
       name: "Phillip Amaurao Lubin",
       rating: 3.6,
       timeAgo: "5d ago",
-      comment:
-      "I am not very satisfied with Maria. But app design is awesome. Should I be a designer 🤔",
+      comment: "I am not very satisfied with Maria. But app design is awesome. Should I be a designer 🤔",
       profileImage: "assets/image/Rectangle 6 (1).png",
     ),
   ];
@@ -41,16 +38,16 @@ class _ReviewsScreenState extends State<ReviewsScreen> {
     return SafeArea(
       child: Scaffold(
         body: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 16,vertical: 20),
+          padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 20),
           child: Column(
             children: [
               Row(
                 children: [
                   buildBackButton(context),
                   const Spacer(),
-                  const Text(
-                    "REVIEWS",
-                    style: TextStyle(
+                  Text(
+                    AppLocalizations.of(context)!.reviews,
+                    style: const TextStyle(
                       fontSize: 20,
                       fontWeight: FontWeight.bold,
                       fontFamily: "Roboto",
@@ -60,7 +57,7 @@ class _ReviewsScreenState extends State<ReviewsScreen> {
                   const Spacer(),
                 ],
               ),
-              SizedBox(height: 40,),
+              SizedBox(height: 40),
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 16.0),
                 child: Row(
@@ -88,28 +85,24 @@ class _ReviewsScreenState extends State<ReviewsScreen> {
                     ),
                     SizedBox(width: 8),
                     Text(
-                      "174 Ratings",
+                      AppLocalizations.of(context)!.ratings(174),
                       style: TextStyle(color: Colors.white70, fontSize: 14),
                     ),
                   ],
                 ),
               ),
-
               SizedBox(height: 16),
-
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 16.0),
                 child: Row(
                   children: [
-                    buildTab("Recent", true),
-                    buildTab("Critical", false),
-                    buildTab("Favourable", false),
+                    buildTab(AppLocalizations.of(context)!.recent, true),
+                    buildTab(AppLocalizations.of(context)!.critical, false),
+                    buildTab(AppLocalizations.of(context)!.favourable, false),
                   ],
                 ),
               ),
-
               SizedBox(height: 8),
-
               Expanded(
                 child: ListView.builder(
                   itemCount: reviews.length,
@@ -118,15 +111,16 @@ class _ReviewsScreenState extends State<ReviewsScreen> {
                   },
                 ),
               ),
-
               Center(
-                child: buildCustomButton(context: context,
-                    width:263,
-                    height: 50,
-                    text: 'Write a Review',
-                    borderRadius: 24,
-                    backgroundColor: ColorManager.primaryColor,
-                    onPressed: () {  }),
+                child: buildCustomButton(
+                  context: context,
+                  width: 263,
+                  height: 50,
+                  text: AppLocalizations.of(context)!.writeReview,
+                  borderRadius: 24,
+                  backgroundColor: ColorManager.primaryColor,
+                  onPressed: () {},
+                ),
               ),
             ],
           ),
@@ -203,8 +197,7 @@ class _ReviewsScreenState extends State<ReviewsScreen> {
                       ),
                       SizedBox(width: 8),
                       Container(
-                        padding:
-                        EdgeInsets.symmetric(horizontal: 6, vertical: 2),
+                        padding: EdgeInsets.symmetric(horizontal: 6, vertical: 2),
                         decoration: BoxDecoration(
                           color: Colors.orange,
                           borderRadius: BorderRadius.circular(8),

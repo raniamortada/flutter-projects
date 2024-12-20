@@ -1,64 +1,70 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:gym_app/utills/colors.dart';
 import 'package:gym_app/utills/components.dart';
 
-class NotificationToday extends StatelessWidget {
-  final List<NotificationItem> todayNotifications = [
-    NotificationItem(
-      title: "Meal Time",
-      subtitle: "Time to eat your breakfast",
-      image: "assets/image/Image (4).png",
-      time: "Now",
-    ),
-    NotificationItem(
-      title: "Jogging",
-      subtitle: "It's time for your jogging session",
-      image: "assets/image/Image (4).png",
-      time: "7:30am",
-    ),
-    NotificationItem(
-      title: "Yoga Session",
-      subtitle: "Get ready for your Yoga routine",
-      image: "assets/image/Image (4).png",
-      time: "7:00am",
-    ),
-    NotificationItem(
-      title: "Aerobics",
-      subtitle: "It's time for aerobics",
-      image: "assets/image/Image (4).png",
-      time: "6:00am",
-    ),
-  ];
+class NotificationToday extends StatefulWidget {
+  @override
+  State<NotificationToday> createState() => _NotificationTodayState();
+}
 
-  final List<NotificationItem> weekNotifications = [
-    NotificationItem(
-      title: "Full Body Workout",
-      subtitle: "Time to hit the gym",
-      image: "assets/image/Image (4).png",
-      time: "6:00am",
-    ),
-    NotificationItem(
-      title: "Daily Push Up",
-      subtitle: "Time to push your body",
-      image: "assets/image/Image (4).png",
-      time: "7:00am",
-    ),
-    NotificationItem(
-      title: "Full Body Workout",
-      subtitle: "Time to hit the gym",
-      image: "assets/image/Image (4).png",
-      time: "6:00am",
-    ),
-  ];
-
+class _NotificationTodayState extends State<NotificationToday> {
   @override
   Widget build(BuildContext context) {
+    final todayNotifications = [
+      NotificationItem(
+        title: AppLocalizations.of(context)!.mealTime,
+        subtitle: AppLocalizations.of(context)!.mealTimeSubtitle,
+        image: "assets/image/Image (4).png",
+        time: "Now",
+      ),
+      NotificationItem(
+        title: AppLocalizations.of(context)!.jogging,
+        subtitle: AppLocalizations.of(context)!.joggingSubtitle,
+        image: "assets/image/Image (4).png",
+        time: "7:30am",
+      ),
+      NotificationItem(
+        title: AppLocalizations.of(context)!.yogaSession,
+        subtitle: AppLocalizations.of(context)!.yogaSessionSubtitle,
+        image: "assets/image/Image (4).png",
+        time: "7:00am",
+      ),
+      NotificationItem(
+        title: AppLocalizations.of(context)!.aerobics,
+        subtitle: AppLocalizations.of(context)!.aerobicsSubtitle,
+        image: "assets/image/Image (4).png",
+        time: "6:00am",
+      ),
+    ];
+
+    final weekNotifications = [
+      NotificationItem(
+        title: AppLocalizations.of(context)!.fullBodyWorkout,
+        subtitle: AppLocalizations.of(context)!.mealTimeSubtitle,
+        image: "assets/image/Image (4).png",
+        time: "6:00am",
+      ),
+      NotificationItem(
+        title: AppLocalizations.of(context)!.dailyPushUp,
+        subtitle: AppLocalizations.of(context)!.mealTimeSubtitle,
+        image: "assets/image/Image (4).png",
+        time: "7:00am",
+      ),
+      NotificationItem(
+        title: AppLocalizations.of(context)!.fullBodyWorkout,
+        subtitle: AppLocalizations.of(context)!.mealTimeSubtitle,
+        image: "assets/image/Image (4).png",
+        time: "6:00am",
+      ),
+    ];
+
     return SafeArea(
       child: Scaffold(
         backgroundColor: ColorManager.black2,
         body: SingleChildScrollView(
           child: Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 16,vertical: 20),
+            padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 20),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
@@ -66,9 +72,9 @@ class NotificationToday extends StatelessWidget {
                   children: [
                     buildBackButton(context),
                     const Spacer(),
-                    const Text(
-                      "NOTIFICATIONS",
-                      style: TextStyle(
+                    Text(
+                      AppLocalizations.of(context)!.notifications,
+                      style: const TextStyle(
                         fontSize: 20,
                         fontWeight: FontWeight.bold,
                         fontFamily: "Roboto",
@@ -78,10 +84,10 @@ class NotificationToday extends StatelessWidget {
                     const Spacer(),
                   ],
                 ),
-                SizedBox(height: 40,),
-                _buildSectionTitle("Today", "+4"),
+                const SizedBox(height: 40),
+                _buildSectionTitle(AppLocalizations.of(context)!.today, "+4"),
                 ...todayNotifications.map((e) => _buildNotificationCard(e)),
-                _buildSectionTitle("This Week", ""),
+                _buildSectionTitle(AppLocalizations.of(context)!.thisWeek, ""),
                 ...weekNotifications.map((e) => _buildNotificationCard(e)),
               ],
             ),
@@ -99,20 +105,20 @@ class NotificationToday extends StatelessWidget {
         children: [
           Text(
             title,
-            style: TextStyle(
+            style: const TextStyle(
                 color: Colors.white, fontSize: 16, fontWeight: FontWeight.bold),
           ),
           if (extra.isNotEmpty)
             Container(
               padding:
-              EdgeInsets.symmetric(horizontal: 8.0, vertical: 4.0),
+              const EdgeInsets.symmetric(horizontal: 8.0, vertical: 4.0),
               decoration: BoxDecoration(
                 color: Colors.orange,
                 borderRadius: BorderRadius.circular(12),
               ),
               child: Text(
                 extra,
-                style: TextStyle(color: Colors.white, fontSize: 12),
+                style: const TextStyle(color: Colors.white, fontSize: 12),
               ),
             )
         ],
@@ -122,7 +128,7 @@ class NotificationToday extends StatelessWidget {
 
   Widget _buildNotificationCard(NotificationItem item) {
     return Container(
-      padding: EdgeInsets.all(12.0),
+      padding: const EdgeInsets.all(12.0),
       decoration: BoxDecoration(
         color: ColorManager.black2,
         borderRadius: BorderRadius.circular(12.0),
@@ -138,22 +144,22 @@ class NotificationToday extends StatelessWidget {
               fit: BoxFit.cover,
             ),
           ),
-          SizedBox(width: 12.0),
+          const SizedBox(width: 12.0),
           Expanded(
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
                   item.title,
-                  style: TextStyle(
+                  style: const TextStyle(
                       color: Colors.white,
                       fontSize: 16,
                       fontWeight: FontWeight.bold),
                 ),
-                SizedBox(height: 4.0),
+                const SizedBox(height: 4.0),
                 Text(
                   item.subtitle,
-                  style: TextStyle(
+                  style: const TextStyle(
                       color: Colors.white54,
                       fontSize: 14,
                       fontWeight: FontWeight.normal),
@@ -161,10 +167,10 @@ class NotificationToday extends StatelessWidget {
               ],
             ),
           ),
-          SizedBox(width: 12.0),
+          const SizedBox(width: 12.0),
           Text(
             item.time,
-            style: TextStyle(
+            style: const TextStyle(
                 color: Colors.orange,
                 fontSize: 14,
                 fontWeight: FontWeight.bold),

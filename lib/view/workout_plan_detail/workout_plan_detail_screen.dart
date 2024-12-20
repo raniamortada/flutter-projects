@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:gym_app/utills/colors.dart';
 import 'package:gym_app/utills/components.dart';
-
-
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class WorkoutDetailScreen extends StatelessWidget {
   const WorkoutDetailScreen({Key? key}) : super(key: key);
@@ -44,22 +43,22 @@ class WorkoutDetailScreen extends StatelessWidget {
                 borderRadius: BorderRadius.vertical(top: Radius.circular(50)),
               ),
               child: Padding(
-                padding: const EdgeInsets.all(16),
+                padding:  EdgeInsets.all(16),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    const Text(
-                      "Day 01 - Warm Up",
-                      style: TextStyle(
+                    Text(
+                      AppLocalizations.of(context)!.dayTitle,
+                      style: const TextStyle(
                         color: Colors.white,
                         fontSize: 24,
                         fontWeight: FontWeight.bold,
                       ),
                     ),
                     const SizedBox(height: 8),
-                    const Text(
-                      "04 Workouts for Beginner",
-                      style: TextStyle(
+                    Text(
+                      AppLocalizations.of(context)!.workoutsForBeginner,
+                      style: const TextStyle(
                         color: Colors.orange,
                         fontSize: 16,
                       ),
@@ -69,27 +68,29 @@ class WorkoutDetailScreen extends StatelessWidget {
                       children: [
                         Container(
                           width: 89,
-                            height: 29,
-                            decoration: BoxDecoration(
+                          height: 29,
+                          decoration: BoxDecoration(
                               borderRadius: BorderRadius.circular(50),
                               color: ColorManager.black
-                            ),
-                            child: iconDetail(Icons.schedule, "60 min")),
+                          ),
+                          child: iconDetail(Icons.schedule, AppLocalizations.of(context)!.schedule),
+                        ),
                         const SizedBox(width: 16),
                         Container(
-                            width: 89,
-                            height: 29,
-                            decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(50),
-                                color: ColorManager.black
-                            ),
-                            child: iconDetail(Icons.local_fire_department, "350 Cal")),
+                          width: 89,
+                          height: 29,
+                          decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(50),
+                              color: ColorManager.black
+                          ),
+                          child: iconDetail(Icons.local_fire_department, AppLocalizations.of(context)!.calories),
+                        ),
                       ],
                     ),
                     const SizedBox(height: 20),
-                    const Text(
-                      "Want your body to be healthy. Join our program with directions according to body’s goals. Increasing physical strength is the goal of strength training. Maintain body fitness by doing physical exercise at least 2-3 times a week.",
-                      style: TextStyle(
+                    Text(
+                      AppLocalizations.of(context)!.description,
+                      style: const TextStyle(
                         color: Colors.white70,
                         fontSize: 14,
                       ),
@@ -98,14 +99,14 @@ class WorkoutDetailScreen extends StatelessWidget {
 
                     Expanded(
                       child: ListView(
-                        children: const [
+                        children: [
                           ExerciseItem(
-                            title: "Simple Warm-Up Exercises",
+                            title: AppLocalizations.of(context)!.simpleWarmUp,
                             duration: "0:30",
                             image: "assets/simple_warmup.jpg",
                           ),
                           ExerciseItem(
-                            title: "Stability Training Basics",
+                            title: AppLocalizations.of(context)!.stabilityTraining,
                             duration: "1:00",
                             image: "assets/stability_training.jpg",
                             isDisabled: true,
@@ -114,12 +115,13 @@ class WorkoutDetailScreen extends StatelessWidget {
                       ),
                     ),
                     const SizedBox(height: 10),
-                    buildCustomButton(context: context,
+                    buildCustomButton(
+                        context: context,
                         borderRadius: 24,
-                        text: "Start Workout",
+                        text: AppLocalizations.of(context)!.startWorkout,
                         backgroundColor: ColorManager.primaryColor,
-                        onPressed: (){})
-
+                        onPressed: () {}
+                    )
                   ],
                 ),
               ),
@@ -129,7 +131,4 @@ class WorkoutDetailScreen extends StatelessWidget {
       ),
     );
   }
-
-
 }
-

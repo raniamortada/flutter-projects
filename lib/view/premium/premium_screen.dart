@@ -13,11 +13,9 @@ class _PremiumScreenState extends State<PremiumScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color(0xFF031A21), // Dark background color
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          // Image and Heading
           Stack(
             children: [
               Image.asset(
