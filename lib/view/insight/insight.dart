@@ -3,12 +3,12 @@ import 'package:table_calendar/table_calendar.dart';
 import 'package:gym_app/utills/colors.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
-class FitnessInsightScreen extends StatefulWidget {
+class Insight extends StatefulWidget {
   @override
-  State<FitnessInsightScreen> createState() => _FitnessInsightScreenState();
+  State<Insight> createState() => _InsightState();
 }
 
-class _FitnessInsightScreenState extends State<FitnessInsightScreen> {
+class _InsightState extends State<Insight> {
   String _selectedDate = 'No date selected';
   DateTime _currentDate = DateTime.now();
 

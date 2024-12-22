@@ -3,6 +3,7 @@ import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:gym_app/shared/local/cach_helper.dart';
 import 'package:gym_app/utills/colors.dart';
+import 'package:gym_app/view/splash/splash_screen.dart';
 import 'package:responsive_framework/responsive_framework.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
@@ -53,7 +54,7 @@ class MyApp extends StatelessWidget {
            ],
            supportedLocales: AppLocalizations.supportedLocales,
            locale: state.locale,
-            home: HomeScreen(),
+            home: SplashScreen(),
           );
       };
       return const SizedBox();

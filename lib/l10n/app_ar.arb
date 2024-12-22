@@ -251,9 +251,9 @@
   "sportsClubManagement": "إدارة الأندية الرياضية",
   "its": "إنه",
   "easier": "أسهل",
-  "now": "الآن",
+  "new_label": "الآن",
   "managePlayers": "إدارة اللاعبين",
-  "inOnePlace": "في مكان واحد",
+  "ini": "في ",
   "onePlace": "مكان واحد",
   "allExercisesAre": "جميع التمارين هي",
   "illustrated": "مُوضحة",
@@ -276,7 +276,21 @@
   "readAllReviews": "قراءة جميع التعليقات",
   "bookAppointment": "حجز موعد",
   "hello": "مرحبًا",
-  "manageYourClub": "إدارة ناديك اليوم!"
+  "manageYourClub": "إدارة ناديك اليوم!",
+  "accounting": "محاسبة",
+  "trainingSection": "قسم التدريب",
+  "logoClub": "نادي اللياقة البدنية",
+  "addProducts": "إضافة منتجات",
+  "addSection": "إضافة قسم",
+  "addCoach": "إضافة مدرب",
+  "addPlayer": "إضافة لاعب",
+  "addEmployee": "إضافة موظف",
+  "addDiet": "إضافة نظام غذائي",
+  "addTraining": "إضافة تدريب",
+  "addTeam": "إضافة فريق",
+  "addChampionship": "إضافة بطولة",
+  "accountingSystem": "النظام المحاسبي"
+
 
 
 

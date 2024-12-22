@@ -3,6 +3,7 @@ import 'package:gym_app/utills/colors.dart';
 import 'package:gym_app/utills/components.dart';
 import 'package:gym_app/view/auth/forgot_password.dart';
 import 'package:gym_app/view/auth/login_screen.dart';
+import 'package:gym_app/view/home/home.dart';
 import 'package:gym_app/view/sign_up/sign_up_screen.dart';
 import 'package:gym_app/view/subscription/subscription_screen.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
@@ -77,7 +78,7 @@ class SignIn extends StatelessWidget {
                   onPressed: () {
                     Navigator.pushReplacement(
                       context,
-                      MaterialPageRoute(builder: (context) => LoginScreen()),
+                      MaterialPageRoute(builder: (context) => HomeScreen()),
                     );
                   },
                 ),

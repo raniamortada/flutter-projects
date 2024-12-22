@@ -21,7 +21,7 @@ class WelcomeScreen extends StatelessWidget {
                 children: [
                   Center(
                     child: Text(
-                      AppLocalizations.of(context)!.defineUserAttribute, // Localized string here
+                      AppLocalizations.of(context)!.defineUserAttribute,
                       style: TextStyle(
                         fontSize: 24,
                         fontWeight: FontWeight.w700,
@@ -31,7 +31,7 @@ class WelcomeScreen extends StatelessWidget {
                   ),
                   SizedBox(height: 10),
                   Text(
-                    AppLocalizations.of(context)!.betterExperienceMessage, // Localized string here
+                    AppLocalizations.of(context)!.betterExperienceMessage,
                     style: TextStyle(
                       fontSize: 13,
                       fontWeight: FontWeight.w600,
@@ -44,7 +44,7 @@ class WelcomeScreen extends StatelessWidget {
                     image: 'assets/SVG/images/admin.svg',
                     width: 120,
                     height: 88,
-                    label: AppLocalizations.of(context)!.admin, // Localized string here
+                    label: AppLocalizations.of(context)!.admin,
                     containerColor: ColorManager.primaryColor,
                     textColor: Colors.white,
                   ),
@@ -54,7 +54,7 @@ class WelcomeScreen extends StatelessWidget {
                     image: 'assets/SVG/images/tra.svg',
                     width: 115,
                     height: 114,
-                    label: AppLocalizations.of(context)!.trainer, // Localized string here
+                    label: AppLocalizations.of(context)!.trainer,
                     containerColor: ColorManager.cardColor,
                     textColor: Colors.white,
                   ),
@@ -64,7 +64,7 @@ class WelcomeScreen extends StatelessWidget {
                     image: 'assets/SVG/images/play.svg',
                     width: 115,
                     height: 114,
-                    label: AppLocalizations.of(context)!.player, // Localized string here
+                    label: AppLocalizations.of(context)!.player,
                     containerColor: Color(0xff2C2C2E),
                     textColor: ColorManager.white,
                   ),
@@ -77,7 +77,7 @@ class WelcomeScreen extends StatelessWidget {
                         width: 120,
                         height: 50,
                         context: context,
-                        text: AppLocalizations.of(context)!.next, // Localized string here
+                        text: AppLocalizations.of(context)!.next,
                         backgroundColor: ColorManager.primaryColor,
                         onPressed: () {
                           Navigator.pushReplacement(

@@ -77,7 +77,7 @@ class WorkoutDetailScreen extends StatelessWidget {
                         ),
                         const SizedBox(width: 16),
                         Container(
-                          width: 89,
+                          width: 95,
                           height: 29,
                           decoration: BoxDecoration(
                               borderRadius: BorderRadius.circular(50),

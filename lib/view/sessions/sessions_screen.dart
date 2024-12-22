@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:gym_app/utills/components.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart'; // Import for localization
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class SessionsScreen extends StatelessWidget {
   const SessionsScreen({Key? key}) : super(key: key);

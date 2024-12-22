@@ -369,18 +369,18 @@ Widget buildHeader(BuildContext context) {
           Row(
             children: [
               Text(
-                AppLocalizations.of(context)!.hello, // الترجمة
+                AppLocalizations.of(context)!.hello,
                 style: TextStyle(color: Colors.white, fontSize: 16),
               ),
               SizedBox(width: 3),
               Text(
-                AppLocalizations.of(context)!.admin, // الترجمة
+                AppLocalizations.of(context)!.admin,
                 style: TextStyle(color: ColorManager.primaryColor, fontSize: 16),
               ),
             ],
           ),
           Text(
-            AppLocalizations.of(context)!.manageYourClub, // الترجمة
+            AppLocalizations.of(context)!.manageYourClub,
             style: TextStyle(color: Colors.white, fontSize: 20, fontWeight: FontWeight.w600),
           ),
         ],
@@ -1447,8 +1447,7 @@ class _GymDrawerState extends State<GymDrawer> {
           Padding(
             padding: const EdgeInsets.only(top: 20),
             child: Center(
-              child: Text(
-                "#logo-club",
+              child: Text(AppLocalizations.of(context)!.logoClub,
                 style: TextStyle(fontWeight: FontWeight.w600,
                     fontSize: 20,color: Colors.white),
               ),
@@ -1457,7 +1456,7 @@ class _GymDrawerState extends State<GymDrawer> {
           Divider(color: ColorManager.black,),
           Row(mainAxisAlignment:MainAxisAlignment.spaceAround ,
             children: [
-              Text("Add products",style: TextStyle(
+              Text(AppLocalizations.of(context)!.addProducts,style: TextStyle(
                 fontSize: 15,
                 fontWeight: FontWeight.w600,
                 color: ColorManager.white
@@ -1472,7 +1471,7 @@ class _GymDrawerState extends State<GymDrawer> {
           Divider(color: ColorManager.black,),
           Row(mainAxisAlignment:MainAxisAlignment.spaceAround ,
             children: [
-              Text("Add a section",style: TextStyle(
+              Text(AppLocalizations.of(context)!.addSection,style: TextStyle(
                   fontSize: 15,
                   fontWeight: FontWeight.w600,
                   color: ColorManager.white
@@ -1487,7 +1486,7 @@ class _GymDrawerState extends State<GymDrawer> {
           Divider(color: ColorManager.black,),
           Row(mainAxisAlignment:MainAxisAlignment.spaceAround ,
             children: [
-              Text("Add a coach",style: TextStyle(
+              Text(AppLocalizations.of(context)!.addCoach,style: TextStyle(
                   fontSize: 15,
                   fontWeight: FontWeight.w600,
                   color: ColorManager.white
@@ -1502,7 +1501,7 @@ class _GymDrawerState extends State<GymDrawer> {
           Divider(color: ColorManager.black,),
           Row(mainAxisAlignment:MainAxisAlignment.spaceAround ,
             children: [
-              Text("Add a player",style: TextStyle(
+              Text(AppLocalizations.of(context)!.addPlayer,style: TextStyle(
                   fontSize: 15,
                   fontWeight: FontWeight.w600,
                   color: ColorManager.white
@@ -1517,7 +1516,7 @@ class _GymDrawerState extends State<GymDrawer> {
           Divider(color: ColorManager.black,),
           Row(mainAxisAlignment:MainAxisAlignment.spaceAround ,
             children: [
-              Text("Add an employee",style: TextStyle(
+              Text(AppLocalizations.of(context)!.addEmployee,style: TextStyle(
                   fontSize: 15,
                   fontWeight: FontWeight.w600,
                   color: ColorManager.white
@@ -1532,7 +1531,7 @@ class _GymDrawerState extends State<GymDrawer> {
           Divider(color: ColorManager.black,),
           Row(mainAxisAlignment:MainAxisAlignment.spaceAround ,
             children: [
-              Text("add diet",style: TextStyle(
+              Text(AppLocalizations.of(context)!.addDiet,style: TextStyle(
                   fontSize: 15,
                   fontWeight: FontWeight.w600,
                   color: ColorManager.white
@@ -1547,7 +1546,7 @@ class _GymDrawerState extends State<GymDrawer> {
           Divider(color: ColorManager.black,),
           Row(mainAxisAlignment:MainAxisAlignment.spaceAround ,
             children: [
-              Text("Add training",style: TextStyle(
+              Text(AppLocalizations.of(context)!.addTraining,style: TextStyle(
                   fontSize: 15,
                   fontWeight: FontWeight.w600,
                   color: ColorManager.white
@@ -1562,7 +1561,7 @@ class _GymDrawerState extends State<GymDrawer> {
           Divider(color: ColorManager.black,),
           Row(mainAxisAlignment:MainAxisAlignment.spaceAround ,
             children: [
-              Text("Add a team",style: TextStyle(
+              Text(AppLocalizations.of(context)!.addTeam,style: TextStyle(
                   fontSize: 15,
                   fontWeight: FontWeight.w600,
                   color: ColorManager.white
@@ -1577,7 +1576,7 @@ class _GymDrawerState extends State<GymDrawer> {
           Divider(color: ColorManager.black,),
           Row(mainAxisAlignment:MainAxisAlignment.spaceAround ,
             children: [
-              Text("Add a championship",style: TextStyle(
+              Text(AppLocalizations.of(context)!.addChampionship,style: TextStyle(
                   fontSize: 15,
                   fontWeight: FontWeight.w600,
                   color: ColorManager.white
@@ -1592,7 +1591,7 @@ class _GymDrawerState extends State<GymDrawer> {
           Divider(color: ColorManager.black,),
           Row(mainAxisAlignment:MainAxisAlignment.spaceAround ,
             children: [
-              Text("accounting system",style: TextStyle(
+              Text(AppLocalizations.of(context)!.accountingSystem,style: TextStyle(
                   fontSize: 15,
                   fontWeight: FontWeight.w600,
                   color: ColorManager.white
@@ -1608,7 +1607,8 @@ class _GymDrawerState extends State<GymDrawer> {
           Row(mainAxisAlignment:MainAxisAlignment.spaceAround ,
             children: [
               Text(
-                'language: ${CacheHelper.sharedPreferences.getString(CustomerHelper.Language) == "en" ? "English" : "عربي"}',
+                '${AppLocalizations.of(context)!.language} '
+                    '${CacheHelper.sharedPreferences.getString(CustomerHelper.Language) == "en" ? "English" : "عربي"}',
                 style: TextStyle(
                     fontSize: 15,
                     fontWeight: FontWeight.w600,
@@ -1624,7 +1624,7 @@ class _GymDrawerState extends State<GymDrawer> {
           ),
           Divider(color: ColorManager.black,),
           ListTile(
-            title: Text("Sign Out",style: TextStyle(
+            title: Text(AppLocalizations.of(context)!.signOut,style: TextStyle(
               fontSize: 17,fontWeight: FontWeight.w600,
               color: ColorManager.cardColor
             ),),
@@ -1655,7 +1655,7 @@ class _GymDrawerState extends State<GymDrawer> {
                             borderRadius: BorderRadius.circular(5),
                             color: ColorManager.cardColor
                           ),
-                          child: Text("PRO",style: TextStyle(
+                          child: Text(AppLocalizations.of(context)!.pro,style: TextStyle(
                             color: Colors.white
                           ),),
                         ),
@@ -1663,7 +1663,7 @@ class _GymDrawerState extends State<GymDrawer> {
                     ),
                     Row(mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-                        Text("Upgrade to Premium",style: TextStyle(
+                        Text(AppLocalizations.of(context)!.upgradeToPremium,style: TextStyle(
                           fontSize: 17,
                           fontWeight: FontWeight.w600,
                           color: ColorManager.white
@@ -1675,7 +1675,7 @@ class _GymDrawerState extends State<GymDrawer> {
 
                       ],
                     ),
-                    Text("This subscription is auto-renewable",
+                    Text(AppLocalizations.of(context)!.thisSubscriptionIsAutoRenewable,
                     style: TextStyle(
                       color: ColorManager.white
                     ),)
@@ -1729,6 +1729,39 @@ class _GymDrawerState extends State<GymDrawer> {
           ),
         );
       },
+    );
+  }
+}
+class BuildAdministrativeList extends StatelessWidget {
+  const BuildAdministrativeList({super.key,  this.text, this.onTap, this.image});
+  final String? text;
+  final String? image;
+  final  Function()? onTap;
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      children: [
+        InkWell(
+          borderRadius: BorderRadius.circular(16),
+          onTap: onTap,
+          child: Container(
+            height: 60,
+            width: 60,
+            padding: const EdgeInsets.all(16),
+
+            child: image != null ? SvgPicture.asset("$image") : FlutterLogo(),
+          ),
+        ),
+        SizedBox(height: 10,),
+        Text(text ?? "....", textAlign: TextAlign.center,maxLines: 1,
+          style: TextStyle(
+              fontSize: 10,
+              color: Colors.white,
+              fontWeight: FontWeight.w700
+          ),
+        ),
+      ],
     );
   }
 }

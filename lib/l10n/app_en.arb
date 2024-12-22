@@ -193,7 +193,7 @@
   "aerobicsSubtitle": "It's time for aerobics",
   "fullBodyWorkout": "Full Body Workout",
   "dailyPushUp": "Daily Push Up",
-  "new": "New",
+  "new_label": "New",
   "events": "Events",
   "congratulations": "Congratulations",
   "dailyChallenge": "35% your daily challenge completed",
@@ -226,7 +226,7 @@
   "gymMonthly": "I’m Gym Monthly",
   "gymAnnual": "I’m Gym Annual",
   "singleSubscription": "Single subscription",
-  "systemGym": "SYSTEM GYM",
+  "systemGym": "S Y S T E M  G Y M",
   "yourEmail": "your email",
   "subscriptionPeriod": "Subscription period",
   "ifYouHaveAnAccount": "If you have an account? ",
@@ -255,7 +255,7 @@
   "easier": "easier",
   "now": "now",
   "managePlayers": "Manage players",
-  "inOnePlace": "in one place",
+  "ini": "in",
   "onePlace": "one place",
   "allExercisesAre": "All exercises are",
   "illustrated": "illustrated",
@@ -290,7 +290,8 @@
   "addTeam": "Add a team",
   "addChampionship": "Add a championship",
   "accountingSystem": "Accounting system",
-  "autoRenewable": "This subscription is auto-renewable"
+  "autoRenewable": "This subscription is auto-renewable",
+  "accounting": "accounting"
 
 
 

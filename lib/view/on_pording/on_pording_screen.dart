@@ -44,10 +44,12 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
     final List<OnBoardingItem> _onBoardingItems = [
       OnBoardingItem(
         imagePath: "assets/image/ona1.png",
-        title: AppLocalizations.of(context)!.sportsClubManagement, // نص مترجم
-        titleHighlighted: AppLocalizations.of(context)!.its,
-        titleSub: AppLocalizations.of(context)!.easier,
+        title: "${AppLocalizations.of(context)!.sportsClubManagement}\n",
+        titleHighlighted: "${AppLocalizations.of(context)!.its}\ ",
+        titleSub: "${AppLocalizations.of(context)!.easier}\ ",
         titleFourth: AppLocalizations.of(context)!.now,
+        fourthTitleFontSize: 26,
+        fourthTitleFontWeight: FontWeight.w700,
         titleColor: Colors.white,
         highlightedColor: ColorManager.white,
         subTitleColor: ColorManager.primaryColor,
@@ -65,8 +67,8 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
       ),
       OnBoardingItem(
         imagePath: "assets/image/ona2.png",
-        title: AppLocalizations.of(context)!.managePlayers, // نص مترجم
-        titleHighlighted: AppLocalizations.of(context)!.inOnePlace,
+        title: "${AppLocalizations.of(context)!.managePlayers}\ ",
+        titleHighlighted: "${AppLocalizations.of(context)!.ini}\n ",
         titleSub: AppLocalizations.of(context)!.onePlace,
         titleColor: Colors.white,
         highlightedColor: ColorManager.white,
@@ -85,8 +87,8 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
       ),
       OnBoardingItem(
         imagePath: "assets/image/ona3.png",
-        title: AppLocalizations.of(context)!.allExercisesAre,
-        titleHighlighted: AppLocalizations.of(context)!.illustrated,
+        title: "${AppLocalizations.of(context)!.allExercisesAre} \ ",
+        titleHighlighted: "${AppLocalizations.of(context)!.illustrated} \ ",
         titleSub: AppLocalizations.of(context)!.professionally,
         titleColor: Colors.white,
         highlightedColor: ColorManager.white,
@@ -104,9 +106,9 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
         colors: [Colors.white],
       ),
       OnBoardingItem(
-        imagePath: "assets/image/FcLyt7lW5wg (1).jpg",
-        title: AppLocalizations.of(context)!.welcomeTo,
-        titleHighlighted: AppLocalizations.of(context)!.systemGym,
+        imagePath: "assets/image/ona1.png",
+        title: "${AppLocalizations.of(context)!.welcomeTo}\n",
+        titleHighlighted:  "${AppLocalizations.of(context)!.systemGym}\n",
         titleSub: AppLocalizations.of(context)!.achieveYourBodyGoalsWithUs,
         titleColor: Colors.white,
         highlightedColor: ColorManager.white,
@@ -213,7 +215,7 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
                   controller: _pageController,
                   count: _onBoardingItems.length,
                   effect: const SlideEffect(
-                    spacing: 8.0,
+                    spacing: 8,
                     radius: 8.0,
                     dotWidth: 12.0,
                     dotHeight: 12.0,
